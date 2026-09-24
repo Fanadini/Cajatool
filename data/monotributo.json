@@ -1,0 +1,196 @@
+{
+ "actualizado": "2026-09-24",
+ "vigenciaDesde": "2026-08-01",
+ "fuente": "https://www.afip.gob.ar/monotributo/categorias.asp",
+ "notas": "Montos en pesos. Ingresos brutos y alquileres: anuales (últimos 12 meses). Superficie en m2 y energía en kW anuales. Obra social: por titular, se suma el mismo importe por cada adherente.",
+ "precioUnitarioMax": 716840.77,
+ "categorias": [
+  {
+   "categoria": "A",
+   "ingresosMax": 12009410.45,
+   "superficieMax": 30,
+   "energiaMax": 3330,
+   "alquileresMax": 2792886.15,
+   "impuesto": {
+    "servicios": 5585.77,
+    "bienes": 5585.77
+   },
+   "sipa": 18246.86,
+   "obraSocial": 25694.55,
+   "total": {
+    "servicios": 49527.18,
+    "bienes": 49527.18
+   }
+  },
+  {
+   "categoria": "B",
+   "ingresosMax": 17595182.74,
+   "superficieMax": 45,
+   "energiaMax": 5000,
+   "alquileresMax": 2792886.15,
+   "impuesto": {
+    "servicios": 10612.98,
+    "bienes": 10612.98
+   },
+   "sipa": 20071.55,
+   "obraSocial": 25694.55,
+   "total": {
+    "servicios": 56379.08,
+    "bienes": 56379.08
+   }
+  },
+  {
+   "categoria": "C",
+   "ingresosMax": 24670494.31,
+   "superficieMax": 60,
+   "energiaMax": 6700,
+   "alquileresMax": 3816944.41,
+   "impuesto": {
+    "servicios": 18246.86,
+    "bienes": 16757.32
+   },
+   "sipa": 22078.71,
+   "obraSocial": 25694.55,
+   "total": {
+    "servicios": 66020.12,
+    "bienes": 64530.58
+   }
+  },
+  {
+   "categoria": "D",
+   "ingresosMax": 30628651.43,
+   "superficieMax": 85,
+   "energiaMax": 10000,
+   "alquileresMax": 3816944.41,
+   "impuesto": {
+    "servicios": 29790.79,
+    "bienes": 27742.67
+   },
+   "sipa": 24286.58,
+   "obraSocial": 30535.56,
+   "total": {
+    "servicios": 84612.93,
+    "bienes": 82564.81
+   }
+  },
+  {
+   "categoria": "E",
+   "ingresosMax": 36028231.33,
+   "superficieMax": 110,
+   "energiaMax": 13000,
+   "alquileresMax": 4841002.66,
+   "impuesto": {
+    "servicios": 55857.73,
+    "bienes": 44313.79
+   },
+   "sipa": 26715.24,
+   "obraSocial": 37238.48,
+   "total": {
+    "servicios": 119811.45,
+    "bienes": 108267.51
+   }
+  },
+  {
+   "categoria": "F",
+   "ingresosMax": 45151659.41,
+   "superficieMax": 150,
+   "energiaMax": 16500,
+   "alquileresMax": 4841002.66,
+   "impuesto": {
+    "servicios": 78573.2,
+    "bienes": 57719.64
+   },
+   "sipa": 29386.76,
+   "obraSocial": 42824.25,
+   "total": {
+    "servicios": 150784.21,
+    "bienes": 129930.65
+   }
+  },
+  {
+   "categoria": "G",
+   "ingresosMax": 53995798.87,
+   "superficieMax": 200,
+   "energiaMax": 20000,
+   "alquileresMax": 5771964.69,
+   "impuesto": {
+    "servicios": 142995.76,
+    "bienes": 71497.87
+   },
+   "sipa": 41141.46,
+   "obraSocial": 46175.72,
+   "total": {
+    "servicios": 230312.94,
+    "bienes": 158815.05
+   }
+  },
+  {
+   "categoria": "H",
+   "ingresosMax": 81924660.37,
+   "superficieMax": 200,
+   "energiaMax": 20000,
+   "alquileresMax": 8378658.45,
+   "impuesto": {
+    "servicios": 409623.31,
+    "bienes": 204811.64
+   },
+   "sipa": 57598.04,
+   "obraSocial": 55485.33,
+   "total": {
+    "servicios": 522706.68,
+    "bienes": 317895.01
+   }
+  },
+  {
+   "categoria": "I",
+   "ingresosMax": 91699761.9,
+   "superficieMax": 200,
+   "energiaMax": 20000,
+   "alquileresMax": 8378658.45,
+   "impuesto": {
+    "servicios": 814591.79,
+    "bienes": 325836.71
+   },
+   "sipa": 80637.26,
+   "obraSocial": 68518.81,
+   "total": {
+    "servicios": 963747.86,
+    "bienes": 474992.78
+   }
+  },
+  {
+   "categoria": "J",
+   "ingresosMax": 105012519.2,
+   "superficieMax": 200,
+   "energiaMax": 20000,
+   "alquileresMax": 8378658.45,
+   "impuesto": {
+    "servicios": 977510.14,
+    "bienes": 391004.07
+   },
+   "sipa": 112892.16,
+   "obraSocial": 76897.46,
+   "total": {
+    "servicios": 1167299.76,
+    "bienes": 580793.69
+   }
+  },
+  {
+   "categoria": "K",
+   "ingresosMax": 126610838.75,
+   "superficieMax": 200,
+   "energiaMax": 20000,
+   "alquileresMax": 8378658.45,
+   "impuesto": {
+    "servicios": 1368514.2,
+    "bienes": 456171.4
+   },
+   "sipa": 158049.02,
+   "obraSocial": 87882.82,
+   "total": {
+    "servicios": 1614446.04,
+    "bienes": 702103.24
+   }
+  }
+ ]
+}

@@ -1,4 +1,4 @@
-name: Actualizar índices (ICL e IPC)
+name: Actualizar datos oficiales (ICL, IPC y monotributo)
 
 on:
   schedule:
@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: 22
       - run: node scripts/actualizar-indices.js
+      - run: node scripts/actualizar-monotributo.js
       - name: Tests con los datos nuevos
         run: node tests/run.js
       - id: commit
@@ -33,7 +34,7 @@ jobs:
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -am "Actualizar índices ICL e IPC"
+            git commit -am "Actualizar datos oficiales (ICL, IPC, monotributo)"
             git push
             echo "cambios=true" >> "$GITHUB_OUTPUT"
           fi

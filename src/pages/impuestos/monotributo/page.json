@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "impuestos",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de monotributo 2026 | Cajatools",
+  "description": "Averiguá tu categoría de monotributo según tu facturación y actividad, y cuánto pagás por mes: impuesto, jubilación y obra social. Valores ARCA vigentes.",
+  "h1": "Calculadora de monotributo 2026",
+  "breadcrumb": "Monotributo",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 4,
+    "name": "Monotributo",
+    "desc": "Tu categoría según facturación y actividad, y la cuota mensual desglosada.",
+    "keywords": "monotributo categoria cuota arca afip recategorizacion facturacion"
+  },
+  "related": ["/alquiler/ajuste-alquiler/", "/laboral/aguinaldo/", "/utilidades/generador-qr/"],
+  "faq": [
+    {
+      "q": "¿Qué facturación se tiene en cuenta para la categoría?",
+      "a": "La suma de lo facturado en los últimos 12 meses (ingresos brutos devengados). Si recién empezás, se toma lo que estimás facturar en un año."
+    },
+    {
+      "q": "¿Cuándo tengo que recategorizarme?",
+      "a": "Dos veces por año, en enero y en julio, mirando la facturación de los 12 meses anteriores. Si seguís en la misma categoría no tenés que hacer nada. ARCA fija el plazo exacto de cada período."
+    },
+    {
+      "q": "¿Cuándo vence la cuota del monotributo?",
+      "a": "El día 20 de cada mes. Se puede pagar con débito automático, tarjeta, VEP o en efectivo con el volante de pago."
+    },
+    {
+      "q": "¿Qué pasa si trabajo en relación de dependencia y además soy monotributista?",
+      "a": "Solo pagás el impuesto integrado, porque tus aportes jubilatorios y de obra social ya los hace tu empleador. Lo mismo pasa si aportás a una caja profesional."
+    },
+    {
+      "q": "¿Qué pasa si me paso del tope de la categoría K?",
+      "a": "Quedás excluido del monotributo y tenés que inscribirte en el régimen general (IVA y Ganancias) como responsable inscripto. Lo mismo ocurre si superás los parámetros de superficie, energía o alquileres de la categoría K."
+    },
+    {
+      "q": "¿La cuota incluye Ingresos Brutos?",
+      "a": "No en esta calculadora. En algunas provincias existe el monotributo unificado, que suma el componente provincial de Ingresos Brutos a la cuota nacional. Consultá el organismo tributario de tu provincia."
+    }
+  ]
+}

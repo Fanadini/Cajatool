@@ -307,11 +307,13 @@ function build() {
 
   // Datos: se copian a /dist/data y se pueden incrustar en la página con {{data:nombre}}
   const dataVars = {};
+  const dataJson = {};
   const DATA_DIR = path.join(ROOT, 'data');
   if (exists(DATA_DIR)) {
     for (const f of fs.readdirSync(DATA_DIR).filter((f) => f.endsWith('.json'))) {
       const name = f.replace(/\.json$/, '');
       const json = JSON.parse(readFile(path.join(DATA_DIR, f)));
+      dataJson[name] = json;
       dataVars[`data:${name}`] = `<script type="application/json" id="data-${name}">${jsonForScript(json)}</script>`;
     }
     copyDir(DATA_DIR, path.join(DIST, 'data'));
@@ -351,12 +353,16 @@ function build() {
       jsonld: jsonLd(page)
     };
 
+    // prerender.js opcional: devuelve variables extra generadas en el build (ej. tablas a partir de /data)
+    const prerender = path.join(page.dir, 'prerender.js');
+    if (exists(prerender)) Object.assign(vars, require(prerender)({ data: dataJson, config, escapeHtml }));
+
     const contentPath = path.join(page.dir, 'content.html');
     const content = render(readFile(contentPath), vars);
 
     const extraFiles = fs
       .readdirSync(page.dir)
-      .filter((f) => !['page.json', 'content.html'].includes(f) && !f.endsWith('.md'));
+      .filter((f) => !['page.json', 'content.html', 'prerender.js'].includes(f) && !f.endsWith('.md'));
     const outFile = outputFile(page.route);
     const outDir = path.dirname(outFile);
     fs.mkdirSync(outDir, { recursive: true });

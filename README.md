@@ -28,7 +28,8 @@ config.json      URL del sitio, email, AdSense, Analytics y categorías
 
 1. Crear `src/pages/<categoria>/<slug>/` con `page.json` y `content.html`.
 2. En `page.json`: `type` (`tool` | `page`), `title` (≤ 60), `description` (≤ 155), `h1`, `category`, `updated`, `faq`, `related`, `scripts` y `card` (para que aparezca en la home y el footer).
-3. En `content.html` se pueden usar `{{h1}}`, `{{updatedHuman}}`, `{{data:<archivo>}}` (incrusta `data/<archivo>.json`) y los espacios de anuncios `{{ad:resultado}}` y `{{ad:medio}}`.
+3. Opcional: `prerender.js` exporta una función que recibe `{ data, config }` y devuelve variables extra para `content.html` (por ejemplo, tablas generadas a partir de `/data`).
+4. En `content.html` se pueden usar `{{h1}}`, `{{updatedHuman}}`, `{{data:<archivo>}}` (incrusta `data/<archivo>.json`) y los espacios de anuncios `{{ad:resultado}}` y `{{ad:medio}}`.
 
 ## Publicidad (AdSense)
 
@@ -48,7 +49,8 @@ Google Analytics se activa completando `analyticsId` (formato `G-XXXXXXX`).
 
 Los índices y escalas viven en `/data/*.json`, cada uno con `actualizado` y `fuente`.
 
-- **ICL e IPC**: `node scripts/actualizar-indices.js` los baja de las APIs oficiales del BCRA y de datos.gob.ar (INDEC). El workflow `actualizar-indices.yml` lo corre todos los lunes, commitea si hay datos nuevos y vuelve a publicar el sitio. También se puede correr a mano desde **Actions → Actualizar índices → Run workflow**.
+- **ICL e IPC**: `node scripts/actualizar-indices.js` los baja de las APIs oficiales del BCRA y de datos.gob.ar (INDEC). El workflow `actualizar-datos.yml` lo corre todos los lunes, commitea si hay datos nuevos y vuelve a publicar el sitio. También se puede correr a mano desde **Actions → Actualizar datos oficiales → Run workflow**.
+- **Monotributo**: `node scripts/actualizar-monotributo.js` lee la tabla oficial de ARCA (también corre en el workflow semanal).
 - **Casa Propia**: carga manual desde el PDF oficial (ver DATOS-A-ACTUALIZAR.md).
  Los valores sin verificar están marcados con `"TODO_VERIFICAR": true` y listados en [DATOS-A-ACTUALIZAR.md](DATOS-A-ACTUALIZAR.md).
 

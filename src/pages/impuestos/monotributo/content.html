@@ -1,0 +1,111 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá tu facturación de los últimos 12 meses y tu actividad. Te mostramos la categoría y la cuota mensual con los valores de ARCA vigentes desde el {{monoVigencia}}.</p>
+
+<section class="tool" aria-label="Calculadora de monotributo">
+  <form id="form-mono" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="ingresos">Facturación de los últimos 12 meses</label>
+        <input type="text" id="ingresos" class="money" inputmode="decimal" placeholder="Ej.: 21.600.000" autocomplete="off" aria-describedby="ingresos-error ingresos-hint">
+        <span class="hint" id="ingresos-hint">¿Tenés el promedio mensual? Multiplicalo por 12.</span>
+        <p class="error-msg" id="ingresos-error" aria-live="polite"></p>
+      </div>
+      <fieldset class="field">
+        <legend>Actividad</legend>
+        <div class="segmented">
+          <label><input type="radio" name="actividad" value="servicios" checked> Servicios</label>
+          <label><input type="radio" name="actividad" value="bienes"> Venta de bienes</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="situacion">Situación</label>
+        <select id="situacion">
+          <option value="autonomo" selected>Solo monotributista</option>
+          <option value="dependencia">Además en relación de dependencia</option>
+          <option value="jubilado">Jubilado/a</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="adherentes">Adherentes a la obra social</label>
+        <select id="adherentes">
+          <option value="0" selected>Ninguno</option>
+          <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+        </select>
+      </div>
+      <details class="field full more">
+        <summary>Parámetros físicos (local, energía, alquiler)</summary>
+        <div class="form-grid">
+          <div class="field">
+            <label for="superficie">Superficie del local (m²)</label>
+            <input type="text" id="superficie" inputmode="decimal" placeholder="Si no tenés local, dejalo vacío" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="energia">Energía consumida por año (kW)</label>
+            <input type="text" id="energia" inputmode="decimal" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="alquileres">Alquileres pagados en 12 meses</label>
+            <input type="text" id="alquileres" class="money" inputmode="decimal" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="precio">Precio unitario más alto que vendés</label>
+            <input type="text" id="precio" class="money" inputmode="decimal" placeholder="Solo venta de bienes" autocomplete="off">
+          </div>
+        </div>
+      </details>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular categoría</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Tu categoría</p>
+    <p class="result-main" id="res-main"></p>
+    <div class="result-grid" id="res-grid">
+      <div class="stat"><div class="stat-value" id="res-impuesto"></div><div class="stat-label">Impuesto integrado</div></div>
+      <div class="stat"><div class="stat-value" id="res-sipa"></div><div class="stat-label">Jubilación (SIPA)</div></div>
+      <div class="stat"><div class="stat-value" id="res-os"></div><div class="stat-label">Obra social</div></div>
+      <div class="stat"><div class="stat-value" id="res-margen"></div><div class="stat-label">Margen hasta el tope</div></div>
+    </div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué es el monotributo</h2>
+<p>El monotributo, o Régimen Simplificado para Pequeños Contribuyentes, reúne en una sola cuota mensual tres pagos: el <strong>impuesto integrado</strong>, que reemplaza al IVA y a Ganancias; el <strong>aporte jubilatorio</strong> al SIPA; y el <strong>aporte a la obra social</strong>. Lo pueden usar personas que trabajan por su cuenta, venden productos o alquilan bienes, siempre que no superen los topes de la categoría más alta.</p>
+
+<h2>Cómo se calcula la categoría</h2>
+<p>Hay 11 categorías, de la A a la K. Te corresponde la categoría <strong>más baja en la que entren todos tus parámetros</strong>:</p>
+<ul>
+  <li><strong>Ingresos brutos</strong> de los últimos 12 meses (lo facturado).</li>
+  <li><strong>Superficie afectada</strong> a la actividad, si tenés local u oficina. No se tiene en cuenta en ciudades de menos de 40.000 habitantes.</li>
+  <li><strong>Energía eléctrica</strong> consumida en el año en ese local.</li>
+  <li><strong>Alquileres</strong> pagados por el local en los últimos 12 meses.</li>
+</ul>
+<p>Si uno de los parámetros supera el límite de una categoría, pasás a la siguiente aunque tu facturación sea más baja. Además, si vendés bienes, ningún producto puede costar más de {{precioUnitarioMax}} por unidad. Desde la Ley 27.743 de 2024, quienes prestan servicios también pueden llegar hasta la categoría K, igual que quienes venden bienes.</p>
+{{ad:medio}}
+
+<h2>Categorías y cuotas vigentes</h2>
+<p>Valores de ARCA con vigencia desde el {{monoVigencia}}. Las columnas «Servicios» y «Bienes» muestran la cuota mensual total (impuesto integrado, jubilación y obra social del titular) según la actividad. Los montos se actualizan dos veces por año según la inflación.</p>
+{{tablaCategorias}}
+
+<h2>Ejemplo con números</h2>
+<p>Valentina es diseñadora y factura en promedio $ 1.800.000 por mes. En 12 meses son <strong>$ 21.600.000</strong>. Supera el tope de la B y entra en la <strong>categoría C</strong>, cuyo tope es de $ 24.670.494,31. Su cuota mensual es de <strong>$ 66.020,12</strong>: $ 18.246,86 de impuesto integrado, $ 22.078,71 de jubilación y $ 25.694,55 de obra social. Le quedan unos $ 3.070.000 de margen antes de tener que pasar a la D.</p>
+<p>Diego tiene un almacén de 120 m² y vendió $ 45.000.000 en el año. Por facturación entra en la <strong>categoría F</strong> (hasta $ 45.151.659,41), y su local también cumple el límite de superficie de la F (150 m²). Como vende bienes, paga <strong>$ 129.930,65</strong> por mes.</p>
+
+<h2>Recategorización, vencimientos y exclusión</h2>
+<p>Cada seis meses, en enero y en julio, hay que revisar la facturación de los últimos 12 meses y, si cambió, <strong>recategorizarse</strong> desde el sitio de ARCA. La cuota vence el <strong>día 20 de cada mes</strong>. Si tus ingresos o tus parámetros superan los de la categoría K, o si vendés un producto por encima del precio unitario máximo, quedás excluido del régimen y tenés que pasar a ser responsable inscripto.</p>
+<p>Si además trabajás en relación de dependencia, solo pagás el impuesto integrado. Los jubilados no pagan obra social y, por cada familiar que sumes como adherente, se agrega el mismo importe de obra social.</p>
+
+<h2>Marco legal y fuente</h2>
+<p>El régimen está en el anexo de la <a href="https://www.argentina.gob.ar/justicia/derechofacil/leysimple/monotributo" rel="noopener">Ley 24.977</a>, con los cambios de la <a href="https://www.argentina.gob.ar/normativa/nacional/norma-401268/texto" rel="noopener">Ley 27.743</a>. Los valores de esta calculadora salen de la tabla oficial de <a href="https://www.afip.gob.ar/monotributo/categorias.asp" rel="noopener">montos y categorías vigentes de ARCA</a>. El resultado es orientativo y no incluye el componente provincial de Ingresos Brutos.</p>
+</article>
+{{data:monotributo}}
