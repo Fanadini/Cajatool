@@ -1,0 +1,20 @@
+{
+  "siteName": "Cajatools",
+  "siteUrl": "https://cajatools.com",
+  "year": 2026,
+  "contactEmail": "contacto@cajatools.com",
+  "adsEnabled": false,
+  "adsenseClientId": "",
+  "adSlots": {
+    "resultado": "",
+    "medio": "",
+    "prefooter": ""
+  },
+  "analyticsId": "",
+  "categories": [
+    { "id": "alquiler", "name": "Alquiler y vivienda" },
+    { "id": "laboral", "name": "Laboral y sueldos" },
+    { "id": "impuestos", "name": "Impuestos" },
+    { "id": "utilidades", "name": "Utilidades" }
+  ]
+}

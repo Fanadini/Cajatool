@@ -1,0 +1,12 @@
+{
+  "name": "cajatools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Herramientas y calculadoras gratuitas para Argentina (sitio estático).",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node tests/run.js",
+    "serve": "npx --yes serve dist"
+  },
+  "license": "UNLICENSED"
+}
