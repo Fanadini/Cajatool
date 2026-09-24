@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "laboral",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de aguinaldo 2026 | Cajatools",
+  "description": "Calculá tu aguinaldo (SAC) 2026: primera y segunda cuota, completo o proporcional a los días trabajados, con bruto y neto aproximado.",
+  "h1": "Calculadora de aguinaldo 2026",
+  "breadcrumb": "Aguinaldo",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 2,
+    "name": "Aguinaldo (SAC)",
+    "desc": "Primera o segunda cuota, completo o proporcional a los días trabajados.",
+    "keywords": "aguinaldo sac sueldo anual complementario medio aguinaldo junio diciembre"
+  },
+  "related": ["/laboral/vacaciones/", "/alquiler/ajuste-alquiler/", "/impuestos/monotributo/"],
+  "faq": [
+    {
+      "q": "¿Cuándo se paga el aguinaldo en 2026?",
+      "a": "La primera cuota vence el 30 de junio y la segunda el 18 de diciembre. El empleador tiene un plazo adicional de hasta 4 días hábiles para acreditarlo."
+    },
+    {
+      "q": "¿Qué sueldo se toma para calcular el aguinaldo?",
+      "a": "La mejor remuneración mensual bruta devengada en el semestre, incluyendo los conceptos remunerativos como horas extra, comisiones o presentismo. No se incluyen los montos no remunerativos."
+    },
+    {
+      "q": "¿Cómo se calcula el aguinaldo proporcional?",
+      "a": "Se divide el mejor sueldo por dos, se multiplica por los días trabajados en el semestre y se divide por la cantidad total de días del semestre (181 en el primero, 182 en años bisiestos, y 184 en el segundo)."
+    },
+    {
+      "q": "¿El aguinaldo tiene descuentos?",
+      "a": "Sí. Se descuentan los mismos aportes que del sueldo: 11 % de jubilación, 3 % de PAMI y 3 % de obra social, un 17 % en total. Si corresponde, también puede haber retención de Impuesto a las Ganancias."
+    },
+    {
+      "q": "¿Si renuncio o me despiden cobro el aguinaldo?",
+      "a": "Sí. En la liquidación final se paga el aguinaldo proporcional a los días trabajados en el semestre en curso, más el SAC sobre las vacaciones no gozadas y, en caso de despido, sobre el preaviso."
+    },
+    {
+      "q": "¿Los monotributistas cobran aguinaldo?",
+      "a": "No. El aguinaldo es un derecho de las personas en relación de dependencia. Quien factura como monotributista no lo cobra, salvo que su contrato lo prevea."
+    }
+  ]
+}

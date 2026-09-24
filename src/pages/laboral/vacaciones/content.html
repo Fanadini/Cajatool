@@ -1,0 +1,87 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá tu fecha de ingreso y tu sueldo bruto para saber cuántos días de vacaciones te corresponden y cuánto vas a cobrar.</p>
+
+<section class="tool" aria-label="Calculadora de vacaciones">
+  <form id="form-vac" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="ingreso">Fecha de ingreso</label>
+        <input type="date" id="ingreso" aria-describedby="ingreso-error">
+        <p class="error-msg" id="ingreso-error" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="sueldo">Sueldo bruto mensual</label>
+        <input type="text" id="sueldo" class="money" inputmode="decimal" placeholder="Ej.: 1.000.000" autocomplete="off" aria-describedby="sueldo-error">
+        <p class="error-msg" id="sueldo-error" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="anio">Vacaciones del año</label>
+        <select id="anio"></select>
+      </div>
+      <div class="field">
+        <label for="dias-trabajados">Días hábiles trabajados en el año <span class="hint">(opcional)</span></label>
+        <input type="text" id="dias-trabajados" inputmode="numeric" placeholder="Se estima con tu fecha de ingreso" autocomplete="off">
+      </div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular vacaciones</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Días de vacaciones</p>
+    <p class="result-main" id="res-dias"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-pago"></div><div class="stat-label">A cobrar (bruto)</div></div>
+      <div class="stat"><div class="stat-value" id="res-plus"></div><div class="stat-label">Plus vacacional</div></div>
+      <div class="stat"><div class="stat-value" id="res-antiguedad"></div><div class="stat-label">Antigüedad al 31/12</div></div>
+    </div>
+    <p class="hint" id="res-formula"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Cuántos días de vacaciones corresponden</h2>
+<p>Todas las personas en relación de dependencia tienen derecho a vacaciones pagas todos los años. La cantidad de días depende de la <strong>antigüedad en el empleo al 31 de diciembre</strong> del año al que corresponden, según el artículo 150 de la Ley de Contrato de Trabajo:</p>
+<table>
+  <thead><tr><th>Antigüedad</th><th>Días corridos</th></tr></thead>
+  <tbody>
+    <tr><td>Menos de 5 años</td><td>14 días</td></tr>
+    <tr><td>De 5 a menos de 10 años</td><td>21 días</td></tr>
+    <tr><td>De 10 a menos de 20 años</td><td>28 días</td></tr>
+    <tr><td>20 años o más</td><td>35 días</td></tr>
+  </tbody>
+</table>
+<p>Son días <strong>corridos</strong>: incluyen fines de semana y feriados. Muchos convenios colectivos (comercio, bancarios, UOM, entre otros) dan más días que la ley. Si tu convenio es más favorable, vale el convenio.</p>
+
+<h3>Si entraste a trabajar durante el año</h3>
+<p>Para tener las vacaciones completas hay que haber trabajado al menos la <strong>mitad de los días hábiles del año</strong> (artículo 151). Si no llegás a ese mínimo, te corresponde <strong>un día de vacaciones por cada 20 días de trabajo efectivo</strong> (artículo 153). La calculadora estima los días trabajados contando de lunes a viernes desde tu fecha de ingreso, sin descontar feriados. Si sabés el número exacto, cargalo en el campo opcional.</p>
+{{ad:medio}}
+
+<h2>Cuánto se cobra por las vacaciones</h2>
+<p>Según el artículo 155, cada día de vacaciones se paga como el <strong>sueldo mensual dividido 25</strong>, y no por 30 como un día común. Esa diferencia es lo que se conoce como <em>plus vacacional</em>. Las vacaciones se pagan antes de empezar a tomarlas.</p>
+<p><strong>Pago de vacaciones = sueldo bruto ÷ 25 × días de vacaciones</strong></p>
+<p><strong>Plus vacacional = pago de vacaciones − (sueldo ÷ 30 × días de vacaciones)</strong></p>
+
+<h2>Ejemplo con números</h2>
+<p>Sofía entró a trabajar el 15 de diciembre de 2021 y cobra $ 1.000.000 brutos por mes. Al 31 de diciembre de 2026 tiene 5 años de antigüedad, así que le corresponden <strong>21 días</strong>.</p>
+<ul>
+  <li>Valor de cada día de vacaciones: 1.000.000 ÷ 25 = $ 40.000.</li>
+  <li>Pago por vacaciones: $ 40.000 × 21 = <strong>$ 840.000 brutos</strong>.</li>
+  <li>Si esos 21 días se pagaran como días comunes serían $ 700.000, así que el plus vacacional es de <strong>$ 140.000</strong>.</li>
+</ul>
+<p>El mes de las vacaciones, Sofía cobra los $ 840.000 de vacaciones más los días del mes que trabajó (sueldo ÷ 30 × días trabajados). Sobre todo eso se aplican los descuentos habituales (17 % de aportes).</p>
+
+<h2>Cuándo se toman y qué cambió en 2026</h2>
+<p>El empleador tiene que otorgar las vacaciones entre el <strong>1 de octubre y el 30 de abril</strong> del año siguiente y avisar la fecha por escrito. La <a href="https://www.argentina.gob.ar/normativa/nacional/norma-423680/texto" rel="noopener">Ley 27.802 de Modernización Laboral</a>, publicada el 6 de marzo de 2026, modificó el artículo 154: el aviso pasó a ser de al menos <strong>30 días</strong> (antes eran 45), las partes pueden acordar tomarlas fuera de ese período y se pueden <strong>fraccionar en tramos de no menos de 7 días</strong>. Si las vacaciones no son simultáneas para todo el personal, cada trabajador debe tenerlas en verano al menos una vez cada tres años. La reforma no cambió la cantidad de días ni la forma de pago.</p>
+
+<h2>Marco legal</h2>
+<p>Las vacaciones están reguladas por los artículos 150 a 157 de la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-20744-25552/actualizacion" rel="noopener">Ley de Contrato de Trabajo (20.744)</a>. El personal de casas particulares, los trabajadores rurales y algunos estatutos especiales tienen reglas propias. El resultado de esta calculadora es orientativo: revisá tu convenio colectivo y tu recibo de sueldo.</p>
+</article>

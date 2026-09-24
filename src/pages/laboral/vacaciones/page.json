@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "laboral",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de vacaciones 2026 | Cajatools",
+  "description": "Calculá cuántos días de vacaciones te corresponden según tu antigüedad (LCT) y cuánto vas a cobrar, con el plus vacacional incluido.",
+  "h1": "Calculadora de vacaciones 2026",
+  "breadcrumb": "Vacaciones",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 3,
+    "name": "Vacaciones",
+    "desc": "Días que te corresponden según tu antigüedad y cuánto vas a cobrar.",
+    "keywords": "vacaciones dias antiguedad lct plus vacacional licencia anual"
+  },
+  "related": ["/laboral/aguinaldo/", "/utilidades/husos-horarios/", "/alquiler/ajuste-alquiler/"],
+  "faq": [
+    {
+      "q": "¿Cuántos días de vacaciones me corresponden?",
+      "a": "Según la Ley de Contrato de Trabajo: 14 días corridos con menos de 5 años de antigüedad, 21 días de 5 a 10 años, 28 días de 10 a 20 años y 35 días con más de 20 años. Tu convenio colectivo puede darte más días, nunca menos."
+    },
+    {
+      "q": "¿A qué fecha se calcula la antigüedad?",
+      "a": "Al 31 de diciembre del año al que corresponden las vacaciones. Si entraste el 15 de diciembre de 2021, al 31 de diciembre de 2026 tenés 5 años y te corresponden 21 días."
+    },
+    {
+      "q": "¿Cómo se pagan las vacaciones?",
+      "a": "Cada día de vacaciones se paga dividiendo el sueldo mensual por 25, en lugar de por 30. Por eso el mes de vacaciones cobrás un poco más: esa diferencia es el llamado plus vacacional. Se tienen que pagar antes de que empiecen las vacaciones."
+    },
+    {
+      "q": "¿Qué pasa si entré a trabajar este año?",
+      "a": "Si trabajaste al menos la mitad de los días hábiles del año, te corresponden los 14 días completos. Si trabajaste menos, te corresponde un día de vacaciones por cada 20 días de trabajo efectivo."
+    },
+    {
+      "q": "¿Cuándo me tienen que dar las vacaciones?",
+      "a": "Entre el 1 de octubre y el 30 de abril del año siguiente, avisándote por escrito con al menos 30 días de anticipación. Desde la Ley 27.802 de 2026 se pueden tomar en otra época si las dos partes están de acuerdo y fraccionarlas en tramos de no menos de 7 días."
+    },
+    {
+      "q": "¿Se pueden cobrar las vacaciones en lugar de tomarlas?",
+      "a": "No. La ley prohíbe compensar en dinero las vacaciones no gozadas, salvo cuando termina la relación laboral: en ese caso se pagan en la liquidación final."
+    }
+  ]
+}

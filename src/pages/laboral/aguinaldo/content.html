@@ -1,0 +1,92 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá tu mejor sueldo bruto del semestre y, si no trabajaste el semestre completo, tu fecha de ingreso o de egreso.</p>
+
+<section class="tool" aria-label="Calculadora de aguinaldo">
+  <form id="form-sac" novalidate>
+    <div class="form-grid">
+      <fieldset class="field full">
+        <legend>Cuota</legend>
+        <div class="segmented">
+          <label><input type="radio" name="semestre" value="1"> 1.ª cuota (junio)</label>
+          <label><input type="radio" name="semestre" value="2"> 2.ª cuota (diciembre)</label>
+        </div>
+      </fieldset>
+      <div class="field" id="campo-sueldo">
+        <label for="sueldo">Mejor sueldo bruto del semestre</label>
+        <input type="text" id="sueldo" class="money" inputmode="decimal" placeholder="Ej.: 1.200.000" autocomplete="off" aria-describedby="sueldo-error sueldo-hint">
+        <span class="hint" id="sueldo-hint">Conceptos remunerativos, antes de descuentos.</span>
+        <p class="error-msg" id="sueldo-error" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="anio">Año</label>
+        <select id="anio"></select>
+      </div>
+      <div class="field full">
+        <label class="check"><input type="checkbox" id="parcial"> No trabajé el semestre completo</label>
+      </div>
+      <div class="field" data-parcial hidden>
+        <label for="ingreso">Fecha de ingreso (si fue en este semestre)</label>
+        <input type="date" id="ingreso">
+      </div>
+      <div class="field" data-parcial hidden>
+        <label for="egreso">Fecha de egreso (si dejaste de trabajar)</label>
+        <input type="date" id="egreso">
+      </div>
+      <div class="field full">
+        <label class="check"><input type="checkbox" id="detalle-sueldos"> Cargar los 6 sueldos del semestre y usar el mejor</label>
+      </div>
+      <div class="field full" id="sueldos-mes" hidden>
+        <div class="form-grid" id="sueldos-grid"></div>
+      </div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular aguinaldo</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Aguinaldo bruto</p>
+    <p class="result-main" id="res-bruto"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-neto"></div><div class="stat-label">Neto aprox. (−17 %)</div></div>
+      <div class="stat"><div class="stat-value" id="res-dias"></div><div class="stat-label">Días computados</div></div>
+      <div class="stat"><div class="stat-value" id="res-pago"></div><div class="stat-label">Fecha de pago</div></div>
+    </div>
+    <p class="hint" id="res-formula"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué es el aguinaldo</h2>
+<p>El aguinaldo, o <strong>sueldo anual complementario (SAC)</strong>, es un sueldo extra que reciben todas las personas en relación de dependencia en Argentina. Equivale a medio sueldo por semestre y se paga en dos cuotas: la primera corresponde al semestre enero–junio y la segunda al semestre julio–diciembre. Lo cobran también el personal de casas particulares, los trabajadores rurales y los empleados públicos, con sus propios regímenes.</p>
+
+<h2>Cómo se calcula</h2>
+<p>La regla está en la Ley 23.041: cada cuota es el <strong>50 % de la mejor remuneración mensual bruta</strong> devengada en el semestre. Se toma el mes en que más cobraste sumando todos los conceptos remunerativos: sueldo básico, antigüedad, presentismo, horas extra, comisiones y adicionales. No se suman los montos no remunerativos ni las indemnizaciones.</p>
+<p><strong>Aguinaldo = mejor sueldo ÷ 2</strong></p>
+<p>Si no trabajaste el semestre completo, porque entraste o te fuiste en el medio, corresponde el <strong>aguinaldo proporcional</strong>:</p>
+<p><strong>Aguinaldo proporcional = (mejor sueldo ÷ 2) × días trabajados ÷ días del semestre</strong></p>
+<p>El primer semestre tiene 181 días (182 en años bisiestos) y el segundo, 184. Esta calculadora cuenta los días corridos desde tu fecha de ingreso, o desde el inicio del semestre, hasta tu fecha de egreso, o hasta el fin del semestre. Algunas liquidaciones usan meses de 30 días y un semestre de 180: la diferencia es de centavos o de pocos pesos.</p>
+{{ad:medio}}
+
+<h2>Ejemplo con números</h2>
+<p>Laura cobró estos sueldos brutos entre enero y junio de 2026: $ 1.000.000, $ 1.000.000, $ 1.100.000, $ 1.200.000, $ 1.150.000 y $ 1.150.000. El mejor fue el de abril, de $ 1.200.000.</p>
+<ul>
+  <li>Primera cuota del aguinaldo: 1.200.000 ÷ 2 = <strong>$ 600.000 brutos</strong>.</li>
+  <li>Descuentos (17 %): $ 102.000.</li>
+  <li>Neto aproximado: <strong>$ 498.000</strong>.</li>
+</ul>
+<p>Martín empezó a trabajar el 1 de octubre de 2026 con un sueldo de $ 900.000. En el segundo semestre trabajó 92 de 184 días, así que su aguinaldo proporcional es 900.000 ÷ 2 × 92 ÷ 184 = <strong>$ 225.000 brutos</strong>.</p>
+
+<h2>Fechas de pago y descuentos</h2>
+<p>La primera cuota vence el <strong>30 de junio</strong> y la segunda el <strong>18 de diciembre</strong>. La ley da al empleador un plazo de gracia de hasta cuatro días hábiles. Sobre el aguinaldo se descuentan los mismos aportes que sobre el sueldo (jubilación, PAMI y obra social, 17 % en total) y, si ganás por encima del mínimo no imponible, retención de Ganancias. Por eso el neto que muestra la calculadora es aproximado: tu recibo puede tener otros descuentos, como la cuota sindical.</p>
+
+<h2>Marco legal</h2>
+<p>El SAC está regulado por los artículos 121 a 123 de la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-20744-25552/actualizacion" rel="noopener">Ley de Contrato de Trabajo (20.744)</a> y por la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-23041-28165/texto" rel="noopener">Ley 23.041</a>, reglamentada por el Decreto 1078/84, que fijó el pago en dos cuotas sobre la mejor remuneración de cada semestre. La reforma laboral de 2026 (<a href="https://www.argentina.gob.ar/normativa/nacional/norma-423680/texto" rel="noopener">Ley 27.802</a>) no modificó el cálculo del aguinaldo. Más información en la <a href="https://www.argentina.gob.ar/trabajo/buscastrabajo/conocetusderechos/salario" rel="noopener">guía oficial de derechos laborales</a>.</p>
+</article>
