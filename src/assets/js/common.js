@@ -70,5 +70,18 @@
     });
   }
 
+  // Visitantes del EEE, Reino Unido y Suiza: la CMP certificada de Google (cargada por AdSense) muestra su propio
+  // mensaje de consentimiento. Si la CMP informa que el RGPD aplica, se oculta el banner propio para no duplicarlo.
+  function usarCmpDeGoogle(intentos) {
+    if (typeof window.__tcfapi === 'function') {
+      window.__tcfapi('addEventListener', 2, function (tcData, ok) {
+        if (ok && tcData && tcData.gdprApplies && banner) banner.hidden = true;
+      });
+    } else if (intentos > 0) {
+      setTimeout(function () { usarCmpDeGoogle(intentos - 1); }, 500);
+    }
+  }
+  if (banner && !banner.hidden) usarCmpDeGoogle(10);
+
   window.CT = { copyText: copyText, shareText: shareText, toast: toast };
 })();
