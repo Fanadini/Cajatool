@@ -1,0 +1,110 @@
+<h1>{{h1}}</h1>
+<p class="lead">Elegí el tipo de QR, completá los datos y descargalo. Todo se genera en tu navegador: nada se envía a internet.</p>
+
+<section class="tool" aria-label="Generador de códigos QR">
+  <div class="qr-layout">
+    <form id="form-qr" novalidate>
+      <fieldset class="field">
+        <legend>Tipo de QR</legend>
+        <div class="segmented">
+          <label><input type="radio" name="tipo" value="url" checked> Link</label>
+          <label><input type="radio" name="tipo" value="texto"> Texto</label>
+          <label><input type="radio" name="tipo" value="wifi"> WiFi</label>
+          <label><input type="radio" name="tipo" value="whatsapp"> WhatsApp</label>
+          <label><input type="radio" name="tipo" value="email"> Email</label>
+        </div>
+      </fieldset>
+
+      <div class="form-grid qr-fields" data-tipo="url">
+        <div class="field full"><label for="url">Dirección web</label><input type="url" id="url" placeholder="https://tusitio.com" autocomplete="off" inputmode="url"></div>
+      </div>
+      <div class="form-grid qr-fields" data-tipo="texto" hidden>
+        <div class="field full"><label for="texto">Texto</label><textarea id="texto" maxlength="1500"></textarea></div>
+      </div>
+      <div class="form-grid qr-fields" data-tipo="wifi" hidden>
+        <div class="field"><label for="ssid">Nombre de la red (SSID)</label><input type="text" id="ssid" autocomplete="off"></div>
+        <div class="field"><label for="wifi-pass">Contraseña</label><input type="text" id="wifi-pass" autocomplete="off" spellcheck="false"></div>
+        <div class="field"><label for="seguridad">Seguridad</label>
+          <select id="seguridad"><option value="WPA" selected>WPA / WPA2 / WPA3</option><option value="WEP">WEP</option><option value="nopass">Sin contraseña</option></select>
+        </div>
+        <div class="field"><label class="check"><input type="checkbox" id="oculta"> Red oculta</label></div>
+      </div>
+      <div class="form-grid qr-fields" data-tipo="whatsapp" hidden>
+        <div class="field"><label for="telefono">Número de WhatsApp</label><input type="tel" id="telefono" placeholder="11 2345-6789" autocomplete="off"></div>
+        <div class="field"><label for="pais">País</label>
+          <select id="pais"><option value="AR" selected>Argentina (agrega +54 9)</option><option value="">Otro (con código de país)</option></select>
+        </div>
+        <div class="field full"><label for="mensaje">Mensaje inicial (opcional)</label><textarea id="mensaje" maxlength="500"></textarea></div>
+      </div>
+      <div class="form-grid qr-fields" data-tipo="email" hidden>
+        <div class="field"><label for="email">Email</label><input type="email" id="email" autocomplete="off"></div>
+        <div class="field"><label for="asunto">Asunto (opcional)</label><input type="text" id="asunto" autocomplete="off"></div>
+        <div class="field full"><label for="cuerpo">Mensaje (opcional)</label><textarea id="cuerpo" maxlength="800"></textarea></div>
+      </div>
+
+      <details class="field more">
+        <summary>Opciones de diseño</summary>
+        <div class="form-grid">
+          <div class="field"><label for="color">Color</label><input type="color" id="color" value="#000000"></div>
+          <div class="field"><label for="fondo">Fondo</label><input type="color" id="fondo" value="#ffffff"></div>
+          <div class="field"><label for="nivel">Corrección de errores</label>
+            <select id="nivel"><option value="L">Baja (7 %)</option><option value="M" selected>Media (15 %)</option><option value="Q">Alta (25 %)</option><option value="H">Máxima (30 %)</option></select>
+          </div>
+          <div class="field"><label for="tamano">Tamaño del PNG</label>
+            <select id="tamano"><option value="512">512 px</option><option value="1024" selected>1024 px</option><option value="2048">2048 px</option></select>
+          </div>
+        </div>
+      </details>
+      <p class="error-msg" id="form-error" aria-live="polite"></p>
+    </form>
+
+    <div class="qr-preview" id="resultado">
+      <canvas id="qr-canvas" width="280" height="280" role="img" aria-label="Vista previa del código QR"></canvas>
+      <p class="hint qr-contenido" id="qr-contenido">Completá los datos para ver tu QR.</p>
+      <div class="actions">
+        <button type="button" class="btn" id="descargar-png" disabled>Descargar PNG</button>
+        <button type="button" class="btn btn-secondary" id="descargar-svg" disabled>Descargar SVG</button>
+        <button type="button" class="btn btn-secondary" data-copy="#qr-contenido">Copiar contenido</button>
+      </div>
+    </div>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué es un código QR</h2>
+<p>Un código QR (<em>Quick Response</em>, respuesta rápida) es un código de barras en dos dimensiones que guarda información en una grilla de cuadrados blancos y negros. Lo puede leer la cámara de cualquier celular moderno sin instalar nada. Se usa para abrir páginas web, compartir la clave del WiFi, iniciar un chat de WhatsApp, cargar un email o mostrar un texto. El formato está definido por la norma internacional ISO/IEC 18004.</p>
+
+<h2>Cómo usar cada tipo de QR</h2>
+<ul>
+  <li><strong>Link:</strong> pegá la dirección completa de la página. Si no escribís <code>https://</code>, lo agregamos. Ideal para menús, catálogos, formularios o perfiles de redes.</li>
+  <li><strong>Texto:</strong> cualquier texto de hasta 1.500 caracteres. Se muestra tal cual en el celular, sin necesidad de conexión.</li>
+  <li><strong>WiFi:</strong> cargá el nombre de la red y la contraseña. Al escanearlo, el celular ofrece conectarse directamente. Es muy útil en comercios, consultorios o alquileres temporarios.</li>
+  <li><strong>WhatsApp:</strong> genera un enlace de «clic para chatear» con tu número. Para números argentinos alcanza con el código de área y el número: agregamos el +54 9 y sacamos el 15.</li>
+  <li><strong>Email:</strong> abre la aplicación de correo con el destinatario, el asunto y el mensaje ya cargados.</li>
+</ul>
+{{ad:medio}}
+
+<h2>Corrección de errores: qué nivel elegir</h2>
+<p>Los códigos QR tienen información redundante que les permite leerse aunque estén sucios, rayados o parcialmente tapados. Hay cuatro niveles: bajo (hasta 7 % del código dañado), medio (15 %), alto (25 %) y máximo (30 %). A mayor corrección, más cuadraditos tiene el código. Para pantallas y folletos alcanza con el nivel medio. Para carteles al aire libre o stickers que se van a gastar, conviene el alto o el máximo.</p>
+
+<h2>Ejemplo: QR para el WiFi de un local</h2>
+<p>Un café tiene la red <strong>CafeDelCentro</strong> con la contraseña <strong>cafe2026</strong>. Al completar esos datos, la herramienta genera un código con este contenido estándar:</p>
+<p><code>WIFI:T:WPA;S:CafeDelCentro;P:cafe2026;;</code></p>
+<p>Si lo imprimen de 5 × 5 cm en cada mesa, los clientes lo escanean con la cámara y se conectan sin preguntar la clave. Si cambian la contraseña, tienen que generar un QR nuevo, porque la información está guardada en el propio código.</p>
+
+<h2>Consejos para que tu QR se lea bien</h2>
+<ul>
+  <li>Mantené un <strong>buen contraste</strong>: código oscuro sobre fondo claro. Los colores invertidos no funcionan con todos los lectores.</li>
+  <li>Respetá el <strong>margen blanco</strong> alrededor del código (ya viene incluido en la descarga).</li>
+  <li>Para imprimir, usá el <strong>SVG</strong>: no se pixela aunque lo agrandes.</li>
+  <li>Probalo con dos o tres celulares distintos antes de imprimir muchas copias.</li>
+  <li>Si el QR lleva a una página web, usá una dirección corta: el código queda con menos cuadraditos y se lee más rápido.</li>
+</ul>
+
+<h2>Cómo escanear un código QR</h2>
+<p>En los celulares actuales no hace falta instalar ninguna aplicación. En <strong>iPhone</strong>, abrí la cámara y apuntá al código: arriba aparece un aviso para abrir el contenido. En <strong>Android</strong>, la cámara o Google Lens hacen lo mismo. Si tu cámara no lo reconoce, buscá la opción «Escanear código QR» en los accesos rápidos del menú superior. Antes de abrir un enlace desconocido, revisá la dirección que muestra el celular: los QR pegados en la vía pública pueden haber sido reemplazados por otros que llevan a sitios falsos.</p>
+
+<h2>Privacidad y uso</h2>
+<p>Los códigos se generan con la librería de código abierto <a href="https://github.com/kazuhikoarase/qrcode-generator" rel="noopener">qrcode-generator</a> (licencia MIT), alojada en Cajatools y ejecutada en tu navegador. No guardamos lo que escribís. Los QR son estáticos: no vencen, no tienen estadísticas de escaneo y podés usarlos libremente, también con fines comerciales. «QR Code» es una marca registrada de <a href="https://www.qrcode.com/es/" rel="noopener">DENSO WAVE</a>. Para los enlaces de WhatsApp se usa el formato oficial de <a href="https://faq.whatsapp.com/5913398998672934" rel="noopener">clic para chatear</a>.</p>
+</article>

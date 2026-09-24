@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "utilidades",
+  "appCategory": "UtilitiesApplication",
+  "title": "Generador de códigos QR gratis 2026 | Cajatools",
+  "description": "Creá códigos QR gratis para links, texto, WiFi, WhatsApp o email. Descargalos en PNG o SVG. Se generan en tu navegador y no vencen.",
+  "h1": "Generador de códigos QR gratis",
+  "breadcrumb": "Generador de QR",
+  "updated": "2026-09-24",
+  "scripts": ["/assets/vendor/qrcode-generator/qrcode.js", "calc.js", "script.js"],
+  "card": {
+    "order": 6,
+    "name": "Generador de QR",
+    "desc": "QR para links, WiFi, WhatsApp, texto o email. Descarga en PNG y SVG.",
+    "keywords": "qr codigo qr generador wifi whatsapp link png svg"
+  },
+  "related": ["/utilidades/husos-horarios/", "/impuestos/monotributo/", "/alquiler/ajuste-alquiler/"],
+  "faq": [
+    {
+      "q": "¿Los códigos QR que genero vencen?",
+      "a": "No. Son códigos QR estáticos: el contenido queda guardado en el propio dibujo, así que funcionan para siempre y no dependen de ningún servidor. Si la dirección web que contienen deja de existir, el QR va a llevar a una página que no carga."
+    },
+    {
+      "q": "¿Puedo usar los QR con fines comerciales?",
+      "a": "Sí. Los códigos que generás son tuyos y podés usarlos en menús, folletos, tarjetas, packaging o donde quieras, sin costo ni atribución."
+    },
+    {
+      "q": "¿Qué formato conviene descargar, PNG o SVG?",
+      "a": "PNG para usar en pantallas, redes sociales o documentos. SVG para imprimir o para diseño gráfico, porque es vectorial y se puede agrandar sin perder calidad."
+    },
+    {
+      "q": "¿Cómo se escanea un QR de WiFi?",
+      "a": "Con la cámara de cualquier celular Android o iPhone actual: al apuntar al código aparece la opción de conectarse a la red sin escribir la contraseña."
+    },
+    {
+      "q": "¿Qué tamaño mínimo tiene que tener un QR impreso?",
+      "a": "Como regla general, unos 2 × 2 cm para leerlo de cerca. Para carteles, calculá un décimo de la distancia de lectura: a 3 metros, un QR de al menos 30 cm."
+    },
+    {
+      "q": "¿Mis datos se envían a algún servidor?",
+      "a": "No. El código se genera en tu navegador. Ni el contenido ni la contraseña de tu WiFi salen de tu dispositivo."
+    }
+  ]
+}

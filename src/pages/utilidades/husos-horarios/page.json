@@ -1,0 +1,40 @@
+{
+  "type": "tool",
+  "category": "utilidades",
+  "appCategory": "UtilitiesApplication",
+  "title": "Conversor de husos horarios 2026 | Cajatools",
+  "description": "Convertí la hora de Argentina a Madrid, Nueva York, México y más ciudades. Considera el horario de verano de cada país automáticamente.",
+  "h1": "Conversor de husos horarios",
+  "breadcrumb": "Husos horarios",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 5,
+    "name": "Husos horarios",
+    "desc": "Qué hora es en otras ciudades, con horario de verano incluido.",
+    "keywords": "hora husos horarios diferencia horaria zona horaria madrid nueva york mexico utc"
+  },
+  "related": ["/utilidades/generador-qr/", "/laboral/vacaciones/", "/alquiler/ajuste-alquiler/"],
+  "faq": [
+    {
+      "q": "¿Qué huso horario tiene Argentina?",
+      "a": "Argentina usa UTC−3 en todo el país durante todo el año. No aplica horario de verano desde 2009."
+    },
+    {
+      "q": "¿Cuántas horas de diferencia hay entre Argentina y España?",
+      "a": "Cinco horas cuando en España rige el horario de verano (de fines de marzo a fines de octubre) y cuatro horas el resto del año. Las Islas Canarias tienen una hora menos que la península."
+    },
+    {
+      "q": "¿Cuántas horas de diferencia hay entre Argentina y Nueva York?",
+      "a": "Una hora entre marzo y noviembre, cuando Estados Unidos aplica el horario de verano, y dos horas el resto del año. En Nueva York siempre es más temprano que en Buenos Aires."
+    },
+    {
+      "q": "¿México tiene horario de verano?",
+      "a": "La mayor parte de México dejó de aplicar el horario de verano en 2022. Ciudad de México está en UTC−6 todo el año, tres horas menos que Argentina. Algunas zonas de la frontera norte todavía cambian la hora junto con Estados Unidos."
+    },
+    {
+      "q": "¿Qué es UTC?",
+      "a": "El Tiempo Universal Coordinado, la referencia mundial para la hora. Cada huso horario se expresa como una diferencia con UTC: Argentina es UTC−3, España es UTC+1 en invierno y UTC+2 en verano."
+    }
+  ]
+}

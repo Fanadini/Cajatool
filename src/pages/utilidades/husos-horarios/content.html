@@ -1,0 +1,83 @@
+<h1>{{h1}}</h1>
+<p class="lead">Elegí una ciudad, una fecha y una hora, y mirá qué hora es en el resto del mundo. El horario de verano se calcula solo.</p>
+
+<section class="tool" aria-label="Conversor de husos horarios">
+  <form id="form-husos" novalidate>
+    <div class="form-grid">
+      <div class="field full">
+        <label for="origen">Ciudad de referencia</label>
+        <select id="origen"></select>
+      </div>
+      <div class="field">
+        <label for="fecha">Fecha</label>
+        <input type="date" id="fecha">
+      </div>
+      <div class="field">
+        <label for="hora">Hora</label>
+        <input type="time" id="hora">
+      </div>
+      <div class="field full">
+        <label for="agregar">Agregar ciudad</label>
+        <select id="agregar"><option value="">Elegí una ciudad…</option></select>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" id="ahora">Usar la hora actual</button>
+    </div>
+  </form>
+  <p class="error-msg" id="form-error" aria-live="polite"></p>
+
+  <div class="result" id="resultado" aria-live="polite">
+    <p class="result-label" id="res-label"></p>
+    <ul class="tz-list" id="res-lista"></ul>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar horarios</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué es un huso horario</h2>
+<p>La Tierra se divide en franjas llamadas husos horarios, en las que rige la misma hora oficial. La referencia es el <strong>Tiempo Universal Coordinado (UTC)</strong>, y la hora de cada lugar se expresa como una diferencia con él: Argentina es UTC−3, Madrid es UTC+1 y Tokio es UTC+9. En la práctica, cada país decide qué hora usa, por eso los límites siguen fronteras y no líneas rectas, y hay lugares con diferencias de media hora, como India (UTC+5:30).</p>
+
+<h2>Cómo funciona el conversor</h2>
+<p>La herramienta usa la base de datos de zonas horarias de la IANA, la misma que usan los celulares y las computadoras, a través de la función <code>Intl.DateTimeFormat</code> de tu navegador. Para cada ciudad calcula la diferencia con UTC <strong>en la fecha exacta que elegiste</strong>, así que tiene en cuenta si en ese momento rige el horario de verano. Si el resultado cae en otro día, se indica con «+1 día» o «−1 día». No se envía ningún dato a internet. Podés sumar o quitar ciudades de la lista, y cambiar la ciudad de referencia para ver todos los horarios desde otro lugar.</p>
+{{ad:medio}}
+
+<h2>El horario de verano</h2>
+<p>Muchos países adelantan el reloj una hora en los meses de más luz. Como el verano ocurre en distintas épocas en cada hemisferio, la diferencia horaria con Argentina cambia a lo largo del año:</p>
+<ul>
+  <li><strong>Unión Europea y Reino Unido:</strong> adelantan la hora el último domingo de marzo y la atrasan el último domingo de octubre.</li>
+  <li><strong>Estados Unidos y Canadá:</strong> la adelantan el segundo domingo de marzo y la atrasan el primer domingo de noviembre.</li>
+  <li><strong>Chile:</strong> en la mayor parte del país se usa UTC−4 en invierno y UTC−3 desde septiembre hasta abril.</li>
+  <li><strong>Australia (Sídney, Melbourne):</strong> como está en el hemisferio sur, el horario de verano va de octubre a abril.</li>
+  <li><strong>Argentina, Uruguay, Brasil, Perú, Colombia y la mayor parte de México</strong> no cambian la hora.</li>
+</ul>
+
+<h2>Ejemplo</h2>
+<p>Querés organizar una videollamada el <strong>15 de septiembre de 2026 a las 10:00</strong> de Buenos Aires:</p>
+<table>
+  <thead><tr><th>Ciudad</th><th>Hora local</th><th>Diferencia con UTC</th></tr></thead>
+  <tbody>
+    <tr><td>Madrid</td><td>15:00</td><td>UTC+2 (verano)</td></tr>
+    <tr><td>Nueva York</td><td>09:00</td><td>UTC−4 (verano)</td></tr>
+    <tr><td>Ciudad de México</td><td>07:00</td><td>UTC−6</td></tr>
+    <tr><td>Tokio</td><td>22:00</td><td>UTC+9</td></tr>
+  </tbody>
+</table>
+<p>Si la misma reunión fuera el 15 de noviembre, Madrid estaría en UTC+1 y Nueva York en UTC−5: en Madrid serían las 14:00 y en Nueva York las 08:00. Por eso conviene revisar la fecha cuando se coordinan horarios con semanas de anticipación.</p>
+
+<h2>Consejos para coordinar reuniones con otros países</h2>
+<ul>
+  <li><strong>Escribí siempre la zona horaria</strong> junto a la hora, por ejemplo «10:00 (hora de Argentina, UTC−3)». Evita confusiones cuando el otro lee la invitación en su calendario.</li>
+  <li><strong>Mirá la fecha, no solo la hora:</strong> entre fines de octubre y principios de noviembre, Europa y Estados Unidos cambian la hora en semanas distintas y la diferencia con Argentina varía de un día para otro.</li>
+  <li><strong>Buscá una franja cómoda para todos:</strong> con Europa, las mañanas de Argentina coinciden con la tarde europea. Con Asia, casi siempre alguien queda fuera del horario laboral.</li>
+  <li><strong>Compartí el enlace de esta página:</strong> la dirección guarda la ciudad, la fecha, la hora y la lista de ciudades, así cada participante ve la misma conversión.</li>
+</ul>
+
+<h2>La hora oficial argentina</h2>
+<p>Por su ubicación geográfica, a la Argentina le correspondería el huso UTC−4, pero desde hace décadas usa UTC−3 en todo el territorio. La Hora Oficial Argentina la determina y conserva el Observatorio Naval Buenos Aires, del <a href="https://www.hidro.gob.ar/observatorio/LaHora.asp?op=2" rel="noopener">Servicio de Hidrografía Naval</a>. Los datos de zonas horarias del mundo salen de la <a href="https://www.iana.org/time-zones" rel="noopener">base de datos de zonas horarias de la IANA</a>, que se actualiza cada vez que un país cambia sus reglas. Si tu navegador está desactualizado, algún cambio reciente podría no estar reflejado.</p>
+</article>
