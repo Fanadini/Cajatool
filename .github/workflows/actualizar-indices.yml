@@ -1,0 +1,44 @@
+name: Actualizar índices (ICL e IPC)
+
+on:
+  schedule:
+    - cron: '17 12 * * 1'   # lunes 09:17 hora argentina
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    outputs:
+      cambios: ${{ steps.commit.outputs.cambios }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/actualizar-indices.js
+      - name: Tests con los datos nuevos
+        run: node tests/run.js
+      - id: commit
+        run: |
+          # "actualizado" cambia siempre: solo se commitea si cambiaron los valores
+          if git diff --quiet -I '"actualizado"' -- data/; then
+            echo "cambios=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -am "Actualizar índices ICL e IPC"
+            git push
+            echo "cambios=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  deploy:
+    needs: actualizar
+    if: needs.actualizar.outputs.cambios == 'true'
+    uses: ./.github/workflows/deploy.yml

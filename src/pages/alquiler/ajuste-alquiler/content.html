@@ -1,0 +1,126 @@
+<h1>{{h1}}</h1>
+<p class="lead">Elegí el índice de tu contrato, cargá el monto y la fecha de inicio, y mirá cuánto vas a pagar en cada ajuste.</p>
+
+<section class="tool" aria-label="Calculadora de ajuste de alquiler">
+  <form id="form-alquiler" novalidate>
+    <div class="form-grid">
+      <div class="field">
+        <label for="monto">Alquiler inicial</label>
+        <input type="text" id="monto" name="monto" class="money" inputmode="decimal" placeholder="Ej.: 450.000" autocomplete="off" required aria-describedby="monto-error">
+        <p class="error-msg" id="monto-error" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="inicio">Fecha de inicio del contrato</label>
+        <input type="date" id="inicio" name="inicio" required min="2020-07-01" aria-describedby="inicio-error">
+        <p class="error-msg" id="inicio-error" aria-live="polite"></p>
+      </div>
+      <fieldset class="field full">
+        <legend>Índice de actualización</legend>
+        <div class="segmented">
+          <label><input type="radio" name="indice" value="ipc" checked> IPC</label>
+          <label><input type="radio" name="indice" value="icl"> ICL</label>
+          <label><input type="radio" name="indice" value="casapropia"> Casa Propia</label>
+          <label><input type="radio" name="indice" value="fijo"> Porcentaje fijo</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="frecuencia">Frecuencia de ajuste</label>
+        <select id="frecuencia" name="frecuencia">
+          <option value="3" selected>Cada 3 meses (trimestral)</option>
+          <option value="4">Cada 4 meses (cuatrimestral)</option>
+          <option value="6">Cada 6 meses (semestral)</option>
+          <option value="12">Cada 12 meses (anual)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="duracion">Duración del contrato</label>
+        <select id="duracion" name="duracion">
+          <option value="12">12 meses</option>
+          <option value="24" selected>24 meses</option>
+          <option value="36">36 meses</option>
+        </select>
+      </div>
+      <div class="field" id="campo-porcentaje" hidden>
+        <label for="porcentaje">Aumento por período (%)</label>
+        <input type="text" id="porcentaje" name="porcentaje" inputmode="decimal" placeholder="Ej.: 8" autocomplete="off" aria-describedby="porcentaje-error">
+        <p class="error-msg" id="porcentaje-error" aria-live="polite"></p>
+      </div>
+      <div class="field" id="campo-desfase">
+        <label for="desfase">Meses de IPC que se toman</label>
+        <select id="desfase" name="desfase">
+          <option value="1" selected>Último IPC publicado (1 mes de desfase)</option>
+          <option value="0">Los meses del período, sin desfase</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular ajustes</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Alquiler actual</p>
+    <p class="result-main" id="res-monto"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-aumento"></div><div class="stat-label">Aumento acumulado</div></div>
+      <div class="stat"><div class="stat-value" id="res-proximo"></div><div class="stat-label">Próximo ajuste</div></div>
+      <div class="stat"><div class="stat-value" id="res-ultimo-ajuste"></div><div class="stat-label">Último ajuste</div></div>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption class="visually-hidden">Ajustes del contrato</caption>
+        <thead><tr><th scope="col">Desde</th><th scope="col">Aumento</th><th scope="col">Alquiler</th></tr></thead>
+        <tbody id="res-tabla"></tbody>
+      </table>
+    </div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Cómo se calcula el ajuste del alquiler</h2>
+<p>El ajuste de un alquiler es la actualización periódica del precio que se hace durante el contrato para compensar la inflación. En Argentina no existe un único método: el índice y la frecuencia dependen de la ley que regía cuando se firmó el contrato y de lo que las partes acordaron. Por eso lo primero es buscar en el contrato la cláusula de «actualización» o «ajuste del canon locativo».</p>
+<p>En todos los casos la cuenta es la misma: se calcula un coeficiente con el índice elegido para el período que pasó y se multiplica por el alquiler que se venía pagando.</p>
+<p><strong>Nuevo alquiler = alquiler anterior × coeficiente del período</strong></p>
+
+<h3>ICL (Índice para Contratos de Locación)</h3>
+<p>Lo publica el Banco Central todos los días y combina en partes iguales la inflación (CER) y la evolución de los salarios (RIPTE). El coeficiente es el <em>ICL del día del ajuste dividido por el ICL del día de inicio del período</em>. Es el índice obligatorio de los contratos de vivienda firmados con la Ley 27.551, que ajustaban una vez por año.</p>
+
+<h3>IPC (Índice de Precios al Consumidor)</h3>
+<p>Lo publica el INDEC todos los meses y mide la inflación. Para un ajuste trimestral se acumulan tres variaciones mensuales: no se suman, se multiplican. Por ejemplo, con 2,2 %, 2,4 % y 3,7 % el aumento es 1,022 × 1,024 × 1,037 = 1,0853, es decir, un 8,53 % y no un 8,3 %. Como cada IPC se conoce a mediados del mes siguiente, muchos contratos toman «el último índice publicado», con un mes de desfase.</p>
+
+<h3>Coeficiente Casa Propia</h3>
+<p>Es el índice que publica el Ministerio para actualizar los créditos Casa Propia y Procrear. Toma el menor valor entre la variación de salarios (CVS) y la inflación (CER) y se expresa como un coeficiente mensual. Para un ajuste semestral se multiplican los seis coeficientes mensuales del período. Lo usan los contratos firmados con la Ley 27.737, que ajustaban cada seis meses.</p>
+
+<h3>Porcentaje fijo</h3>
+<p>Algunos contratos pactan un aumento fijo, por ejemplo un 8 % cada tres meses. Es el más fácil de calcular y el más previsible, aunque puede quedar por encima o por debajo de la inflación real.</p>
+{{ad:medio}}
+
+<h2>Ejemplo con números</h2>
+<p>Un contrato empieza el 1 de marzo de 2025 con un alquiler de <strong>$ 500.000</strong> y se ajusta cada tres meses por IPC, tomando el último índice publicado:</p>
+<table>
+  <thead><tr><th>Ajuste</th><th>Meses de IPC</th><th>Aumento</th><th>Nuevo alquiler</th></tr></thead>
+  <tbody>
+    <tr><td>1/6/2025</td><td>feb, mar y abr 2025</td><td>9,17 %</td><td>$ 545.871,73</td></tr>
+    <tr><td>1/9/2025</td><td>may, jun y jul 2025</td><td>5,11 %</td><td>$ 573.742,93</td></tr>
+    <tr><td>1/12/2025</td><td>ago, sep y oct 2025</td><td>6,43 %</td><td>$ 610.612,21</td></tr>
+  </tbody>
+</table>
+<p>El mismo contrato ajustado una vez por año por ICL habría pasado a <strong>$ 669.439,58</strong> el 1 de marzo de 2026 (ICL de 22,84 a 30,58, un 33,89 %). Podés reproducir estos números en la calculadora de arriba.</p>
+
+<h2>Qué dice la ley</h2>
+<ul>
+  <li><strong>Contratos firmados entre el 1/7/2020 y el 16/10/2023:</strong> la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-27551-339378" rel="noopener">Ley 27.551</a> fijó ajustes anuales por ICL para las viviendas.</li>
+  <li><strong>Contratos firmados entre el 17/10/2023 y el 28/12/2023:</strong> la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-27737-391456" rel="noopener">Ley 27.737</a> pasó a ajustes semestrales con el coeficiente Casa Propia.</li>
+  <li><strong>Contratos firmados desde el 29/12/2023:</strong> el <a href="https://www.argentina.gob.ar/normativa/nacional/decreto-70-2023-395521" rel="noopener">DNU 70/2023</a> derogó la Ley de Alquileres. Las partes acuerdan libremente el índice, la frecuencia, la moneda y la duración, según el Código Civil y Comercial.</li>
+</ul>
+<p>Los contratos firmados antes de cada cambio siguen rigiéndose por las reglas vigentes al momento de la firma. Los datos que usa esta calculadora salen del <a href="https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables_datos.asp?serie=7988" rel="noopener">BCRA (ICL)</a>, del <a href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" rel="noopener">INDEC (IPC)</a> y del <a href="https://www.argentina.gob.ar/obras-publicas/coeficiente-casa-propia" rel="noopener">Ministerio de Obras Públicas (Casa Propia)</a>.</p>
+<p class="note">Datos cargados: ICL hasta el <span id="dato-icl"></span>, IPC hasta <span id="dato-ipc"></span> y Casa Propia hasta <span id="dato-cp"></span>. El resultado es orientativo: ante diferencias, vale lo que diga tu contrato.</p>
+</article>
+{{data:indices}}

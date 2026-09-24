@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "alquiler",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de ajuste de alquiler 2026 | Cajatools",
+  "description": "Calculá el aumento de tu alquiler por ICL, IPC, Casa Propia o porcentaje fijo. Tabla con todos los ajustes del contrato y datos oficiales actualizados.",
+  "h1": "Calculadora de ajuste de alquiler 2026",
+  "breadcrumb": "Ajuste de alquiler",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 1,
+    "name": "Ajuste de alquiler",
+    "desc": "Aumento por ICL, IPC, Casa Propia o porcentaje fijo, con tabla de todos los ajustes.",
+    "keywords": "alquiler icl ipc casa propia aumento inquilino contrato locacion"
+  },
+  "related": ["/impuestos/monotributo/", "/laboral/aguinaldo/", "/laboral/vacaciones/"],
+  "faq": [
+    {
+      "q": "¿Qué índice tengo que usar para ajustar mi alquiler?",
+      "a": "El que figure en tu contrato. Los contratos firmados desde el 29 de diciembre de 2023 pueden pactar libremente el índice y la frecuencia (lo más común es IPC trimestral o cuatrimestral). Los firmados entre julio de 2020 y octubre de 2023 suelen ajustar una vez por año por ICL, y los firmados entre el 17 de octubre y el 28 de diciembre de 2023, cada seis meses por Casa Propia."
+    },
+    {
+      "q": "¿Cómo se calcula el aumento por ICL?",
+      "a": "Se divide el valor del ICL del día en que se hace el ajuste por el valor del ICL del día en que empezó el período, y ese coeficiente se multiplica por el alquiler que venías pagando. El BCRA publica el ICL todos los días."
+    },
+    {
+      "q": "¿Qué meses de IPC se toman en un ajuste trimestral?",
+      "a": "Depende de la redacción del contrato. Si dice «la variación del IPC del período», se toman los tres meses anteriores al ajuste. Como el INDEC publica cada índice a mediados del mes siguiente, muchos contratos usan «el último IPC publicado», que implica un mes de desfase. La calculadora permite elegir las dos opciones."
+    },
+    {
+      "q": "¿Qué pasa si el índice del mes todavía no se publicó?",
+      "a": "La calculadora marca ese ajuste como pendiente. Tenés que esperar la publicación oficial o, si el contrato lo permite, acordar con la otra parte usar el último dato disponible."
+    },
+    {
+      "q": "¿El dueño puede aumentar más de lo que marca el índice?",
+      "a": "No durante la vigencia del contrato: el aumento tiene que respetar el índice y la frecuencia pactados. Al renovar o firmar un contrato nuevo, las partes pueden acordar un monto distinto."
+    },
+    {
+      "q": "¿Esta calculadora sirve para alquileres comerciales?",
+      "a": "Sí. La fórmula es la misma para viviendas y locales: lo que cambia es el índice y la frecuencia que figuren en cada contrato."
+    }
+  ]
+}

@@ -46,7 +46,11 @@ Google Analytics se activa completando `analyticsId` (formato `G-XXXXXXX`).
 
 ## Datos que cambian
 
-Los índices y escalas viven en `/data/*.json`, cada uno con `actualizado` y `fuente`. Los valores sin verificar están marcados con `"TODO_VERIFICAR": true` y listados en [DATOS-A-ACTUALIZAR.md](DATOS-A-ACTUALIZAR.md).
+Los índices y escalas viven en `/data/*.json`, cada uno con `actualizado` y `fuente`.
+
+- **ICL e IPC**: `node scripts/actualizar-indices.js` los baja de las APIs oficiales del BCRA y de datos.gob.ar (INDEC). El workflow `actualizar-indices.yml` lo corre todos los lunes, commitea si hay datos nuevos y vuelve a publicar el sitio. También se puede correr a mano desde **Actions → Actualizar índices → Run workflow**.
+- **Casa Propia**: carga manual desde el PDF oficial (ver DATOS-A-ACTUALIZAR.md).
+ Los valores sin verificar están marcados con `"TODO_VERIFICAR": true` y listados en [DATOS-A-ACTUALIZAR.md](DATOS-A-ACTUALIZAR.md).
 
 ## Deploy
 
