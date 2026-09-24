@@ -12,10 +12,11 @@ const crypto = require('crypto');
 
 const ROOT = __dirname;
 const SRC = path.join(ROOT, 'src');
-const DIST = path.join(ROOT, 'dist');
+// CAJATOOL_DIST y CAJATOOL_CONFIG permiten builds alternativos (los usan los tests)
+const DIST = process.env.CAJATOOL_DIST || path.join(ROOT, 'dist');
 const PAGES_DIR = path.join(SRC, 'pages');
 
-const config = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
+const config = JSON.parse(fs.readFileSync(process.env.CAJATOOL_CONFIG || path.join(ROOT, 'config.json'), 'utf8'));
 const SITE = config.siteUrl.replace(/\/$/, '');
 const warnings = [];
 
@@ -141,6 +142,17 @@ const categoryIcons = {
 };
 function icon(cat) {
   return `<svg class="icon" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${categoryIcons[cat] || categoryIcons.utilidades}</svg>`;
+}
+
+// Botón de donaciones (Cafecito). Propio, sin imágenes externas. Vacío si no hay cafecitoUrl.
+function cafecitoButton() {
+  if (!config.cafecitoUrl) return '';
+  return (
+    `<a class="btn-cafecito" href="${escapeHtml(config.cafecitoUrl)}" rel="noopener" target="_blank">` +
+    '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">' +
+    '<path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3v3M12 3v3"/></svg>' +
+    '<span>Invitame un Cafecito</span></a>'
+  );
 }
 
 // ---------- bloques generados ----------
@@ -329,6 +341,7 @@ function build() {
     nav: navHtml(tools),
     footerTools: footerToolsHtml(tools),
     toolCards: toolCardsHtml(tools),
+    cafecito: cafecitoButton(),
     adsenseHead: adsenseHead(),
     analyticsHead: analyticsHead(),
     'ad:resultado': adSlot('resultado'),
@@ -380,6 +393,10 @@ function build() {
       page.updated && page.type !== 'home' && page.type !== 'error'
         ? `<p class="updated">Última actualización: <time datetime="${page.updated}">${vars.updatedHuman}</time></p>`
         : '';
+    const donateBlock =
+      page.type === 'tool' && config.cafecitoUrl
+        ? `<aside class="donate" aria-label="Apoyar a ${escapeHtml(config.siteName)}"><p><strong>¿Te sirvió esta herramienta?</strong> ${escapeHtml(config.siteName)} es gratis y sin registro. Si querés ayudar a mantenerlo, podés invitarnos un café.</p>${globals.cafecito}</aside>`
+        : '';
 
     const html = [
       render(templates.head, vars),
@@ -389,6 +406,7 @@ function build() {
       content,
       faqHtml(page),
       relatedHtml(page, byRoute),
+      donateBlock,
       updatedBlock,
       '</main>',
       page.type === 'tool' ? adSlot('prefooter') : '',

@@ -3,6 +3,7 @@
   "siteUrl": "https://cajatool.com",
   "year": 2026,
   "contactEmail": "contacto@cajatool.com",
+  "cafecitoUrl": "https://cafecito.app/cajatool",
   "adsEnabled": false,
   "adsenseClientId": "",
   "adSlots": {
@@ -12,9 +13,21 @@
   },
   "analyticsId": "",
   "categories": [
-    { "id": "alquiler", "name": "Alquiler y vivienda" },
-    { "id": "laboral", "name": "Laboral y sueldos" },
-    { "id": "impuestos", "name": "Impuestos" },
-    { "id": "utilidades", "name": "Utilidades" }
+    {
+      "id": "alquiler",
+      "name": "Alquiler y vivienda"
+    },
+    {
+      "id": "laboral",
+      "name": "Laboral y sueldos"
+    },
+    {
+      "id": "impuestos",
+      "name": "Impuestos"
+    },
+    {
+      "id": "utilidades",
+      "name": "Utilidades"
+    }
   ]
 }
