@@ -1,0 +1,120 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá el precio de contado, la cantidad de cuotas y lo que vale cada una. Te decimos cuánto valen realmente esas cuotas en pesos de hoy, según la inflación.</p>
+
+<section class="tool" aria-label="Calculadora cuotas o contado">
+  <form id="form-cuotas" novalidate data-inflacion3="{{inflacion3}}" data-inflacion12="{{inflacion12}}" data-inflacion-ultima="{{inflacionUltima}}">
+    <div class="form-grid">
+      <div class="field">
+        <label for="contado">Precio de contado</label>
+        <input type="text" id="contado" class="money" inputmode="decimal" placeholder="Ej.: 500.000" autocomplete="off" aria-describedby="contado-hint">
+        <span class="hint" id="contado-hint">Con el descuento por pago en efectivo o transferencia, si lo hay.</span>
+      </div>
+      <div class="field">
+        <label for="cuotas">Cantidad de cuotas</label>
+        <input type="text" id="cuotas" inputmode="numeric" placeholder="Ej.: 6" autocomplete="off">
+      </div>
+      <fieldset class="field full">
+        <legend>Precio en cuotas</legend>
+        <div class="segmented">
+          <label><input type="radio" name="modo" value="cuota" checked> Valor de cada cuota</label>
+          <label><input type="radio" name="modo" value="total"> Precio total financiado</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="monto" id="monto-label">Valor de cada cuota</label>
+        <input type="text" id="monto" class="money" inputmode="decimal" placeholder="Ej.: 90.000" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="inflacion">Inflación mensual estimada (%)</label>
+        <select id="inflacion-ref" aria-label="Referencia de inflación">
+          <option value="3">Promedio últimos 3 meses ({{inflacion3Txt}} %)</option>
+          <option value="12">Promedio últimos 12 meses ({{inflacion12Txt}} %)</option>
+          <option value="ultima">Último dato: {{ipcUltimoMes}} ({{inflacionUltimaTxt}} %)</option>
+          <option value="manual">Otra tasa (plazo fijo, billetera…)</option>
+        </select>
+        <input type="text" id="inflacion" inputmode="decimal" autocomplete="off" aria-describedby="inflacion-hint" hidden>
+        <span class="hint" id="inflacion-hint">Datos del IPC del INDEC hasta {{ipcUltimoMes}}.</span>
+      </div>
+      <div class="field full">
+        <label class="check"><input type="checkbox" id="primera-hoy"> La primera cuota se paga hoy (no con el próximo resumen)</label>
+      </div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Comparar</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Conviene</p>
+    <p class="result-main" id="res-main"></p>
+    <p id="res-explica"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-vp"></div><div class="stat-label">Cuotas en pesos de hoy</div></div>
+      <div class="stat"><div class="stat-value" id="res-total"></div><div class="stat-label">Total en cuotas</div></div>
+      <div class="stat"><div class="stat-value" id="res-tem"></div><div class="stat-label">Interés implícito mensual</div></div>
+      <div class="stat"><div class="stat-value" id="res-tea"></div><div class="stat-label">Interés implícito anual</div></div>
+    </div>
+    <details class="more">
+      <summary>Ver cuota por cuota</summary>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption class="visually-hidden">Valor de cada cuota en pesos de hoy</caption>
+          <thead><tr><th scope="col">Cuota</th><th scope="col">Se paga en</th><th scope="col">Valor</th><th scope="col">En pesos de hoy</th></tr></thead>
+          <tbody id="res-tabla"></tbody>
+        </table>
+      </div>
+    </details>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Por qué las cuotas pueden convenir</h2>
+<p>Con inflación, un peso de hoy vale más que un peso dentro de seis meses. Si pagás en cuotas fijas, cada cuota se paga con pesos que valen un poco menos que los de hoy. Por eso, para saber si conviene financiarse, no alcanza con sumar las cuotas: hay que llevarlas a <strong>pesos de hoy</strong> y comparar ese valor con el precio de contado.</p>
+<p>A esa cuenta se la llama <strong>valor presente</strong>. Cada cuota se divide por la inflación acumulada hasta el mes en que se paga:</p>
+<p><strong>Valor hoy de una cuota = cuota ÷ (1 + inflación mensual)<sup>meses</sup></strong></p>
+<p>Si la suma de todas las cuotas en pesos de hoy es menor que el precio de contado, conviene pagar en cuotas. Si es mayor, conviene el contado.</p>
+
+<h2>Cómo usar la calculadora</h2>
+<ul>
+  <li><strong>Precio de contado:</strong> el que pagarías hoy en efectivo, con transferencia o con débito, incluido cualquier descuento.</li>
+  <li><strong>Cuotas:</strong> la cantidad y el valor final de cada una. Si solo tenés el precio total financiado, elegí esa opción y lo dividimos por la cantidad de cuotas.</li>
+  <li><strong>Inflación estimada:</strong> proponemos el promedio de los últimos tres meses del IPC ({{inflacion3Txt}} % mensual entre {{ipcDesde3}} y {{ipcUltimoMes}}). Nadie sabe la inflación futura: probá con distintos valores para ver cuánto cambia el resultado.</li>
+  <li><strong>Primera cuota:</strong> con tarjeta de crédito se paga con el próximo resumen. Si la primera cuota se paga en el momento, marcá la opción.</li>
+</ul>
+{{ad:medio}}
+
+<h2>Ejemplo con números</h2>
+<p>Una heladera cuesta <strong>$ 500.000 de contado</strong> o <strong>6 cuotas de $ 90.000</strong> ($ 540.000 en total, un 8 % más). Con una inflación estimada del 2 % mensual, las cuotas valen hoy:</p>
+<table>
+  <thead><tr><th>Cuota</th><th>Se paga en</th><th>En pesos de hoy</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td>1 mes</td><td>$ 88.235,29</td></tr>
+    <tr><td>2</td><td>2 meses</td><td>$ 86.505,19</td></tr>
+    <tr><td>3</td><td>3 meses</td><td>$ 84.809,01</td></tr>
+    <tr><td>4</td><td>4 meses</td><td>$ 83.146,09</td></tr>
+    <tr><td>5</td><td>5 meses</td><td>$ 81.515,77</td></tr>
+    <tr><td>6</td><td>6 meses</td><td>$ 79.917,42</td></tr>
+  </tbody>
+</table>
+<p>En total, <strong>$ 504.128,78 en pesos de hoy</strong>: un poco más que los $ 500.000 de contado. En este caso conviene pagar de contado, aunque por poco. El interés implícito de la financiación es del 2,24 % mensual, apenas por encima de la inflación que supusimos. Si la inflación fuera del 3 % mensual, las mismas cuotas valdrían $ 487.547 y convendría financiarse.</p>
+
+<h2>Cuotas sin interés y descuentos de contado</h2>
+<p>Las cuotas sin interés convienen casi siempre que haya inflación, porque pagás el mismo precio más adelante. La trampa aparece cuando el comercio ofrece un <strong>descuento por pago de contado</strong>: en ese caso las cuotas «sin interés» esconden un recargo. Por ejemplo, 3 cuotas de $ 33.333 contra $ 85.000 de contado implican un interés de más del 8 % mensual.</p>
+
+<h2>Otras cosas a tener en cuenta</h2>
+<ul>
+  <li><strong>Qué hacés con la plata que no gastás:</strong> si la dejás en una cuenta remunerada o un plazo fijo, usá esa tasa mensual en lugar de la inflación. Así comparás contra lo que realmente ganarías.</li>
+  <li><strong>Tus ingresos futuros:</strong> financiarse compromete parte de tus próximos sueldos. Si no estás seguro de poder pagar, el contado es más prudente aunque cueste un poco más.</li>
+  <li><strong>Reintegros y promociones:</strong> si el banco devuelve un porcentaje, restalo del precio que corresponda antes de comparar.</li>
+</ul>
+
+<h2>Qué dice la ley</h2>
+<p>La <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638/actualizacion" rel="noopener">Ley 24.240 de Defensa del Consumidor</a> obliga a informar en las ventas a crédito el precio de contado, el precio total financiado, la tasa de interés y el costo financiero total (CFT). Con esos datos podés usar esta calculadora antes de decidir. La inflación de referencia sale del <a href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" rel="noopener">IPC del INDEC</a> y se actualiza automáticamente cada semana. El resultado es orientativo: no considera otros costos, como el mantenimiento de la tarjeta.</p>
+</article>

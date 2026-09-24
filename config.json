@@ -22,6 +22,10 @@
       "name": "Laboral y sueldos"
     },
     {
+      "id": "finanzas",
+      "name": "Finanzas personales"
+    },
+    {
       "id": "impuestos",
       "name": "Impuestos"
     },

@@ -1,0 +1,40 @@
+{
+  "type": "tool",
+  "category": "finanzas",
+  "appCategory": "FinanceApplication",
+  "title": "¿Cuotas o contado? Calculadora 2026 | Cajatool",
+  "description": "Calculá si te conviene pagar en cuotas o de contado según la inflación. Compará el valor real de las cuotas y la tasa de interés implícita.",
+  "h1": "¿Conviene pagar en cuotas o de contado?",
+  "breadcrumb": "Cuotas o contado",
+  "updated": "2026-09-24",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 5,
+    "name": "¿Cuotas o contado?",
+    "desc": "Compará el precio de contado con el valor real de las cuotas según la inflación.",
+    "keywords": "cuotas contado sin interes inflacion tarjeta financiacion conviene cft tasa"
+  },
+  "related": ["/alquiler/ajuste-alquiler/", "/laboral/aguinaldo/", "/impuestos/monotributo/"],
+  "faq": [
+    {
+      "q": "¿Siempre conviene pagar en cuotas sin interés?",
+      "a": "Casi siempre, si el precio en cuotas es igual al de contado y hay inflación: cada cuota futura vale menos en pesos de hoy. Pero si pagando de contado te hacen un descuento, las cuotas sin interés pueden salir más caras. Por eso hay que comparar siempre contra el precio de contado real."
+    },
+    {
+      "q": "¿Qué inflación tengo que usar?",
+      "a": "Una estimación de la inflación mensual para los próximos meses. La calculadora propone el promedio de los últimos tres meses publicados por el INDEC, pero podés cambiarla. Si tenés la plata en un plazo fijo o una cuenta remunerada, también podés usar esa tasa mensual."
+    },
+    {
+      "q": "¿Qué es la tasa implícita que muestra la calculadora?",
+      "a": "Es el interés mensual que te están cobrando realmente por financiarte, comparando el precio de contado con las cuotas. Si es menor que la inflación esperada, conviene pagar en cuotas; si es mayor, conviene el contado."
+    },
+    {
+      "q": "¿La calculadora incluye impuestos y gastos de la tarjeta?",
+      "a": "No. Cargá el valor final de cada cuota que figura en el resumen o en el simulador del comercio, con IVA, sellos y otros cargos incluidos. Ese dato suele aparecer como CFT (costo financiero total)."
+    },
+    {
+      "q": "¿Cuándo se paga la primera cuota con tarjeta de crédito?",
+      "a": "Con el resumen siguiente a la compra, así que en general entre 1 y 5 semanas después. Por eso la calculadora supone por defecto que la primera cuota se paga dentro de un mes."
+    }
+  ]
+}

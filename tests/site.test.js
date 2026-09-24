@@ -115,13 +115,13 @@ const words = (s) => s.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]
 const graphOf = (html) =>
   [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap((b) => JSON.parse(b[1])['@graph']);
 
-test(`hay 6 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
-  assert.strictEqual(tools.length, 6);
+test(`hay 7 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
+  assert.strictEqual(tools.length, 7);
   for (const p of tools) {
     const h = p.html;
     const iH1 = h.indexOf('<h1'), iTool = h.indexOf('class="tool"'), iArt = h.indexOf('<article');
     assert.ok(iH1 < iTool && iTool < iArt, `${p.rel}: orden H1 → herramienta → texto`);
-    assert.match(get(h, /<h1>([^<]*)<\/h1>/), /20\d\d|gratis|Conversor/, `${p.rel}: H1 con la búsqueda objetivo`);
+    assert.match(get(h, /<h1>([^<]*)<\/h1>/), /20\d\d|gratis|Conversor|cuotas/, `${p.rel}: H1 con la búsqueda objetivo`);
     const n = words(h.slice(iArt, h.indexOf('</article>')));
     assert.ok(n >= 600 && n <= 1000, `${p.rel}: el texto tiene ${n} palabras (600–1000)`);
     const faqs = (h.match(/class="faq-item"/g) || []).length;

@@ -23,6 +23,7 @@ Estos números están en los textos explicativos y ejemplos. No cambian solos cu
 |---|---|---|
 | `/alquiler/ajuste-alquiler/` | Ejemplo con IPC e ICL de 2025–2026 (siguen siendo correctos porque son datos históricos) | Solo si se quiere un ejemplo más reciente |
 | `/impuestos/monotributo/` | Ejemplos de Valentina (categoría C) y Diego (F) con montos vigentes desde 01/08/2026 | **Febrero y agosto** de cada año, cuando ARCA actualiza la escala |
+| `/finanzas/cuotas-o-contado/` | La inflación de referencia (promedios de 3 y 12 meses) se calcula sola en cada build a partir del IPC. El ejemplo usa una inflación supuesta del 2 % y no necesita cambios | — |
 | `/laboral/aguinaldo/` y `/laboral/vacaciones/` | Fechas de pago y reglas de la LCT (incluye la Ley 27.802 de 2026) | Si hay una nueva reforma laboral |
 | Todas las herramientas | Año en el título y el H1 («… 2026») y `updated` en `page.json` | **Enero** de cada año |
 
