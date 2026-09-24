@@ -33,15 +33,17 @@ config.json      URL del sitio, email, AdSense, Analytics y categorías
 
 ## Publicidad (AdSense)
 
-Está preparada y desactivada. Para activarla, en `config.json`:
+Dos niveles en `config.json`:
+
+1. **`adsenseClientId`** (hoy `ca-pub-1919387235061700`): inserta el script de AdSense en el `<head>` de todas las páginas (sirve para verificar el sitio y para los anuncios automáticos) y genera `ads.txt`.
+2. **`adsEnabled: true` + `adSlots`**: agrega los bloques fijos debajo del resultado, a mitad del texto y antes del footer (nunca encima de la herramienta). Cada bloque aparece solo si tiene su ID.
 
 ```json
 "adsEnabled": true,
-"adsenseClientId": "ca-pub-XXXXXXXXXXXXXXXX",
 "adSlots": { "resultado": "1234567890", "medio": "…", "prefooter": "…" }
 ```
 
-El build agrega el script de AdSense en el `<head>`, inserta los bloques debajo del resultado, a mitad del texto y antes del footer (nunca encima de la herramienta) y genera `ads.txt`. Los contenedores tienen alto mínimo reservado para evitar saltos de layout. Si el visitante elige "Solo necesarias" en el banner de cookies, se piden anuncios no personalizados.
+Los contenedores de los bloques tienen alto mínimo reservado para evitar saltos de layout. Si el visitante elige "Solo necesarias" en el banner de cookies, se piden anuncios no personalizados.
 
 Google Analytics se activa completando `analyticsId` (formato `G-XXXXXXX`).
 

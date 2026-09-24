@@ -104,10 +104,13 @@ for (const name of ['head', 'header', 'footer', 'ad-slot']) {
 const css = minifyCss(readFile(path.join(SRC, 'assets', 'css', 'styles.css')));
 const assetVersion = (rel) => hash(readFile(path.join(SRC, 'assets', rel)));
 
+// Con adsenseClientId se carga el script de AdSense en el <head> (verificación y anuncios automáticos) y se genera ads.txt.
+// Los bloques fijos (ad-slot.html) solo se insertan si además adsEnabled es true y el bloque tiene su ID.
+const adsScript = Boolean(config.adsenseClientId);
 const adsOn = Boolean(config.adsEnabled && config.adsenseClientId);
 
 function adSlot(name) {
-  if (!adsOn) return '';
+  if (!adsOn || !(config.adSlots && config.adSlots[name])) return '';
   return render(templates['ad-slot'], {
     slotName: name,
     adsenseClientId: config.adsenseClientId,
@@ -116,7 +119,7 @@ function adSlot(name) {
 }
 
 function adsenseHead() {
-  if (!adsOn) return '';
+  if (!adsScript) return '';
   return (
     '<script>(function(){var c;try{c=localStorage.getItem("ct-consent")}catch(e){}' +
     'if(c!=="accepted"){(window.adsbygoogle=window.adsbygoogle||[]).requestNonPersonalizedAds=1}})();</script>\n' +
@@ -463,7 +466,7 @@ function build() {
   // .nojekyll para que GitHub Pages sirva todo tal cual
   fs.writeFileSync(path.join(DIST, '.nojekyll'), '');
 
-  console.log(`Build OK: ${pages.length} páginas en /dist (anuncios ${adsOn ? 'activados' : 'desactivados'}).`);
+  console.log(`Build OK: ${pages.length} páginas en /dist (AdSense: ${adsScript ? 'script activo' : 'sin script'}, bloques ${adsOn ? 'activados' : 'desactivados'}).`);
   for (const w of warnings) console.warn(`  ⚠ ${w}`);
 }
 

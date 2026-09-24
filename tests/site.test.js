@@ -99,10 +99,14 @@ test('robots.txt, ads.txt y CNAME existen', () => {
   assert.strictEqual(fs.readFileSync(path.join(DIST, 'CNAME'), 'utf8').trim(), 'cajatool.com');
 });
 
-test('con anuncios desactivados no se carga AdSense', () => {
+test('AdSense según config: script solo con adsenseClientId y bloques solo con adsEnabled', () => {
   const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
-  if (cfg.adsEnabled) return;
-  for (const p of pages) assert.ok(!p.html.includes('adsbygoogle.js'), p.rel);
+  const adsTxt = fs.readFileSync(path.join(DIST, 'ads.txt'), 'utf8');
+  for (const p of pages) {
+    assert.strictEqual(p.html.includes('adsbygoogle.js?client=' + cfg.adsenseClientId), Boolean(cfg.adsenseClientId), p.rel);
+    if (!cfg.adsEnabled) assert.ok(!p.html.includes('class="ad-slot'), `${p.rel}: hay bloques con anuncios desactivados`);
+  }
+  if (cfg.adsenseClientId) assert.strictEqual(adsTxt.trim(), `google.com, ${cfg.adsenseClientId.replace(/^ca-/, '')}, DIRECT, f08c47fec0942fa0`);
 });
 
 // ---------- Estructura obligatoria de cada herramienta ----------
