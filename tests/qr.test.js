@@ -3,7 +3,7 @@ const Q = require('../src/pages/utilidades/generador-qr/calc.js');
 const qrcode = require('../src/assets/vendor/qrcode-generator/qrcode.js');
 
 test('URL: agrega https:// si falta', () => {
-  assert.strictEqual(Q.payload('url', { url: 'cajatools.com' }), 'https://cajatools.com');
+  assert.strictEqual(Q.payload('url', { url: 'cajatool.com' }), 'https://cajatool.com');
   assert.strictEqual(Q.payload('url', { url: 'http://ejemplo.com/a?b=1' }), 'http://ejemplo.com/a?b=1');
 });
 
@@ -21,15 +21,15 @@ test('WhatsApp: número argentino → 549 + área sin 15, mensaje codificado', (
 });
 
 test('email: mailto con asunto y cuerpo', () => {
-  assert.strictEqual(Q.payload('email', { email: 'hola@cajatools.com', asunto: 'Consulta', cuerpo: 'Línea 1' }),
-    'mailto:hola@cajatools.com?subject=Consulta&body=L%C3%ADnea%201');
+  assert.strictEqual(Q.payload('email', { email: 'hola@cajatool.com', asunto: 'Consulta', cuerpo: 'Línea 1' }),
+    'mailto:hola@cajatool.com?subject=Consulta&body=L%C3%ADnea%201');
   assert.throws(() => Q.payload('email', { email: 'no-es-email' }));
 });
 
 test('la librería genera un QR válido en UTF-8 y el SVG tiene el tamaño correcto', () => {
   qrcode.stringToBytes = qrcode.stringToBytesFuncs['UTF-8'];
   const qr = qrcode(0, 'M');
-  qr.addData('https://cajatools.com/ñandú', 'Byte');
+  qr.addData('https://cajatool.com/ñandú', 'Byte');
   qr.make();
   const n = qr.getModuleCount();
   assert.ok(n >= 25 && (n - 17) % 4 === 0, `módulos: ${n}`);

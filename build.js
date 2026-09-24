@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*
- * Build de Cajatools: arma cada página de src/pages con las plantillas de
+ * Build de Cajatool: arma cada página de src/pages con las plantillas de
  * src/templates y genera el sitio estático en /dist.
  * Sin dependencias: solo módulos nativos de Node.
  */

@@ -88,15 +88,15 @@ test('sitemap incluye todas las páginas indexables y excluye 404', () => {
   const sm = fs.readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
   assert.ok(!sm.includes('404'));
   for (const p of pages.filter((p) => !p.rel.endsWith('404.html'))) {
-    const url = 'https://cajatools.com' + p.rel.replace(/index\.html$/, '');
+    const url = 'https://cajatool.com' + p.rel.replace(/index\.html$/, '');
     assert.ok(sm.includes(`<loc>${url}</loc>`), `sitemap sin ${url}`);
   }
 });
 
 test('robots.txt, ads.txt y CNAME existen', () => {
-  assert.ok(fs.readFileSync(path.join(DIST, 'robots.txt'), 'utf8').includes('Sitemap: https://cajatools.com/sitemap.xml'));
+  assert.ok(fs.readFileSync(path.join(DIST, 'robots.txt'), 'utf8').includes('Sitemap: https://cajatool.com/sitemap.xml'));
   assert.ok(fs.existsSync(path.join(DIST, 'ads.txt')));
-  assert.strictEqual(fs.readFileSync(path.join(DIST, 'CNAME'), 'utf8').trim(), 'cajatools.com');
+  assert.strictEqual(fs.readFileSync(path.join(DIST, 'CNAME'), 'utf8').trim(), 'cajatool.com');
 });
 
 test('con anuncios desactivados no se carga AdSense', () => {

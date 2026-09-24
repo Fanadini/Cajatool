@@ -1,6 +1,6 @@
-# Cajatools
+# Cajatool
 
-Herramientas y calculadoras gratuitas en español (Argentina). Sitio estático en HTML, CSS y JavaScript vanilla, generado con un build en Node sin dependencias y publicado en GitHub Pages en **https://cajatools.com**.
+Herramientas y calculadoras gratuitas en español (Argentina). Sitio estático en HTML, CSS y JavaScript vanilla, generado con un build en Node sin dependencias y publicado en GitHub Pages en **https://cajatool.com**.
 
 ## Uso local
 
@@ -62,11 +62,11 @@ Cada push a `main` corre `.github/workflows/deploy.yml`: build, tests y publicac
 
 1. En el repositorio: **Settings → Pages**.
 2. En **Build and deployment → Source**, elegir **GitHub Actions**.
-3. En **Custom domain**, escribir `cajatools.com` y guardar.
+3. En **Custom domain**, escribir `cajatool.com` y guardar.
 
 ### 2. DNS en Cloudflare
 
-En el panel de Cloudflare del dominio, **DNS → Records**:
+El dominio `cajatool.com` está registrado en Cloudflare Registrar, así que el DNS ya lo maneja Cloudflare (no hay que cambiar servidores de nombre). En el panel del dominio, **DNS → Records**:
 
 | Tipo | Nombre | Contenido | Proxy |
 |---|---|---|---|
@@ -75,6 +75,8 @@ En el panel de Cloudflare del dominio, **DNS → Records**:
 | A | `@` | `185.199.110.153` | Solo DNS |
 | A | `@` | `185.199.111.153` | Solo DNS |
 | CNAME | `www` | `fanadini.github.io` | Solo DNS |
+
+Para el email `contacto@cajatool.com`: **Email → Email Routing** en Cloudflare, crear la dirección y reenviarla a tu casilla personal (gratis).
 
 Opcional (IPv6): registros AAAA en `@` con `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153` y `2606:50c0:8003::153`.
 
@@ -86,8 +88,8 @@ Cuando el DNS propague (de minutos a unas horas), en **Settings → Pages** apar
 
 ### 4. Google Search Console
 
-1. Entrar a https://search.google.com/search-console y agregar una propiedad de tipo **Dominio** con `cajatools.com`.
+1. Entrar a https://search.google.com/search-console y agregar una propiedad de tipo **Dominio** con `cajatool.com`.
 2. Copiar el registro TXT que da Google y crearlo en Cloudflare (**DNS → Add record → TXT**, nombre `@`).
 3. Volver a Search Console y presionar **Verificar**.
-4. En **Sitemaps**, enviar `https://cajatools.com/sitemap.xml`.
+4. En **Sitemaps**, enviar `https://cajatool.com/sitemap.xml`.
 5. Opcional: usar **Inspección de URLs** para pedir la indexación de las páginas principales.

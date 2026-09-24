@@ -1,4 +1,4 @@
-/* Cajatools — comportamiento común: inputs de dinero, copiar/compartir, banner de cookies. */
+/* Cajatool — comportamiento común: inputs de dinero, copiar/compartir, banner de cookies. */
 (function () {
   'use strict';
   var F = window.CTFormat;
