@@ -184,3 +184,12 @@ test('botón de Cafecito: en el footer de todas las páginas y al final de cada 
   for (const p of tools) assert.ok(p.html.includes('class="donate"'), `${p.rel}: falta el bloque de donación`);
   assert.ok(!pages.some((p) => p.html.includes('cdn.cafecito.app')), 'no se cargan imágenes externas');
 });
+
+test('Google Analytics: gtag con el ID de config en el head de todas las páginas', () => {
+  const cfg = JSON.parse(fs.readFileSync(path.join(ROOT, 'config.json'), 'utf8'));
+  if (!cfg.analyticsId) return;
+  for (const p of pages) {
+    const head = p.html.slice(0, p.html.indexOf('</head>'));
+    assert.ok(head.includes(`googletagmanager.com/gtag/js?id=${cfg.analyticsId}`) && head.includes(`gtag("config","${cfg.analyticsId}")`), p.rel);
+  }
+});
