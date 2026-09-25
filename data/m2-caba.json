@@ -1,0 +1,587 @@
+{
+ "actualizado": "2026-09-25",
+ "fuente": "https://www.estadisticaciudad.gob.ar/eyc/categoria-banco-datos/mercado-inmobiliario/",
+ "descripcion": "Precio promedio de publicación del m² (dólares) de departamentos en venta por barrio. Instituto de Estadística y Censos de la Ciudad de Buenos Aires, sobre avisos de Argenprop. Son precios de oferta, no de cierre.",
+ "series": {
+  "2-estrenar": {
+   "descripcion": "2 ambientes a estrenar",
+   "periodo": "2026-T2",
+   "provisorio": true,
+   "archivo": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2026/01/MI_DVP_AX01.xlsx",
+   "barrios": {
+    "Total": {
+     "usd": 3215,
+     "anioAnterior": 3101
+    },
+    "Almagro": {
+     "usd": 2992,
+     "anioAnterior": 2906
+    },
+    "Balvanera": {
+     "usd": 2530,
+     "anioAnterior": 2558
+    },
+    "Barracas": {
+     "usd": 2337,
+     "anioAnterior": 2395
+    },
+    "Belgrano": {
+     "usd": 4039,
+     "anioAnterior": 3938
+    },
+    "Boedo": {
+     "usd": 2596,
+     "anioAnterior": 2768
+    },
+    "Caballito": {
+     "usd": 3208,
+     "anioAnterior": 3154
+    },
+    "Chacarita": {
+     "usd": 3210,
+     "anioAnterior": null
+    },
+    "Coghlan": {
+     "usd": 3100,
+     "anioAnterior": 3102
+    },
+    "Colegiales": {
+     "usd": 3688,
+     "anioAnterior": 3662
+    },
+    "Flores": {
+     "usd": 2429,
+     "anioAnterior": 2526
+    },
+    "Liniers": {
+     "usd": 2595,
+     "anioAnterior": 2482
+    },
+    "Mataderos": {
+     "usd": 2549,
+     "anioAnterior": 2299
+    },
+    "Monte Castro": {
+     "usd": 2567,
+     "anioAnterior": 2277
+    },
+    "Montserrat": {
+     "usd": 3069,
+     "anioAnterior": null
+    },
+    "Núñez": {
+     "usd": 3809,
+     "anioAnterior": 3636
+    },
+    "Palermo": {
+     "usd": 4005,
+     "anioAnterior": 3827
+    },
+    "Parque Chacabuco": {
+     "usd": 2666,
+     "anioAnterior": null
+    },
+    "Puerto Madero": {
+     "usd": 6717,
+     "anioAnterior": 6890
+    },
+    "Recoleta": {
+     "usd": 3893,
+     "anioAnterior": 3711
+    },
+    "Saavedra": {
+     "usd": 3387,
+     "anioAnterior": 3117
+    },
+    "San Cristóbal": {
+     "usd": 2407,
+     "anioAnterior": 2387
+    },
+    "Villa Crespo": {
+     "usd": 3062,
+     "anioAnterior": 2903
+    },
+    "Villa del Parque": {
+     "usd": 2765,
+     "anioAnterior": 2576
+    },
+    "Villa Devoto": {
+     "usd": 2942,
+     "anioAnterior": 2992
+    },
+    "Villa Luro": {
+     "usd": 2646,
+     "anioAnterior": 2636
+    },
+    "Villa Ortúzar": {
+     "usd": 3111,
+     "anioAnterior": null
+    },
+    "Villa Urquiza": {
+     "usd": 3256,
+     "anioAnterior": 3067
+    }
+   }
+  },
+  "3-estrenar": {
+   "descripcion": "3 ambientes a estrenar",
+   "periodo": "2026-T2",
+   "provisorio": true,
+   "archivo": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2026/01/MI_DVP_AX02.xlsx",
+   "barrios": {
+    "Total": {
+     "usd": 3349,
+     "anioAnterior": 3125
+    },
+    "Almagro": {
+     "usd": 2927,
+     "anioAnterior": 2765
+    },
+    "Balvanera": {
+     "usd": 3016,
+     "anioAnterior": 2610
+    },
+    "Belgrano": {
+     "usd": 3995,
+     "anioAnterior": 3750
+    },
+    "Caballito": {
+     "usd": 3251,
+     "anioAnterior": 3062
+    },
+    "Colegiales": {
+     "usd": 3647,
+     "anioAnterior": 3501
+    },
+    "Flores": {
+     "usd": 2773,
+     "anioAnterior": 2694
+    },
+    "Liniers": {
+     "usd": 2760,
+     "anioAnterior": 2535
+    },
+    "Mataderos": {
+     "usd": 2777,
+     "anioAnterior": 2421
+    },
+    "Monte Castro": {
+     "usd": 2565,
+     "anioAnterior": null
+    },
+    "Núñez": {
+     "usd": 3746,
+     "anioAnterior": 3705
+    },
+    "Palermo": {
+     "usd": 4174,
+     "anioAnterior": 4124
+    },
+    "Recoleta": {
+     "usd": 3457,
+     "anioAnterior": 3264
+    },
+    "Saavedra": {
+     "usd": 3139,
+     "anioAnterior": 2943
+    },
+    "Villa Crespo": {
+     "usd": 3135,
+     "anioAnterior": 2992
+    },
+    "Villa del Parque": {
+     "usd": 3075,
+     "anioAnterior": 2961
+    },
+    "Villa Devoto": {
+     "usd": 3276,
+     "anioAnterior": 3450
+    },
+    "Villa Luro": {
+     "usd": 2747,
+     "anioAnterior": 2590
+    },
+    "Villa Urquiza": {
+     "usd": 3307,
+     "anioAnterior": 3274
+    }
+   }
+  },
+  "2-usado": {
+   "descripcion": "2 ambientes usados",
+   "periodo": "2026-T2",
+   "provisorio": true,
+   "archivo": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2026/01/MI_DVP_AX03.xlsx",
+   "barrios": {
+    "Total": {
+     "usd": 2343,
+     "anioAnterior": 2310
+    },
+    "Agronomía": {
+     "usd": 2106,
+     "anioAnterior": 1987
+    },
+    "Almagro": {
+     "usd": 2117,
+     "anioAnterior": 2108
+    },
+    "Balvanera": {
+     "usd": 1696,
+     "anioAnterior": 1705
+    },
+    "Barracas": {
+     "usd": 1969,
+     "anioAnterior": 2014
+    },
+    "Belgrano": {
+     "usd": 2958,
+     "anioAnterior": 2875
+    },
+    "Boca": {
+     "usd": 1506,
+     "anioAnterior": 1480
+    },
+    "Boedo": {
+     "usd": 1972,
+     "anioAnterior": 1910
+    },
+    "Caballito": {
+     "usd": 2317,
+     "anioAnterior": 2296
+    },
+    "Coghlan": {
+     "usd": 2871,
+     "anioAnterior": 2867
+    },
+    "Colegiales": {
+     "usd": 2779,
+     "anioAnterior": 2629
+    },
+    "Constitución": {
+     "usd": 1528,
+     "anioAnterior": 1589
+    },
+    "Flores": {
+     "usd": 1974,
+     "anioAnterior": 1857
+    },
+    "Floresta": {
+     "usd": 1639,
+     "anioAnterior": 1765
+    },
+    "La Paternal": {
+     "usd": 2071,
+     "anioAnterior": null
+    },
+    "Liniers": {
+     "usd": 1883,
+     "anioAnterior": 1903
+    },
+    "Mataderos": {
+     "usd": 1808,
+     "anioAnterior": 1833
+    },
+    "Monte Castro": {
+     "usd": 2226,
+     "anioAnterior": 2131
+    },
+    "Montserrat": {
+     "usd": 1787,
+     "anioAnterior": 1768
+    },
+    "Nueva Pompeya": {
+     "usd": 1457,
+     "anioAnterior": 1378
+    },
+    "Núñez": {
+     "usd": 3266,
+     "anioAnterior": 2968
+    },
+    "Palermo": {
+     "usd": 3118,
+     "anioAnterior": 3089
+    },
+    "Parque Avellaneda": {
+     "usd": 1728,
+     "anioAnterior": 1794
+    },
+    "Parque Chacabuco": {
+     "usd": 2293,
+     "anioAnterior": 2220
+    },
+    "Parque Chas": {
+     "usd": 2604,
+     "anioAnterior": 2445
+    },
+    "Parque Patricios": {
+     "usd": 1713,
+     "anioAnterior": 1692
+    },
+    "Puerto Madero": {
+     "usd": 5805,
+     "anioAnterior": 6010
+    },
+    "Recoleta": {
+     "usd": 2680,
+     "anioAnterior": 2730
+    },
+    "Retiro": {
+     "usd": 2259,
+     "anioAnterior": 2318
+    },
+    "Saavedra": {
+     "usd": 2888,
+     "anioAnterior": 2718
+    },
+    "San Cristóbal": {
+     "usd": 1803,
+     "anioAnterior": 1792
+    },
+    "San Nicolás": {
+     "usd": 1777,
+     "anioAnterior": 1848
+    },
+    "San Telmo": {
+     "usd": 1854,
+     "anioAnterior": 1921
+    },
+    "Vélez Sarsfield": {
+     "usd": 1800,
+     "anioAnterior": 1765
+    },
+    "Villa Crespo": {
+     "usd": 2413,
+     "anioAnterior": 2374
+    },
+    "Villa del Parque": {
+     "usd": 2310,
+     "anioAnterior": 2234
+    },
+    "Villa Devoto": {
+     "usd": 2352,
+     "anioAnterior": 2341
+    },
+    "Villa Gral. Mitre": {
+     "usd": 2011,
+     "anioAnterior": 1985
+    },
+    "Villa Lugano": {
+     "usd": 1437,
+     "anioAnterior": 1405
+    },
+    "Villa Luro": {
+     "usd": 2135,
+     "anioAnterior": 2132
+    },
+    "Villa Ortúzar": {
+     "usd": 2826,
+     "anioAnterior": 2728
+    },
+    "Villa Pueyrredón": {
+     "usd": 2594,
+     "anioAnterior": 2337
+    },
+    "Villa Santa Rita": {
+     "usd": 2164,
+     "anioAnterior": 2021
+    },
+    "Villa Urquiza": {
+     "usd": 2775,
+     "anioAnterior": 2746
+    }
+   }
+  },
+  "3-usado": {
+   "descripcion": "3 ambientes usados",
+   "periodo": "2026-T2",
+   "provisorio": true,
+   "archivo": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2026/01/MI_DVP_AX04.xlsx",
+   "barrios": {
+    "Total": {
+     "usd": 2160,
+     "anioAnterior": 2134
+    },
+    "Agronomía": {
+     "usd": 2189,
+     "anioAnterior": 2257
+    },
+    "Almagro": {
+     "usd": 2028,
+     "anioAnterior": 2062
+    },
+    "Balvanera": {
+     "usd": 1590,
+     "anioAnterior": 1594
+    },
+    "Barracas": {
+     "usd": 1818,
+     "anioAnterior": 1851
+    },
+    "Belgrano": {
+     "usd": 2797,
+     "anioAnterior": 2644
+    },
+    "Boca": {
+     "usd": 1343,
+     "anioAnterior": 1308
+    },
+    "Boedo": {
+     "usd": 1772,
+     "anioAnterior": 1896
+    },
+    "Caballito": {
+     "usd": 2181,
+     "anioAnterior": 2163
+    },
+    "Chacarita": {
+     "usd": 2205,
+     "anioAnterior": 2289
+    },
+    "Coghlan": {
+     "usd": 2744,
+     "anioAnterior": 2550
+    },
+    "Colegiales": {
+     "usd": 2686,
+     "anioAnterior": 2621
+    },
+    "Constitución": {
+     "usd": 1284,
+     "anioAnterior": 1328
+    },
+    "Flores": {
+     "usd": 1723,
+     "anioAnterior": 1801
+    },
+    "Floresta": {
+     "usd": 1676,
+     "anioAnterior": 1646
+    },
+    "La Paternal": {
+     "usd": 1875,
+     "anioAnterior": 1792
+    },
+    "Liniers": {
+     "usd": 1689,
+     "anioAnterior": 1767
+    },
+    "Mataderos": {
+     "usd": 1715,
+     "anioAnterior": 1774
+    },
+    "Monte Castro": {
+     "usd": 2035,
+     "anioAnterior": 1983
+    },
+    "Montserrat": {
+     "usd": 1614,
+     "anioAnterior": 1635
+    },
+    "Nueva Pompeya": {
+     "usd": 1342,
+     "anioAnterior": 1373
+    },
+    "Núñez": {
+     "usd": 2909,
+     "anioAnterior": 2807
+    },
+    "Palermo": {
+     "usd": 2855,
+     "anioAnterior": 2785
+    },
+    "Parque Avellaneda": {
+     "usd": 1473,
+     "anioAnterior": 1490
+    },
+    "Parque Chacabuco": {
+     "usd": 2062,
+     "anioAnterior": 2065
+    },
+    "Parque Chas": {
+     "usd": 2498,
+     "anioAnterior": null
+    },
+    "Parque Patricios": {
+     "usd": 1574,
+     "anioAnterior": 1610
+    },
+    "Puerto Madero": {
+     "usd": 5582,
+     "anioAnterior": 5611
+    },
+    "Recoleta": {
+     "usd": 2616,
+     "anioAnterior": 2653
+    },
+    "Retiro": {
+     "usd": 2458,
+     "anioAnterior": 2369
+    },
+    "Saavedra": {
+     "usd": 2760,
+     "anioAnterior": 2476
+    },
+    "San Cristóbal": {
+     "usd": 1644,
+     "anioAnterior": 1686
+    },
+    "San Nicolás": {
+     "usd": 1674,
+     "anioAnterior": 1732
+    },
+    "San Telmo": {
+     "usd": 1751,
+     "anioAnterior": 1793
+    },
+    "Vélez Sarsfield": {
+     "usd": 1638,
+     "anioAnterior": 1601
+    },
+    "Versalles": {
+     "usd": 1770,
+     "anioAnterior": 1715
+    },
+    "Villa Crespo": {
+     "usd": 2172,
+     "anioAnterior": 2116
+    },
+    "Villa del Parque": {
+     "usd": 2164,
+     "anioAnterior": 2094
+    },
+    "Villa Devoto": {
+     "usd": 2447,
+     "anioAnterior": 2318
+    },
+    "Villa Gral. Mitre": {
+     "usd": 1861,
+     "anioAnterior": 1718
+    },
+    "Villa Lugano": {
+     "usd": 974,
+     "anioAnterior": 1008
+    },
+    "Villa Luro": {
+     "usd": 1923,
+     "anioAnterior": 1995
+    },
+    "Villa Pueyrredón": {
+     "usd": 2366,
+     "anioAnterior": 2143
+    },
+    "Villa Riachuelo": {
+     "usd": 1392,
+     "anioAnterior": 1397
+    },
+    "Villa Santa Rita": {
+     "usd": 2127,
+     "anioAnterior": 2001
+    },
+    "Villa Urquiza": {
+     "usd": 2684,
+     "anioAnterior": 2574
+    }
+   }
+  }
+ }
+}

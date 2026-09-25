@@ -1,0 +1,70 @@
+<h1>{{h1}}</h1>
+<p class="lead">Calculá el valor del m² de un departamento y comparalo con el promedio oficial de su barrio en la Ciudad de Buenos Aires. También podés estimar cuánto vale una propiedad.</p>
+
+<section class="tool" aria-label="Calculadora del valor del metro cuadrado">
+  <form id="form-m2" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="precio">Precio en dólares (opcional)</label><input type="text" id="precio" class="money" inputmode="decimal" placeholder="Ej.: 150.000" autocomplete="off" aria-describedby="precio-hint"><span class="hint" id="precio-hint">Dejalo vacío para estimar cuánto vale.</span></div>
+      <div class="field"><label for="cubierta">Superficie cubierta (m²)</label><input type="text" id="cubierta" inputmode="decimal" placeholder="Ej.: 50" autocomplete="off"></div>
+      <div class="field"><label for="semi">Semicubierta (m², opcional)</label><input type="text" id="semi" inputmode="decimal" placeholder="Balcón techado, galería" autocomplete="off"></div>
+      <div class="field"><label for="desc">Descubierta (m², opcional)</label><input type="text" id="desc" inputmode="decimal" placeholder="Balcón abierto, patio, terraza" autocomplete="off"></div>
+      <div class="field"><label for="barrio">Barrio (CABA)</label><select id="barrio"></select></div>
+      <div class="field">
+        <label for="serie">Tipo de departamento</label>
+        <select id="serie"><option value="2-usado" selected>2 ambientes, usado</option><option value="3-usado">3 ambientes, usado</option><option value="2-estrenar">2 ambientes, a estrenar</option><option value="3-estrenar">3 ambientes, a estrenar</option></select>
+      </div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p>
+    <p class="result-main" id="res-main"></p>
+    <p id="res-explica"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-sup"></div><div class="stat-label">Superficie computable</div></div>
+      <div class="stat"><div class="stat-value" id="res-ref"></div><div class="stat-label" id="res-ref-l">Promedio del barrio</div></div>
+      <div class="stat"><div class="stat-value" id="res-est"></div><div class="stat-label">Valor según el promedio</div></div>
+    </div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Cómo se calcula el valor del metro cuadrado</h2>
+<p>El valor del metro cuadrado es la forma más usada para comparar precios de viviendas de distinto tamaño. Se obtiene dividiendo el precio por la superficie:</p>
+<p><strong>Valor del m² = precio ÷ superficie</strong></p>
+<p>Un departamento de USD 150.000 con 50 m² cuesta USD 3.000 el m². Con ese número podés comparar propiedades de distinto tamaño en la misma zona y detectar si un precio está por encima o por debajo del mercado.</p>
+
+<h2>Superficie cubierta, semicubierta y descubierta</h2>
+<p>No todos los metros valen lo mismo. Para comparar se usa la <strong>superficie homogeneizada</strong>: la cubierta se computa completa y el resto a un porcentaje. No hay una norma única, pero un criterio habitual entre tasadores es computar la <strong>semicubierta al 50 %</strong> (balcones techados, galerías) y la <strong>descubierta entre el 25 % y el 50 %</strong> (balcones abiertos, patios, terrazas). La calculadora usa 50 % y 30 % por defecto.</p>
+{{ad:medio}}
+
+<h2>Precio del m² por barrio en la Ciudad de Buenos Aires</h2>
+<p>Precio promedio de publicación del m² en dólares de departamentos en venta, {{m2Periodo}}. El promedio de la Ciudad es de <strong>USD {{m2Total2}}</strong> para 2 ambientes usados ({{m2TotalVar}} en un año) y de <strong>USD {{m2Total3}}</strong> para 3 ambientes usados. El barrio más caro es {{m2Max}} y el más económico, {{m2Min}}.</p>
+{{m2Tabla}}
+<p>Valores en dólares por m² de departamentos usados; «1 año» es la variación interanual de los de 2 ambientes. «—» indica que no hubo suficientes avisos en el período para calcular un promedio confiable.</p>
+
+<h2>Ejemplo con números</h2>
+<p>Un departamento usado de 2 ambientes en Palermo se publica a <strong>USD 150.000</strong>. Tiene 50 m² cubiertos, un balcón techado de 6 m² y uno abierto de 4 m². Su superficie homogeneizada es de 50 + 6 × 50 % + 4 × 30 % = <strong>54,2 m²</strong>, así que el m² cuesta <strong>USD {{m2EjM2}}</strong>. El promedio de Palermo es de USD {{m2Palermo}}: el precio está un {{m2EjDif}} respecto del promedio del barrio. Con ese promedio, el departamento valdría alrededor de USD {{m2EjValor}}.</p>
+
+<h2>Qué influye en el precio de una vivienda</h2>
+<ul>
+  <li><strong>Ubicación:</strong> el barrio, la cercanía al transporte, la cuadra y la vista.</li>
+  <li><strong>Estado y antigüedad:</strong> un departamento a estrenar o reciclado vale más que uno para refaccionar.</li>
+  <li><strong>Amenities y servicios:</strong> cochera, baulera, pileta, seguridad y expensas.</li>
+  <li><strong>Luminosidad y orientación:</strong> un piso alto al frente suele valer más que uno bajo interno.</li>
+</ul>
+<p>Por eso el promedio del barrio es una referencia, no un precio exacto.</p>
+
+<h2>Fuente y aclaraciones</h2>
+<p>Los precios de referencia provienen del <a href="https://www.estadisticaciudad.gob.ar/eyc/categoria-banco-datos/mercado-inmobiliario/" rel="noopener">Instituto de Estadística y Censos de la Ciudad de Buenos Aires</a>, que los calcula cada trimestre a partir de los avisos publicados en Argenprop. Son <strong>precios de publicación</strong>, no de cierre: el precio final suele ser algo menor porque se negocia. Para comprar o vender, pedí una tasación a un corredor inmobiliario matriculado. La calculadora del m² sirve para propiedades de cualquier lugar; las referencias por barrio son solo de la Ciudad de Buenos Aires.</p>
+</article>
+{{data:m2-caba}}
