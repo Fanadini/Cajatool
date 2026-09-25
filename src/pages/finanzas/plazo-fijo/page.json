@@ -1,0 +1,40 @@
+{
+  "type": "tool",
+  "category": "finanzas",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de plazo fijo 2026 | Cajatool",
+  "description": "Calculá cuánto rinde tu plazo fijo en pesos y si le gana a la inflación. Tasa promedio del BCRA actualizada, TEA e interés compuesto al renovar.",
+  "h1": "Calculadora de plazo fijo 2026",
+  "breadcrumb": "Plazo fijo",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 6,
+    "name": "Plazo fijo",
+    "desc": "Cuánto rinde tu plazo fijo y si le gana a la inflación, con la tasa del BCRA.",
+    "keywords": "plazo fijo tasa tna tea interes rendimiento inflacion banco ahorro"
+  },
+  "related": ["/finanzas/cuotas-o-contado/", "/laboral/sueldo-neto/", "/alquiler/ajuste-alquiler/"],
+  "faq": [
+    {
+      "q": "¿Cómo se calcula el interés de un plazo fijo?",
+      "a": "Interés = capital × TNA ÷ 100 × días ÷ 365. Por ejemplo, $ 1.000.000 a 30 días con una TNA del 20 % rinden 1.000.000 × 0,20 × 30 ÷ 365 = $ 16.438,36."
+    },
+    {
+      "q": "¿Qué diferencia hay entre TNA, TEM y TEA?",
+      "a": "La TNA es la tasa nominal anual que informan los bancos. La TEM es lo que rinde en un mes (TNA × 30 ÷ 365). La TEA es el rendimiento anual si renovás el plazo fijo todos los meses reinvirtiendo los intereses; por el interés compuesto, siempre es mayor que la TNA."
+    },
+    {
+      "q": "¿Qué tasa paga hoy un plazo fijo?",
+      "a": "Según el BCRA, la tasa promedio de los plazos fijos en pesos de personas humanas fue del {{pfTnaTxt}} anual el {{pfFecha}}. Cada banco fija la suya, así que conviene comparar."
+    },
+    {
+      "q": "¿El plazo fijo le gana a la inflación?",
+      "a": "Depende de la tasa y de la inflación del período. Con la tasa promedio del {{pfTnaTxt}} y una inflación del {{pfInflacionTxt}} mensual (promedio de los últimos 3 meses), un plazo fijo a 30 días {{pfE30Gana}} a la inflación."
+    },
+    {
+      "q": "¿Cuál es el plazo mínimo y qué pasa con los depósitos?",
+      "a": "El plazo mínimo es de 30 días. Los depósitos en pesos y dólares están cubiertos por el Seguro de Garantía de los Depósitos hasta el monto que fija el BCRA por persona y por entidad."
+    }
+  ]
+}

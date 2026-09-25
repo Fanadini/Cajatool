@@ -354,7 +354,8 @@ function build() {
     ...dataVars
   };
 
-  for (const page of pages) {
+  for (const pageBase of pages) {
+    let page = pageBase;
     const canonical = SITE + page.route;
     const vars = {
       ...globals,
@@ -373,6 +374,9 @@ function build() {
     // prerender.js opcional: devuelve variables extra generadas en el build (ej. tablas a partir de /data)
     const prerender = path.join(page.dir, 'prerender.js');
     if (exists(prerender)) Object.assign(vars, require(prerender)({ data: dataJson, config, escapeHtml }));
+    // La FAQ también puede usar variables ({{...}}), tanto en el HTML como en el JSON-LD
+    if (page.faq) page = { ...page, faq: page.faq.map((f) => ({ q: render(f.q, vars), a: render(f.a, vars) })) };
+    vars.jsonld = jsonLd(page);
 
     const contentPath = path.join(page.dir, 'content.html');
     const content = render(readFile(contentPath), vars);

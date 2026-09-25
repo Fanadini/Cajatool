@@ -1,0 +1,85 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá tu sueldo bruto y calculá cuánto vas a cobrar en mano, con los aportes y la retención de Ganancias vigentes.</p>
+
+<section class="tool" aria-label="Calculadora de sueldo neto">
+  <form id="form-sueldo" novalidate>
+    <div class="form-grid">
+      <div class="field full">
+        <label for="bruto">Sueldo bruto mensual</label>
+        <input type="text" id="bruto" class="money" inputmode="decimal" placeholder="Ej.: 1.500.000" autocomplete="off" aria-describedby="bruto-hint">
+        <span class="hint" id="bruto-hint">Suma de los conceptos remunerativos de tu recibo.</span>
+      </div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="conyuge"> Cónyuge o conviviente a cargo</label>
+      </div>
+      <div class="field">
+        <label for="hijos">Hijos menores de 18 a cargo</label>
+        <select id="hijos"><option value="0" selected>Ninguno</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>
+      </div>
+      <details class="field full more">
+        <summary>Otras deducciones de Ganancias (opcional)</summary>
+        <div class="field">
+          <label for="otras">Deducciones anuales cargadas en SiRADIG</label>
+          <input type="text" id="otras" class="money" inputmode="decimal" placeholder="Alquiler, prepaga, intereses hipotecarios…" autocomplete="off">
+        </div>
+      </details>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular sueldo neto</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Sueldo neto estimado</p>
+    <p class="result-main" id="res-neto"></p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption class="visually-hidden">Descuentos del sueldo</caption>
+        <tbody id="res-tabla"></tbody>
+      </table>
+    </div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué diferencia hay entre sueldo bruto y neto</h2>
+<p>El <strong>sueldo bruto</strong> es el total de conceptos remunerativos que figura en tu recibo: básico, antigüedad, presentismo, horas extra y adicionales. El <strong>sueldo neto</strong> es lo que efectivamente se deposita en tu cuenta, después de restar los aportes obligatorios y, si corresponde, la retención del Impuesto a las Ganancias.</p>
+
+<h2>Cómo se calculan los descuentos</h2>
+<ul>
+  <li><strong>Jubilación (11 %)</strong>, destinada al Sistema Integrado Previsional Argentino (SIPA).</li>
+  <li><strong>PAMI (3 %)</strong>, para el Instituto Nacional de Servicios Sociales para Jubilados y Pensionados (Ley 19.032).</li>
+  <li><strong>Obra social (3 %)</strong>, para tu obra social sindical o la que elegiste.</li>
+</ul>
+<p>Los tres suman un <strong>17 %</strong>, pero se calculan hasta un <strong>tope</strong>: la base imponible máxima que fija ANSES cada mes. Desde {{snTopeDesde}} es de <strong>{{snTope}}</strong> (<a href="{{snTopeUrl}}" rel="noopener">{{snTopeNorma}}</a>). Si tu sueldo es mayor, los aportes se calculan sobre ese monto.</p>
+{{ad:medio}}
+
+<h2>Retención de Ganancias</h2>
+<p>El empleador retiene cada mes el Impuesto a las Ganancias (cuarta categoría) cuando tus ingresos superan las deducciones personales. Para el {{snVigencia}}, las deducciones anuales son: ganancia no imponible {{snMni}}, deducción especial para trabajadores en relación de dependencia {{snEspecial}}, cónyuge {{snConyuge}} y {{snHijo}} por cada hijo. A la ganancia que queda se le aplica la escala progresiva del artículo 94, con alícuotas del 5 % al 35 %.</p>
+<p>La calculadora estima el impuesto del año sobre 13 sueldos (incluido el aguinaldo), resta las deducciones y reparte la retención en partes iguales. En la práctica el empleador lo calcula de forma acumulada, por lo que la retención de cada mes puede variar.</p>
+
+<h2>Ejemplos con números</h2>
+<ul>
+  <li><strong>Sueldo bruto de $ 1.500.000:</strong> aportes por {{ej1Aportes}} y sin retención de Ganancias. Neto: <strong>{{ej1Neto}}</strong>.</li>
+  <li><strong>Sueldo bruto de $ 5.000.000, sin cargas de familia:</strong> los aportes se calculan sobre el tope ({{ej2Aportes}}) y la retención estimada de Ganancias es de {{ej2Retencion}} por mes (alícuota marginal del {{ej2Alicuota}} %). Neto: <strong>{{ej2Neto}}</strong>.</li>
+  <li><strong>El mismo sueldo, con cónyuge y dos hijos a cargo:</strong> la retención baja a {{ej3Retencion}}. Neto: <strong>{{ej3Neto}}</strong>.</li>
+</ul>
+
+<h2>Otros descuentos que pueden aparecer</h2>
+<p>Tu recibo puede incluir <strong>cuota sindical</strong> (en general entre el 2 % y el 3 %), aportes solidarios que fije tu convenio, seguro de vida optativo o adelantos de sueldo. También puede haber sumas <strong>no remunerativas</strong>, que no tienen aportes ni forman parte del bruto que usa esta calculadora. Si cargás en SiRADIG gastos como alquiler, prepaga o servicio doméstico, tu retención de Ganancias baja: sumalos en «Otras deducciones».</p>
+
+<h2>Cómo leer tu recibo de sueldo</h2>
+<p>El recibo tiene tres columnas principales: <strong>haberes con aportes</strong> (los conceptos remunerativos, que forman el bruto), <strong>haberes sin aportes</strong> (sumas no remunerativas y asignaciones) y <strong>descuentos</strong>. El neto es la suma de las dos primeras columnas menos los descuentos. Para usar esta calculadora, sumá solo la columna de haberes con aportes. Revisá también que figuren tu fecha de ingreso, tu categoría y tu convenio: de eso dependen tu sueldo básico, tu antigüedad y tus vacaciones. Si algo no coincide, consultalo con Recursos Humanos o con tu sindicato.</p>
+
+<h2>Fuentes oficiales</h2>
+<p>Las deducciones y la escala de Ganancias salen de las tablas de ARCA para el {{snVigencia}}: <a href="{{snDeduccionesUrl}}" rel="noopener">deducciones del artículo 30</a> y <a href="{{snEscalaUrl}}" rel="noopener">escala del artículo 94</a>. El tope de aportes, de la resolución de ANSES publicada en el Boletín Oficial. Los montos se actualizan dos veces por año por inflación. El resultado es una estimación: tu liquidación puede variar según tu convenio y tus deducciones.</p>
+</article>
+{{data:ganancias}}

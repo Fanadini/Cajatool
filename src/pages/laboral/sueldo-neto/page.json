@@ -1,0 +1,40 @@
+{
+  "type": "tool",
+  "category": "laboral",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de sueldo neto 2026 | Cajatool",
+  "description": "Pasá tu sueldo de bruto a neto: jubilación, PAMI, obra social y retención de Ganancias 2026 con las escalas y deducciones vigentes de ARCA.",
+  "h1": "Calculadora de sueldo neto 2026",
+  "breadcrumb": "Sueldo neto",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 1,
+    "name": "Sueldo neto",
+    "desc": "De bruto a neto: aportes y retención de Ganancias con los valores vigentes.",
+    "keywords": "sueldo neto bruto aportes descuentos ganancias cuarta categoria recibo jubilacion obra social"
+  },
+  "related": ["/laboral/aguinaldo/", "/laboral/indemnizacion-despido/", "/finanzas/plazo-fijo/"],
+  "faq": [
+    {
+      "q": "¿Cuánto se descuenta del sueldo bruto?",
+      "a": "Un 17 % de aportes: 11 % de jubilación, 3 % de PAMI (Ley 19.032) y 3 % de obra social. Si tu sueldo supera el tope de la base imponible, el 17 % se calcula solo hasta ese tope. Además puede haber retención de Ganancias y otros descuentos, como la cuota sindical."
+    },
+    {
+      "q": "¿Desde qué sueldo se paga Ganancias en 2026?",
+      "a": "Con las deducciones del segundo semestre de 2026, una persona soltera sin hijos empieza a tener retención con un sueldo bruto mensual de alrededor de {{snUmbral}}. Con cónyuge y dos hijos a cargo, el umbral sube a unos {{snUmbralFamilia}}."
+    },
+    {
+      "q": "¿Qué es el tope de aportes?",
+      "a": "Es la base imponible máxima sobre la que se calculan los aportes. Lo actualiza ANSES todos los meses. Por ejemplo, desde {{snTopeDesde}} es de {{snTope}}: quien cobra más aporta el 17 % de ese monto y no de su sueldo completo."
+    },
+    {
+      "q": "¿Por qué mi recibo no coincide exactamente con la calculadora?",
+      "a": "Porque la retención de Ganancias se calcula de forma acumulada mes a mes, puede incluir deducciones que cargaste en SiRADIG (alquiler, prepaga, servicio doméstico) y tu recibo puede tener conceptos no remunerativos o cuota sindical. La calculadora hace una estimación anual repartida en partes iguales."
+    },
+    {
+      "q": "¿El aguinaldo paga Ganancias?",
+      "a": "Sí. Desde 2024 el aguinaldo vuelve a estar alcanzado por el impuesto. Por eso la calculadora estima el impuesto sobre 13 sueldos (12 más el aguinaldo)."
+    }
+  ]
+}

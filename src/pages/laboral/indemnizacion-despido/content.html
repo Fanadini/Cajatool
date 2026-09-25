@@ -1,0 +1,95 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá tus fechas y tu mejor sueldo bruto y calculá la liquidación final por despido sin causa o por renuncia, con las reglas vigentes desde la reforma laboral de 2026.</p>
+
+<section class="tool" aria-label="Calculadora de indemnización por despido">
+  <form id="form-indem" novalidate>
+    <div class="form-grid">
+      <fieldset class="field full">
+        <legend>Motivo</legend>
+        <div class="segmented">
+          <label><input type="radio" name="motivo" value="despido" checked> Despido sin causa</label>
+          <label><input type="radio" name="motivo" value="renuncia"> Renuncia</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="ingreso">Fecha de ingreso</label>
+        <input type="date" id="ingreso">
+      </div>
+      <div class="field">
+        <label for="egreso">Fecha de egreso (último día)</label>
+        <input type="date" id="egreso">
+      </div>
+      <div class="field">
+        <label for="sueldo">Mejor sueldo bruto mensual del último año</label>
+        <input type="text" id="sueldo" class="money" inputmode="decimal" placeholder="Ej.: 1.000.000" autocomplete="off" aria-describedby="sueldo-hint">
+        <span class="hint" id="sueldo-hint">Normal y habitual, sin aguinaldo ni vacaciones. Si tenés variables, usá el promedio de 6 meses.</span>
+      </div>
+      <div class="field" data-despido>
+        <label for="preaviso">¿Te avisaron el despido con anticipación?</label>
+        <select id="preaviso">
+          <option value="no" selected>No (despido sin preaviso)</option>
+          <option value="si">Sí, con el preaviso completo</option>
+        </select>
+      </div>
+      <details class="field full more" data-despido>
+        <summary>Tope del convenio (opcional)</summary>
+        <div class="field">
+          <label for="tope">Tope indemnizatorio de tu convenio</label>
+          <input type="text" id="tope" class="money" inputmode="decimal" placeholder="Dejalo vacío si no lo sabés" autocomplete="off" aria-describedby="tope-hint">
+          <span class="hint" id="tope-hint">Tres veces el sueldo promedio del convenio. Lo publica la Secretaría de Trabajo para cada convenio.</span>
+        </div>
+      </details>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions">
+      <button type="submit" class="btn btn-block">Calcular liquidación</button>
+    </div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Total de la liquidación final (bruto)</p>
+    <p class="result-main" id="res-total"></p>
+    <p class="hint" id="res-antiguedad"></p>
+    <div class="table-wrap">
+      <table class="data-table">
+        <caption class="visually-hidden">Conceptos de la liquidación final</caption>
+        <thead><tr><th scope="col">Concepto</th><th scope="col">Monto</th></tr></thead>
+        <tbody id="res-tabla"></tbody>
+      </table>
+    </div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué incluye la liquidación final</h2>
+<p>Cuando termina una relación laboral, el empleador tiene que pagar la <strong>liquidación final</strong>. Lo que incluye depende del motivo. Si te despiden sin causa, además de lo que ya ganaste (días trabajados, aguinaldo y vacaciones proporcionales) corresponden las <strong>indemnizaciones</strong>: por antigüedad, por falta de preaviso y por integración del mes de despido. Si renunciás, solo cobrás la primera parte.</p>
+
+<h2>Cómo se calcula cada concepto</h2>
+<ul>
+  <li><strong>Indemnización por antigüedad (art. 245):</strong> un sueldo por cada año trabajado o fracción mayor a tres meses. Nunca menos de un sueldo.</li>
+  <li><strong>Preaviso (arts. 231 y 232):</strong> si no te avisaron con anticipación, un mes de sueldo con hasta 5 años de antigüedad y dos meses con más de 5 años, más su aguinaldo.</li>
+  <li><strong>Integración del mes de despido (art. 233):</strong> si te despiden sin preaviso antes de fin de mes, los días que faltan hasta el último día del mes, más su aguinaldo.</li>
+  <li><strong>Días trabajados:</strong> el sueldo proporcional del mes de egreso.</li>
+  <li><strong>Aguinaldo proporcional (art. 123):</strong> medio sueldo multiplicado por los días trabajados del semestre y dividido por los días del semestre.</li>
+  <li><strong>Vacaciones no gozadas (art. 156):</strong> los días de vacaciones que te corresponden por antigüedad, proporcionales a lo trabajado en el año, a razón de sueldo ÷ 25 por día, más su aguinaldo.</li>
+</ul>
+{{ad:medio}}
+
+<h2>Qué cambió con la reforma laboral de 2026</h2>
+<p>La <a href="https://www.argentina.gob.ar/normativa/nacional/norma-423680/texto" rel="noopener">Ley 27.802 de Modernización Laboral</a>, vigente desde el 6 de marzo de 2026, reescribió el artículo 245. La base de cálculo es la <strong>mejor remuneración mensual, normal y habitual</strong> del último año, y la ley aclara que <strong>no se suman el aguinaldo, las vacaciones ni los premios que no sean mensuales</strong>. Para los conceptos variables, como horas extra o comisiones, se toma el promedio de los últimos seis meses, o del último año si es más favorable. Un concepto es habitual si se cobró al menos seis meses en el último año.</p>
+<p>El tope sigue siendo tres veces el sueldo promedio del convenio colectivo, pero la ley incorporó que <strong>nunca puede reducir la base a menos del 67 %</strong> de tu remuneración. La reforma también permite que los convenios reemplacen la indemnización por un fondo de cese laboral, y creó los Fondos de Asistencia Laboral, que financian el pago sin cambiar lo que te corresponde cobrar.</p>
+
+<h2>Ejemplo con números</h2>
+<p>Martín entró el 1 de marzo de 2021 y lo despidieron sin preaviso el 30 de junio de 2026. Su mejor sueldo bruto fue de $ 1.000.000. Tiene 5 años y 4 meses de antigüedad: como la fracción supera los tres meses, le corresponden <strong>6 sueldos de indemnización</strong> ($ 6.000.000). Por tener más de 5 años, el preaviso es de <strong>2 meses</strong> ($ 2.000.000, más $ 166.666,67 de aguinaldo). No hay integración porque el despido fue el último día del mes. A eso se suman el sueldo de junio, el aguinaldo del primer semestre ($ 500.000) y las vacaciones proporcionales: 21 días × 181 ÷ 365, unos 10,4 días a $ 40.000 cada uno.</p>
+
+<h2>Plazos y reclamos</h2>
+<p>La liquidación final se paga dentro de los <strong>cuatro días hábiles</strong> desde el fin de la relación laboral. Revisá el recibo antes de firmar, y firmalo «en disconformidad» si no estás de acuerdo con los montos. Si no te pagan o te pagan menos, podés reclamar por carta documento y en el <a href="https://www.argentina.gob.ar/trabajo/seclo" rel="noopener">SECLO</a> (Ciudad de Buenos Aires) o en el organismo laboral de tu provincia. Esta calculadora es orientativa: tu convenio puede tener reglas más favorables y cada caso puede tener particularidades, como multas por trabajo no registrado. Ante un despido, consultá con un abogado laboralista.</p>
+<p>Texto vigente de la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-20744-25552/actualizacion" rel="noopener">Ley de Contrato de Trabajo</a>, con las modificaciones de 2024 y 2026.</p>
+</article>

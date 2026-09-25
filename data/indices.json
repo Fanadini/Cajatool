@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-09-24",
+ "actualizado": "2026-09-25",
  "icl": {
   "descripcion": "Índice para Contratos de Locación (base 30/6/2020 = 1), valor diario",
   "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables_datos.asp?serie=7988",
   "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/40",
-  "actualizado": "2026-09-24",
+  "actualizado": "2026-09-25",
   "desde": "2020-07-01",
   "hasta": "2026-10-16",
   "valores": [
@@ -2313,7 +2313,7 @@
   "descripcion": "IPC nacional, nivel general (base diciembre 2016 = 100), valor mensual",
   "fuente": "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31",
   "api": "https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26",
-  "actualizado": "2026-09-24",
+  "actualizado": "2026-09-25",
   "desde": "2016-12",
   "hasta": "2026-08",
   "niveles": {
@@ -2491,5 +2491,13 @@
    "2026-10": 1.0233,
    "2026-11": 1.0236
   }
+ },
+ "plazoFijo": {
+  "descripcion": "Tasa de interés promedio de depósitos a plazo fijo en pesos de personas humanas (TNA %)",
+  "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp",
+  "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1190",
+  "actualizado": "2026-09-25",
+  "fecha": "2026-09-23",
+  "tna": 19.72
  }
 }

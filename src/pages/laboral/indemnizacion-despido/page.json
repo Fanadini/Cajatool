@@ -1,0 +1,44 @@
+{
+  "type": "tool",
+  "category": "laboral",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de indemnización por despido 2026 | Cajatool",
+  "description": "Calculá tu indemnización por despido y la liquidación final con la reforma laboral 2026 (Ley 27.802): antigüedad, preaviso, aguinaldo y vacaciones.",
+  "h1": "Calculadora de indemnización por despido 2026",
+  "breadcrumb": "Indemnización por despido",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": {
+    "order": 3,
+    "name": "Indemnización por despido",
+    "desc": "Liquidación final con la reforma 2026: antigüedad, preaviso, aguinaldo y vacaciones.",
+    "keywords": "indemnizacion despido liquidacion final renuncia preaviso integracion art 245 reforma laboral 27802"
+  },
+  "related": ["/laboral/aguinaldo/", "/laboral/vacaciones/", "/laboral/sueldo-neto/"],
+  "faq": [
+    {
+      "q": "¿Qué cambió en la indemnización con la reforma laboral de 2026?",
+      "a": "La Ley 27.802 redefinió la base del artículo 245: se toma la mejor remuneración mensual, normal y habitual del último año, sin incluir aguinaldo, vacaciones ni premios que no sean mensuales. Los conceptos variables se promedian en los últimos 6 meses (o 12, si es más favorable). Se mantiene el tope de tres veces el promedio del convenio, que no puede reducir la base a menos del 67 %."
+    },
+    {
+      "q": "¿Cuánto me corresponde de indemnización por antigüedad?",
+      "a": "Un mes de sueldo por cada año trabajado o fracción mayor a tres meses. Con 5 años y 4 meses corresponden 6 sueldos; con 5 años y 3 meses justos, 5. Nunca puede ser menos de un sueldo."
+    },
+    {
+      "q": "¿Cuánto es el preaviso?",
+      "a": "Si el empleador no avisa el despido con anticipación, debe pagar un mes de sueldo cuando la antigüedad es de hasta 5 años, y dos meses cuando es mayor. Durante el período de prueba (los primeros 6 meses) no corresponde preaviso."
+    },
+    {
+      "q": "¿Qué cobro si renuncio?",
+      "a": "Los días trabajados del mes, el aguinaldo proporcional y las vacaciones no gozadas proporcionales, más el aguinaldo sobre esas vacaciones. La renuncia no genera indemnización por antigüedad ni preaviso."
+    },
+    {
+      "q": "¿En cuánto tiempo me tienen que pagar la liquidación final?",
+      "a": "Dentro de los cuatro días hábiles desde la fecha del despido o de la renuncia. Si no te pagan, podés intimar al empleador por carta documento e iniciar un reclamo en el SECLO o en el organismo laboral de tu provincia."
+    },
+    {
+      "q": "¿La indemnización paga Ganancias o aportes?",
+      "a": "La indemnización por antigüedad, el preaviso y la integración del mes no tienen aportes ni retención de Ganancias. Los días trabajados, el aguinaldo y las vacaciones sí tienen los descuentos habituales."
+    }
+  ]
+}

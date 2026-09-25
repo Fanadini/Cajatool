@@ -64,13 +64,30 @@ async function ipc() {
   };
 }
 
+async function plazoFijo() {
+  // Tasa promedio de plazo fijo en pesos de personas humanas (variable 1190), último dato disponible
+  const hasta = new Date().toISOString().slice(0, 10);
+  const desde = new Date(Date.now() - 45 * 86400000).toISOString().slice(0, 10);
+  const json = await getJson(`https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1190?desde=${desde}&hasta=${hasta}`);
+  const ult = json.results[0].detalle.sort((a, b) => b.fecha.localeCompare(a.fecha))[0];
+  return {
+    descripcion: 'Tasa de interés promedio de depósitos a plazo fijo en pesos de personas humanas (TNA %)',
+    fuente: 'https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp',
+    api: 'https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1190',
+    actualizado: today,
+    fecha: ult.fecha,
+    tna: Math.round(ult.valor * 100) / 100
+  };
+}
+
 (async () => {
   const current = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
-  const [iclData, ipcData] = await Promise.all([icl(), ipc()]);
-  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData };
+  const [iclData, ipcData, pfData] = await Promise.all([icl(), ipc(), plazoFijo()]);
+  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData };
   fs.writeFileSync(FILE, JSON.stringify(data, null, 1) + '\n');
   console.log(`ICL: ${iclData.desde} a ${iclData.hasta} (${iclData.valores.length} días)`);
   console.log(`IPC: ${ipcData.desde} a ${ipcData.hasta}`);
+  console.log(`Plazo fijo: ${pfData.tna} % TNA (${pfData.fecha})`);
 })().catch((e) => {
   console.error('Error actualizando índices:', e.message);
   process.exit(1);

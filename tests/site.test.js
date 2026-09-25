@@ -115,8 +115,8 @@ const words = (s) => s.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]
 const graphOf = (html) =>
   [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap((b) => JSON.parse(b[1])['@graph']);
 
-test(`hay 7 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
-  assert.strictEqual(tools.length, 7);
+test(`hay 10 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
+  assert.strictEqual(tools.length, 10);
   for (const p of tools) {
     const h = p.html;
     const iH1 = h.indexOf('<h1'), iTool = h.indexOf('class="tool"'), iArt = h.indexOf('<article');
