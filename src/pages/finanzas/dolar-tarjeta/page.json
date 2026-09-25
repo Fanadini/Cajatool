@@ -1,0 +1,20 @@
+{
+  "type": "tool",
+  "category": "finanzas",
+  "appCategory": "FinanceApplication",
+  "title": "Dólar tarjeta hoy: calculadora de impuestos 2026 | Cajatool",
+  "description": "Calculá cuánto pagás en pesos por compras en dólares con tarjeta: Netflix, Spotify o viajes. Percepción del 30 %, IVA digital e Ingresos Brutos.",
+  "h1": "Calculadora de dólar tarjeta 2026",
+  "breadcrumb": "Dólar tarjeta",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": { "order": 8, "name": "Dólar tarjeta", "desc": "Cuánto pagás en pesos por compras en dólares: Netflix, Spotify, viajes.", "keywords": "dolar tarjeta impuestos netflix spotify compras exterior percepcion 30 iva digital precio en pesos" },
+  "related": ["/impuestos/calculadora-iva/", "/finanzas/cuotas-o-contado/", "/utilidades/husos-horarios/"],
+  "faq": [
+    { "q": "¿Qué impuestos se pagan por comprar en dólares con tarjeta?", "a": "Una percepción del 30 % a cuenta de Ganancias o Bienes Personales (RG ARCA 5617/2024) sobre las compras en el exterior. Si es un servicio digital, como Netflix o Spotify, se suma el IVA del 21 %. Muchas provincias cobran además una percepción de Ingresos Brutos, en general entre el 2 % y el 5 %." },
+    { "q": "¿El impuesto PAIS se sigue cobrando?", "a": "No. El impuesto PAIS dejó de aplicarse a fines de 2024. Desde entonces se cobra solo la percepción del 30 % a cuenta de Ganancias o Bienes Personales, más el IVA de los servicios digitales y los impuestos provinciales." },
+    { "q": "¿Cómo evito la percepción del 30 %?", "a": "Pagando el resumen de la tarjeta con dólares propios, desde una cuenta en dólares. En ese caso no se aplica la percepción. El IVA de los servicios digitales se cobra igual." },
+    { "q": "¿Puedo recuperar la percepción del 30 %?", "a": "Sí. Si pagás Ganancias o Bienes Personales, la computás a cuenta del impuesto en tu declaración jurada. Si no estás inscripto en esos impuestos, podés pedir la devolución en ARCA con el servicio de devolución de percepciones." },
+    { "q": "¿Qué tipo de cambio usa la tarjeta?", "a": "El dólar oficial vendedor del banco emisor al momento del cierre o del pago del resumen. La calculadora propone el promedio minorista vendedor que publica el BCRA; podés cambiarlo por el de tu banco." }
+  ]
+}

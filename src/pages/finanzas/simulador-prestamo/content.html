@@ -1,0 +1,83 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá el monto, la cantidad de cuotas y la tasa, y mirá cuánto vas a pagar por mes y en total, con la tabla de amortización completa.</p>
+
+<section class="tool" aria-label="Simulador de préstamo">
+  <form id="form-prestamo" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="monto">Monto del préstamo</label><input type="text" id="monto" class="money" inputmode="decimal" placeholder="Ej.: 1.000.000" autocomplete="off"></div>
+      <div class="field"><label for="cuotas">Cantidad de cuotas (meses)</label><input type="text" id="cuotas" inputmode="numeric" placeholder="Ej.: 12" autocomplete="off"></div>
+      <div class="field"><label for="tna">Tasa nominal anual (TNA %)</label><input type="text" id="tna" inputmode="decimal" placeholder="Ej.: 60" autocomplete="off"></div>
+      <fieldset class="field">
+        <legend>Sistema de amortización</legend>
+        <div class="segmented">
+          <label><input type="radio" name="sistema" value="frances" checked> Francés</label>
+          <label><input type="radio" name="sistema" value="aleman"> Alemán</label>
+        </div>
+      </fieldset>
+      <div class="field full"><label class="check"><input type="checkbox" id="iva" checked> Sumar IVA del 21 % sobre los intereses (préstamos personales)</label></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular cuotas</button></div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Cuota mensual</p>
+    <p class="result-main" id="res-cuota"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-total"></div><div class="stat-label">Total a pagar</div></div>
+      <div class="stat"><div class="stat-value" id="res-intereses"></div><div class="stat-label">Intereses + IVA</div></div>
+      <div class="stat"><div class="stat-value" id="res-tea"></div><div class="stat-label">TEA</div></div>
+      <div class="stat"><div class="stat-value" id="res-cea"></div><div class="stat-label">Costo efectivo con IVA</div></div>
+    </div>
+    <details class="more">
+      <summary>Ver tabla de amortización</summary>
+      <div class="table-wrap">
+        <table class="data-table">
+          <caption class="visually-hidden">Tabla de amortización</caption>
+          <thead><tr><th scope="col">N.º</th><th scope="col">Cuota</th><th scope="col">Interés + IVA</th><th scope="col">Capital</th><th scope="col">Saldo</th></tr></thead>
+          <tbody id="res-tabla"></tbody>
+        </table>
+      </div>
+    </details>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Cómo se calcula la cuota de un préstamo</h2>
+<p>Cuando pedís un préstamo, cada cuota tiene dos partes: la <strong>amortización</strong>, que es la devolución del capital, y los <strong>intereses</strong>, que se calculan sobre lo que todavía debés. En los préstamos personales se suma además el <strong>IVA del 21 % sobre los intereses</strong>. Cómo se reparte cada cuota depende del sistema de amortización.</p>
+<p>La tasa que informan los bancos es la <strong>TNA</strong> (tasa nominal anual). Para calcular el interés de cada mes se usa la tasa mensual, que es la TNA dividida por 12. Por ejemplo, una TNA del 60 % equivale a un 5 % mensual.</p>
+
+<h2>Sistema francés: cuota fija</h2>
+<p>Es el que usan casi todos los bancos para préstamos personales y prendarios. La cuota (sin IVA) es la misma todos los meses:</p>
+<p><strong>Cuota = monto × i ÷ (1 − (1 + i)<sup>−n</sup>)</strong></p>
+<p>donde <em>i</em> es la tasa mensual y <em>n</em> la cantidad de cuotas. En las primeras cuotas la mayor parte son intereses; con el tiempo, cada cuota devuelve más capital.</p>
+
+<h2>Sistema alemán: capital fijo</h2>
+<p>Se devuelve la misma porción de capital todos los meses (monto ÷ cuotas) y los intereses se calculan sobre el saldo. Las primeras cuotas son más altas, pero van bajando, y <strong>en total se pagan menos intereses</strong> que con el sistema francés. Se usa en algunos créditos hipotecarios.</p>
+{{ad:medio}}
+
+<h2>Ejemplo con números</h2>
+<p>Un préstamo de <strong>$ 1.000.000 en 12 cuotas con una TNA del 60 %</strong> (5 % mensual), con el sistema francés, tiene una cuota de <strong>$ 112.825,41</strong> antes del IVA. La primera cuota incluye $ 50.000 de intereses y $ 62.825,41 de capital. Con el IVA del 21 % sobre los intereses, la primera cuota llega a $ 123.325,41. En total se devuelven unos $ 1.353.905 más el IVA.</p>
+<p>Con el sistema alemán, el mismo préstamo empieza con una cuota de $ 133.333,33 (sin IVA): $ 83.333,33 de capital más $ 50.000 de intereses. La última cuota es de apenas $ 87.500.</p>
+
+<h2>TNA, TEA y costo financiero total</h2>
+<ul>
+  <li><strong>TNA:</strong> la tasa nominal anual, la que se publicita.</li>
+  <li><strong>TEA:</strong> la tasa efectiva anual, que considera la capitalización mensual. Siempre es mayor que la TNA.</li>
+  <li><strong>CFT:</strong> el costo financiero total, que suma IVA, seguros y cargos. Es el que tenés que comparar entre bancos.</li>
+</ul>
+<p>La calculadora muestra un <strong>costo efectivo con IVA</strong>: una aproximación al CFT que incluye el IVA pero no los seguros ni otros cargos, que dependen de cada banco.</p>
+
+<h2>Tasa fija, tasa variable y préstamos UVA</h2>
+<p>La mayoría de los préstamos personales tienen <strong>tasa fija</strong>: sabés desde el principio cuánto vas a pagar cada mes, y es lo que calcula este simulador. Algunos créditos tienen <strong>tasa variable</strong>, que se ajusta según una tasa de referencia, y los créditos <strong>UVA</strong> ajustan el capital por inflación y cobran una tasa baja por encima. En esos casos la cuota en pesos cambia todos los meses y el simulador sirve solo como referencia para el primer mes.</p>
+<p>Con inflación, una cuota fija en pesos pesa cada vez menos en tu sueldo si tus ingresos se actualizan. Por eso, además de la tasa, conviene comparar la tasa del préstamo con la inflación esperada: si la tasa mensual es menor que la inflación, en términos reales el préstamo se abarata con el tiempo. Podés hacer esa comparación en la calculadora de cuotas o contado.</p>
+
+<h2>Antes de pedir un préstamo</h2>
+<p>Asegurate de que la cuota no supere un tercio de tus ingresos. Compará el CFT de varias entidades y leé las condiciones de cancelación anticipada. La <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638/actualizacion" rel="noopener">Ley 24.240 de Defensa del Consumidor</a> obliga a informar en toda operación de crédito el monto financiado, la tasa de interés y el costo financiero total. El resultado de esta calculadora es orientativo.</p>
+</article>

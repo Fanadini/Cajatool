@@ -364,7 +364,10 @@ function build() {
       canonical,
       robots: page.type === 'error' ? 'noindex, follow' : 'index, follow',
       ogType: page.type === 'home' ? 'website' : 'article',
-      ogImage: `${SITE}/assets/img/og-default.png`,
+      // Imagen para compartir propia de la página (src/assets/img/og/<ruta>.png), o la general
+      ogImage: exists(path.join(SRC, 'assets', 'img', 'og', `${page.route.replace(/^\/|\/$/g, '').replace(/\//g, '-')}.png`))
+        ? `${SITE}/assets/img/og/${page.route.replace(/^\/|\/$/g, '').replace(/\//g, '-')}.png`
+        : `${SITE}/assets/img/og-default.png`,
       h1: escapeHtml(page.h1),
       updated: page.updated || '',
       updatedHuman: page.updated ? humanDate(page.updated) : '',

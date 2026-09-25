@@ -1,0 +1,98 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá el precio en dólares y calculá cuánto vas a pagar en pesos en el resumen de tu tarjeta, con todos los impuestos.</p>
+
+<section class="tool" aria-label="Calculadora de dólar tarjeta">
+  <form id="form-dolar" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="usd">Precio en dólares (USD)</label><input type="text" id="usd" inputmode="decimal" placeholder="Ej.: 10,99" autocomplete="off"></div>
+      <div class="field">
+        <label for="tc">Tipo de cambio oficial ($ por dólar)</label>
+        <input type="text" id="tc" inputmode="decimal" value="{{dtTc}}" autocomplete="off" aria-describedby="tc-hint">
+        <span class="hint" id="tc-hint">Minorista vendedor del BCRA al {{dtFecha}}.</span>
+      </div>
+      <fieldset class="field full">
+        <legend>¿Qué comprás?</legend>
+        <div class="segmented">
+          <label><input type="radio" name="tipo" value="digital" checked> Servicio digital (Netflix, Spotify, apps)</label>
+          <label><input type="radio" name="tipo" value="exterior"> Compra o viaje en el exterior</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="iibb">Percepción de Ingresos Brutos de tu provincia (%)</label>
+        <select id="iibb">
+          <option value="0">No sé / no aplica (0 %)</option><option value="2" selected>2 % (por ejemplo, CABA y Buenos Aires)</option>
+          <option value="3">3 %</option><option value="4">4 %</option><option value="5">5 %</option>
+        </select>
+      </div>
+      <div class="field"><label class="check"><input type="checkbox" id="propios"> Pago el resumen con dólares propios</label></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular precio en pesos</button></div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Vas a pagar</p>
+    <p class="result-main" id="res-total"></p>
+    <div class="table-wrap"><table class="data-table"><caption class="visually-hidden">Detalle de impuestos</caption><tbody id="res-tabla"></tbody></table></div>
+    <p class="hint" id="res-nota"></p>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué impuestos se pagan por comprar en dólares</h2>
+<p>Cuando pagás con tarjeta una suscripción, una compra online o un gasto en un viaje al exterior, el precio en dólares se convierte a pesos al tipo de cambio oficial y se le suman impuestos. Desde que terminó el impuesto PAIS, a fines de 2024, el llamado <strong>dólar tarjeta</strong> se compone así:</p>
+<ul>
+  <li><strong>Percepción del 30 %</strong> a cuenta de Ganancias o Bienes Personales, sobre todas las compras en el exterior y los servicios pagados a proveedores del exterior (<a href="https://www.argentina.gob.ar/normativa/nacional/resolucion-5617-2024-407430/actualizacion" rel="noopener">RG ARCA 5617/2024</a>).</li>
+  <li><strong>IVA del 21 %</strong> en los servicios digitales prestados desde el exterior: streaming, música, apps, juegos, almacenamiento en la nube o publicidad en redes.</li>
+  <li><strong>Percepción de Ingresos Brutos</strong> de tu provincia, que suele estar entre el 2 % y el 5 % y se aplica principalmente a servicios digitales.</li>
+</ul>
+{{ad:medio}}
+
+<h2>Cómo se calcula</h2>
+<p><strong>Precio en pesos = dólares × tipo de cambio × (1 + 30 % + IVA 21 % si es digital + IIBB)</strong></p>
+<p>Todos los porcentajes se calculan sobre el precio convertido a pesos. Para un servicio digital con IIBB del 2 %, el total es 1,53 veces el precio al dólar oficial. Para un gasto en un viaje sin IVA ni IIBB, es 1,30 veces.</p>
+
+<h2>Ejemplo con números</h2>
+<p>Una suscripción de <strong>USD 10</strong> con el dólar oficial a {{dtTcTxt}} (BCRA, {{dtFecha}}):</p>
+<table>
+  <thead><tr><th>Concepto</th><th>Monto</th></tr></thead>
+  <tbody>
+    <tr><td>Precio al dólar oficial</td><td>{{dtBase}}</td></tr>
+    <tr><td>IVA servicios digitales (21 %)</td><td>{{dtIva}}</td></tr>
+    <tr><td>Percepción Ganancias/Bienes Personales (30 %)</td><td>{{dtPerc}}</td></tr>
+    <tr><td>Percepción IIBB (2 %)</td><td>{{dtIibb}}</td></tr>
+    <tr><td><strong>Total en el resumen</strong></td><td><strong>{{dtTotal}}</strong></td></tr>
+  </tbody>
+</table>
+<p>Cada dólar te sale, en la práctica, <strong>{{dtEfectivo}}</strong>.</p>
+
+<h2>Qué compras están alcanzadas</h2>
+<p>La percepción del 30 % se aplica a casi todo lo que pagás en moneda extranjera con tarjeta de crédito, débito o billeteras virtuales vinculadas:</p>
+<ul>
+  <li>Suscripciones y servicios digitales: streaming, música, software, juegos, almacenamiento en la nube, inteligencia artificial y publicidad en redes.</li>
+  <li>Compras en tiendas online del exterior.</li>
+  <li>Gastos durante un viaje: hoteles, restaurantes, transporte y compras en comercios del exterior.</li>
+  <li>Extracciones de efectivo en cajeros del exterior con tarjeta de débito o adelantos con tarjeta de crédito.</li>
+  <li>Pasajes y paquetes turísticos al exterior comprados en agencias o aerolíneas del país.</li>
+</ul>
+<p>El IVA del 21 % se cobra solo en los servicios digitales. En cambio, los gastos durante un viaje o la compra de productos físicos en el exterior no tienen IVA argentino por la tarjeta, aunque los envíos pueden pagar impuestos al ingresar al país.</p>
+
+<h2>Cuándo se cobra</h2>
+<p>La percepción se cobra en el resumen de la tarjeta de crédito, al momento de pagarlo, o en la fecha de débito si usás tarjeta de débito. Por eso el tipo de cambio que se aplica es el del día del pago y no el de la compra.</p>
+
+<h2>Cómo pagar menos</h2>
+<ul>
+  <li><strong>Pagá el resumen con dólares propios:</strong> si tenés una cuenta en dólares, podés cancelar el saldo en dólares y no se aplica la percepción del 30 %. El IVA de los servicios digitales se cobra igual.</li>
+  <li><strong>Recuperá la percepción:</strong> es un pago a cuenta. Si pagás Ganancias o Bienes Personales, la descontás en tu declaración jurada. Si no estás inscripto, podés pedir la devolución en ARCA.</li>
+  <li><strong>Compará con el precio en pesos:</strong> algunos servicios ofrecen planes facturados en pesos que no tienen la percepción.</li>
+</ul>
+
+<h2>Fuentes y aclaraciones</h2>
+<p>El tipo de cambio propuesto es el promedio minorista vendedor que publica el BCRA y se actualiza cada semana. Tu banco puede usar un valor un poco distinto, del día del cierre o del pago del resumen. Las alícuotas de Ingresos Brutos dependen de cada provincia y pueden cambiar. El resultado es orientativo.</p>
+</article>

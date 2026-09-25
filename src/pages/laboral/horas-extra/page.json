@@ -1,0 +1,20 @@
+{
+  "type": "tool",
+  "category": "laboral",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de horas extra 2026 | Cajatool",
+  "description": "Calculá cuánto cobrás por horas extra al 50 % y al 100 % según la Ley de Contrato de Trabajo. Valor de la hora, recargo y total a cobrar.",
+  "h1": "Calculadora de horas extra 2026",
+  "breadcrumb": "Horas extra",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": { "order": 6, "name": "Horas extra", "desc": "Cuánto cobrás por horas extra al 50 % y al 100 % según la LCT.", "keywords": "horas extra extras 50 100 suplementarias valor hora recargo sabado domingo feriado" },
+  "related": ["/laboral/sueldo-neto/", "/laboral/aguinaldo/", "/laboral/indemnizacion-despido/"],
+  "faq": [
+    { "q": "¿Cuánto se paga la hora extra?", "a": "Según el artículo 201 de la Ley de Contrato de Trabajo, con un recargo del 50 % sobre el valor de la hora común en días hábiles, y del 100 % los sábados después de las 13, los domingos y los feriados." },
+    { "q": "¿Cómo se calcula el valor de la hora?", "a": "Dividiendo el sueldo mensual por las horas que se trabajan en un mes. Con una jornada de 48 horas semanales se suelen usar 200 horas (como en el convenio de comercio) o 208 horas (48 × 52 ÷ 12). Revisá cuál usa tu convenio." },
+    { "q": "¿Cuántas horas extra se pueden hacer?", "a": "El Decreto 484/2000 fija un máximo de 3 horas extra por día, 30 por mes y 200 por año, sin necesidad de autorización administrativa previa. Siempre hay que respetar el descanso de 12 horas entre jornadas." },
+    { "q": "¿Qué cambió con la reforma laboral de 2026?", "a": "La Ley 27.802 permite acordar por escrito un banco de horas o francos compensatorios, en lugar de pagar las horas extra, siempre que sea voluntario, con límites y con un registro fehaciente. El recargo del 50 % y el 100 % se mantiene cuando las horas se pagan." },
+    { "q": "¿Las horas extra pagan aportes y Ganancias?", "a": "Pagan aportes como cualquier concepto remunerativo. En Ganancias, las horas extra de los trabajadores en relación de dependencia están exentas en la parte que corresponde al recargo, según la ley del impuesto." }
+  ]
+}

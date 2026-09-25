@@ -1,0 +1,19 @@
+{
+  "type": "tool",
+  "category": "impuestos",
+  "appCategory": "FinanceApplication",
+  "title": "Calculadora de IVA 2026: agregar o quitar IVA | Cajatool",
+  "description": "Sumá o descontá el IVA de un precio en segundos: 21 %, 10,5 %, 27 %, 5 % y 2,5 %. Neto, IVA y total con formato argentino. Gratis.",
+  "h1": "Calculadora de IVA 2026",
+  "breadcrumb": "Calculadora de IVA",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": { "order": 2, "name": "Calculadora de IVA", "desc": "Agregá o quitá el IVA de un precio: 21 %, 10,5 %, 27 % y más.", "keywords": "iva calcular agregar quitar descontar sumar 21 10,5 27 precio neto factura" },
+  "related": ["/impuestos/monotributo/", "/finanzas/dolar-tarjeta/", "/laboral/sueldo-neto/"],
+  "faq": [
+    { "q": "¿Cómo le saco el IVA a un precio?", "a": "Dividí el precio final por 1,21 si la alícuota es del 21 %. Por ejemplo, $ 121.000 ÷ 1,21 = $ 100.000 de precio neto, y la diferencia ($ 21.000) es el IVA. No sirve restar el 21 % del total: daría $ 95.590, que es incorrecto." },
+    { "q": "¿Qué alícuotas de IVA hay en Argentina?", "a": "La general es del 21 %. Hay una reducida del 10,5 % (por ejemplo, algunos alimentos, medicina prepaga, transporte y bienes de capital), una del 27 % para servicios como luz, gas y teléfono facturados a empresas y responsables inscriptos, y alícuotas especiales del 5 % y 2,5 % para algunos productos." },
+    { "q": "¿Los monotributistas cobran IVA?", "a": "No. Los monotributistas emiten factura C, sin IVA discriminado, porque el impuesto integrado de su cuota reemplaza al IVA. Solo los responsables inscriptos discriminan IVA en sus facturas A o B." },
+    { "q": "¿Qué es el precio neto?", "a": "Es el precio sin impuestos. Sobre ese valor se calcula el IVA, y la suma de los dos es el precio final que paga el consumidor." }
+  ]
+}

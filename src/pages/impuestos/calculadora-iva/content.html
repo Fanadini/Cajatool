@@ -1,0 +1,85 @@
+<h1>{{h1}}</h1>
+<p class="lead">Sumá el IVA a un precio neto o descontalo de un precio final, con todas las alícuotas vigentes en Argentina.</p>
+
+<section class="tool" aria-label="Calculadora de IVA">
+  <form id="form-iva" novalidate>
+    <div class="form-grid">
+      <fieldset class="field full">
+        <legend>¿Qué querés hacer?</legend>
+        <div class="segmented">
+          <label><input type="radio" name="modo" value="agregar" checked> Agregar IVA</label>
+          <label><input type="radio" name="modo" value="quitar"> Quitar IVA</label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="monto" id="monto-label">Precio sin IVA (neto)</label><input type="text" id="monto" class="money" inputmode="decimal" placeholder="Ej.: 100.000" autocomplete="off"></div>
+      <div class="field">
+        <label for="alicuota">Alícuota</label>
+        <select id="alicuota"><option value="21" selected>21 % (general)</option><option value="10.5">10,5 % (reducida)</option><option value="27">27 % (servicios)</option><option value="5">5 %</option><option value="2.5">2,5 %</option></select>
+      </div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p>
+    <p class="result-main" id="res-main"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-neto"></div><div class="stat-label">Neto</div></div>
+      <div class="stat"><div class="stat-value" id="res-iva"></div><div class="stat-label" id="res-iva-label">IVA</div></div>
+      <div class="stat"><div class="stat-value" id="res-total"></div><div class="stat-label">Total con IVA</div></div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué es el IVA</h2>
+<p>El Impuesto al Valor Agregado (IVA) es un impuesto nacional al consumo que se aplica sobre la venta de bienes, la prestación de servicios y las importaciones. Lo cobran los <strong>responsables inscriptos</strong> en cada venta y lo ingresan a ARCA, descontando el IVA que ellos pagaron en sus compras. Al final de la cadena, quien lo paga es el consumidor.</p>
+
+<h2>Cómo agregar el IVA a un precio</h2>
+<p>Multiplicá el precio neto por 1 más la alícuota:</p>
+<p><strong>Precio final = neto × (1 + alícuota)</strong></p>
+<p>Con la alícuota general del 21 %: $ 100.000 × 1,21 = <strong>$ 121.000</strong>, de los cuales $ 21.000 son IVA.</p>
+
+<h2>Cómo quitar el IVA de un precio</h2>
+<p>Es el error más común: al precio final <strong>no hay que restarle el 21 %</strong>, sino dividirlo por 1,21.</p>
+<p><strong>Precio neto = precio final ÷ (1 + alícuota)</strong></p>
+<p>Por ejemplo, $ 121.000 ÷ 1,21 = <strong>$ 100.000</strong>. Si restaras el 21 % de $ 121.000 obtendrías $ 95.590, que es incorrecto: el IVA se calcula sobre el neto, no sobre el total.</p>
+{{ad:medio}}
+
+<h2>Cómo usar la calculadora</h2>
+<p>Elegí si querés agregar o quitar el impuesto, cargá el monto y la alícuota que corresponde. La calculadora muestra el neto, el IVA y el total, redondeados a dos decimales como en una factura. Es útil para armar presupuestos, controlar facturas de proveedores, calcular el precio de venta de un producto o saber cuánto IVA pagaste en una compra.</p>
+
+<h2>Alícuotas de IVA vigentes</h2>
+<table>
+  <thead><tr><th>Alícuota</th><th>Se aplica a (ejemplos)</th></tr></thead>
+  <tbody>
+    <tr><td>21 %</td><td>Alícuota general: la mayoría de los bienes y servicios.</td></tr>
+    <tr><td>10,5 %</td><td>Carne, frutas y verduras frescas, pan, medicina prepaga, transporte de pasajeros, bienes de capital, algunas obras de vivienda.</td></tr>
+    <tr><td>27 %</td><td>Luz, gas, agua y telecomunicaciones cuando se facturan a responsables inscriptos y empresas.</td></tr>
+    <tr><td>5 % y 2,5 %</td><td>Algunos productos específicos, como ciertos diarios, revistas y alimentos.</td></tr>
+  </tbody>
+</table>
+<p>Algunos bienes y servicios están <strong>exentos</strong>, como los libros, la educación en establecimientos oficiales o los alquileres de vivienda. Ante una duda sobre un producto puntual, revisá la ley o consultá con tu contador.</p>
+
+<h2>IVA, facturas y monotributo</h2>
+<ul>
+  <li><strong>Factura A:</strong> entre responsables inscriptos. El IVA figura discriminado y el comprador puede computarlo como crédito fiscal.</li>
+  <li><strong>Factura B:</strong> de un responsable inscripto a un consumidor final o a un monotributista. El precio incluye el IVA.</li>
+  <li><strong>Factura C:</strong> la emiten los monotributistas y no discrimina IVA, porque su cuota mensual ya incluye un impuesto integrado que lo reemplaza.</li>
+</ul>
+<p>Desde 2025, por el régimen de transparencia fiscal, los tickets y facturas a consumidores finales deben informar el IVA contenido en el precio, para que sepas cuánto impuesto pagás en cada compra.</p>
+
+<h2>Débito fiscal, crédito fiscal y cuánto se paga</h2>
+<p>Un responsable inscripto no paga todo el IVA que cobra. Cada mes suma el IVA de sus ventas (<strong>débito fiscal</strong>), le resta el IVA de sus compras (<strong>crédito fiscal</strong>) e ingresa a ARCA solo la diferencia. Por ejemplo, un comercio que en el mes vendió por $ 1.000.000 más IVA ($ 210.000 de débito) y compró mercadería por $ 600.000 más IVA ($ 126.000 de crédito) paga $ 84.000 de IVA ese mes.</p>
+<p>Por eso es importante pedir factura A cuando comprás para tu actividad: te permite descontar ese IVA. Si el crédito fiscal es mayor que el débito, queda un saldo a favor para los meses siguientes. La declaración jurada de IVA se presenta todos los meses, con vencimientos según la terminación del CUIT.</p>
+
+<h2>Marco legal</h2>
+<p>El IVA está regulado por la <a href="https://www.argentina.gob.ar/normativa/nacional/decreto-280-1997-42701/actualizacion" rel="noopener">Ley de Impuesto al Valor Agregado (texto ordenado por el Decreto 280/97)</a>, que fija la alícuota general del 21 % y las reducidas y diferenciales. El resultado de esta calculadora es orientativo.</p>
+</article>

@@ -1,0 +1,72 @@
+<h1>{{h1}}</h1>
+<p class="lead">Cargá tu sueldo y las horas extra que hiciste en el mes para saber cuánto te corresponde cobrar.</p>
+
+<section class="tool" aria-label="Calculadora de horas extra">
+  <form id="form-he" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="sueldo">Sueldo bruto mensual</label><input type="text" id="sueldo" class="money" inputmode="decimal" placeholder="Ej.: 1.040.000" autocomplete="off"></div>
+      <div class="field">
+        <label for="divisor">Horas mensuales (divisor)</label>
+        <select id="divisor">
+          <option value="208" selected>208 h (jornada de 48 h semanales)</option><option value="200">200 h (convenio de comercio y otros)</option>
+          <option value="173.33">173 h (jornada de 40 h semanales)</option><option value="156">156 h (jornada de 36 h semanales)</option>
+        </select>
+      </div>
+      <div class="field"><label for="h50">Horas extra al 50 % (días hábiles)</label><input type="text" id="h50" inputmode="decimal" placeholder="Ej.: 10" autocomplete="off"></div>
+      <div class="field"><label for="h100">Horas extra al 100 % (sábado después de las 13, domingo y feriado)</label><input type="text" id="h100" inputmode="decimal" placeholder="Ej.: 4" autocomplete="off"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular horas extra</button></div>
+  </form>
+
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Total por horas extra (bruto)</p>
+    <p class="result-main" id="res-total"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-hora"></div><div class="stat-label">Valor hora común</div></div>
+      <div class="stat"><div class="stat-value" id="res-50"></div><div class="stat-label" id="res-50-l">Al 50 %</div></div>
+      <div class="stat"><div class="stat-value" id="res-100"></div><div class="stat-label" id="res-100-l">Al 100 %</div></div>
+    </div>
+    <div class="actions">
+      <button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button>
+      <button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button>
+    </div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+
+<article class="article">
+<h2>Qué son las horas extra</h2>
+<p>Las horas extra, o <strong>horas suplementarias</strong>, son las que trabajás por encima de tu jornada normal. En Argentina la jornada máxima legal es de 8 horas diarias o 48 semanales (Ley 11.544), aunque muchos convenios fijan jornadas menores. Toda hora trabajada por encima de ese límite se paga con un recargo.</p>
+
+<h2>Cuánto se paga cada hora extra</h2>
+<p>El <a href="https://www.argentina.gob.ar/normativa/nacional/ley-20744-25552/actualizacion" rel="noopener">artículo 201 de la Ley de Contrato de Trabajo</a> fija dos recargos sobre el valor de la hora común:</p>
+<ul>
+  <li><strong>50 %:</strong> horas extra en días comunes (de lunes a viernes, y sábados antes de las 13).</li>
+  <li><strong>100 %:</strong> horas extra los sábados después de las 13, los domingos y los feriados.</li>
+</ul>
+<p>El recargo corresponde aunque el empleador no haya pedido autorización administrativa para las horas extra.</p>
+{{ad:medio}}
+
+<h2>Cómo se calcula el valor de la hora</h2>
+<p><strong>Valor hora = sueldo mensual ÷ horas trabajadas en el mes</strong></p>
+<p>El divisor depende de tu jornada y de tu convenio. Con 48 horas semanales, el cálculo exacto es 48 × 52 semanas ÷ 12 meses = <strong>208 horas</strong>. Muchos convenios, como el de empleados de comercio, usan <strong>200 horas</strong>. Si tu jornada es de 40 horas semanales, el divisor es de unas 173 horas. Revisá tu convenio o tu recibo: a veces el valor de la hora figura directamente.</p>
+<p><strong>Hora al 50 % = valor hora × 1,5</strong> · <strong>Hora al 100 % = valor hora × 2</strong></p>
+
+<h2>Ejemplo con números</h2>
+<p>Lucía cobra <strong>$ 1.040.000</strong> por mes con una jornada de 48 horas semanales. Su hora común vale 1.040.000 ÷ 208 = <strong>$ 5.000</strong>. En septiembre hizo 10 horas extra entre semana y 4 horas un domingo:</p>
+<ul>
+  <li>10 horas al 50 %: 10 × $ 7.500 = <strong>$ 75.000</strong>.</li>
+  <li>4 horas al 100 %: 4 × $ 10.000 = <strong>$ 40.000</strong>.</li>
+  <li>Total por horas extra: <strong>$ 115.000</strong> brutos, que se suman a su sueldo del mes.</li>
+</ul>
+
+<h2>Cómo aparecen en el recibo y qué hacer si no te las pagan</h2>
+<p>Las horas extra figuran en el recibo como un concepto separado, por ejemplo «Horas extra 50 %» y «Horas extra 100 %», con la cantidad de horas y el valor de cada una. Controlá que la cantidad coincida con tu registro personal y que el valor de la hora esté bien calculado. Conviene anotar cada día la hora de entrada y de salida: si hay un reclamo, ese registro ayuda a probar las horas trabajadas.</p>
+<p>Si no te pagan las horas extra, primero consultalo con Recursos Humanos o con tu delegado gremial. Si no se resuelve, podés intimar al empleador por carta documento y reclamar ante el organismo laboral de tu provincia. Las diferencias salariales se pueden reclamar hasta dos años hacia atrás, que es el plazo de prescripción de los créditos laborales.</p>
+
+<h2>Límites y banco de horas</h2>
+<p>El Decreto 484/2000 fija un tope de <strong>3 horas extra por día, 30 por mes y 200 por año</strong>, y siempre se debe respetar un descanso mínimo de 12 horas entre jornadas. La <a href="https://www.argentina.gob.ar/normativa/nacional/norma-423680/texto" rel="noopener">Ley 27.802 de 2026</a> permite que el empleador y el trabajador acuerden por escrito un <strong>banco de horas</strong> o francos compensatorios en lugar de pagar las horas extra, siempre que el acuerdo sea voluntario, fije límites y tenga un registro fehaciente de las horas. Si las horas se pagan, los recargos del 50 % y el 100 % se mantienen.</p>
+<p>Las horas extra son remunerativas: tienen aportes y se tienen en cuenta para el aguinaldo y las vacaciones cuando son habituales. El resultado de esta calculadora es orientativo; tu convenio puede tener recargos más altos.</p>
+</article>

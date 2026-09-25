@@ -1,0 +1,20 @@
+{
+  "type": "tool",
+  "category": "finanzas",
+  "appCategory": "FinanceApplication",
+  "title": "Simulador de préstamo personal 2026 | Cajatool",
+  "description": "Calculá la cuota de tu préstamo con sistema francés o alemán: tabla de amortización, intereses, IVA y costo efectivo anual. Gratis y sin registro.",
+  "h1": "Simulador de préstamo personal 2026",
+  "breadcrumb": "Simulador de préstamo",
+  "updated": "2026-09-25",
+  "scripts": ["calc.js", "script.js"],
+  "card": { "order": 7, "name": "Simulador de préstamo", "desc": "Cuota con sistema francés o alemán, tabla de amortización y costo real.", "keywords": "prestamo personal cuota simulador sistema frances aleman amortizacion tna tea cft credito" },
+  "related": ["/finanzas/cuotas-o-contado/", "/finanzas/plazo-fijo/", "/laboral/sueldo-neto/"],
+  "faq": [
+    { "q": "¿Cómo se calcula la cuota de un préstamo?", "a": "Con el sistema francés, el más usado por los bancos, la cuota es fija: cuota = monto × i ÷ (1 − (1 + i)^−n), donde i es la tasa mensual (TNA ÷ 12) y n la cantidad de cuotas. Al principio la cuota tiene más intereses y al final, más capital." },
+    { "q": "¿Qué diferencia hay entre el sistema francés y el alemán?", "a": "En el francés la cuota es siempre la misma. En el alemán se devuelve la misma parte de capital todos los meses y los intereses se calculan sobre lo que falta, así que las cuotas empiezan más altas y van bajando. En el alemán se pagan menos intereses en total." },
+    { "q": "¿Los préstamos personales pagan IVA?", "a": "Sí. Los intereses de los préstamos personales para consumo tienen un IVA del 21 %, que se suma a cada cuota. Por eso el costo real es mayor que la tasa que se publicita." },
+    { "q": "¿Qué es el CFT y por qué importa?", "a": "El costo financiero total incluye la tasa de interés, el IVA, los seguros y todos los cargos. Es el número que hay que usar para comparar préstamos entre bancos. La ley obliga a informarlo en toda oferta de crédito." },
+    { "q": "¿Conviene cancelar un préstamo antes de tiempo?", "a": "Suele convenir, porque dejás de pagar los intereses futuros. La ley permite la cancelación anticipada; puede haber una comisión si todavía no pasó una cuarta parte del plazo o 180 días, lo que sea mayor. Consultá las condiciones de tu contrato." }
+  ]
+}

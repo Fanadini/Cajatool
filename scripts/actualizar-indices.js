@@ -80,14 +80,31 @@ async function plazoFijo() {
   };
 }
 
+async function dolar() {
+  // Tipo de cambio minorista, promedio vendedor (variable 4), último dato disponible
+  const hasta = new Date().toISOString().slice(0, 10);
+  const desde = new Date(Date.now() - 20 * 86400000).toISOString().slice(0, 10);
+  const json = await getJson(`https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/4?desde=${desde}&hasta=${hasta}`);
+  const ult = json.results[0].detalle.sort((a, b) => b.fecha.localeCompare(a.fecha))[0];
+  return {
+    descripcion: 'Tipo de cambio minorista, promedio vendedor (pesos por dólar)',
+    fuente: 'https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp',
+    api: 'https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/4',
+    actualizado: today,
+    fecha: ult.fecha,
+    valor: Math.round(ult.valor * 100) / 100
+  };
+}
+
 (async () => {
   const current = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
-  const [iclData, ipcData, pfData] = await Promise.all([icl(), ipc(), plazoFijo()]);
-  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData };
+  const [iclData, ipcData, pfData, usdData] = await Promise.all([icl(), ipc(), plazoFijo(), dolar()]);
+  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData, dolar: usdData };
   fs.writeFileSync(FILE, JSON.stringify(data, null, 1) + '\n');
   console.log(`ICL: ${iclData.desde} a ${iclData.hasta} (${iclData.valores.length} días)`);
   console.log(`IPC: ${ipcData.desde} a ${ipcData.hasta}`);
   console.log(`Plazo fijo: ${pfData.tna} % TNA (${pfData.fecha})`);
+  console.log(`Dólar minorista: $ ${usdData.valor} (${usdData.fecha})`);
 })().catch((e) => {
   console.error('Error actualizando índices:', e.message);
   process.exit(1);
