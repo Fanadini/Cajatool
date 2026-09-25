@@ -1,7 +1,7 @@
 <h1>{{h1}}</h1>
 <p class="lead">Consultá el próximo feriado, calculá cuántos días hábiles hay entre dos fechas o en qué fecha vence un plazo de días hábiles.</p>
 <section class="tool" aria-label="Calculadora de días hábiles y feriados">
-  <div class="result" id="proximo" aria-live="polite" style="margin-top:0"><p class="result-label">Próximo feriado</p><p class="result-main" id="prox-main"></p><p id="prox-sig" class="hint"></p></div>
+  <div class="result" id="proximo" aria-live="polite" style="margin-top:0"><p class="result-label">Próximo feriado</p><p class="result-main" id="prox-main">{{proxMain}}</p><p id="prox-sig" class="hint">{{proxSig}}</p></div>
   <form id="form-fer" novalidate style="margin-top:1rem">
     <fieldset class="field"><legend>¿Qué querés calcular?</legend>
       <div class="segmented"><label><input type="radio" name="modo" value="entre" checked> Días hábiles entre fechas</label><label><input type="radio" name="modo" value="sumar"> Sumar días hábiles</label></div>
