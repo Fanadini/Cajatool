@@ -1,4 +1,4 @@
-name: Actualizar datos oficiales (ICL, IPC, BCRA, monotributo y m²)
+name: Actualizar datos oficiales (ICL, IPC, BCRA, monotributo, feriados y m²)
 
 on:
   schedule:
@@ -24,6 +24,9 @@ jobs:
           node-version: 22
       - run: node scripts/actualizar-indices.js
       - run: node scripts/actualizar-monotributo.js
+      - name: Feriados (argentina.gob.ar)
+        continue-on-error: true
+        run: node scripts/actualizar-feriados.js
       - name: Valor del m² en CABA (trimestral; si el IEC cambia el archivo, se avisa sin frenar el resto)
         continue-on-error: true
         run: pip install -q openpyxl && python3 scripts/actualizar-m2.py

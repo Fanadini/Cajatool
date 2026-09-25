@@ -96,15 +96,35 @@ async function dolar() {
   };
 }
 
+async function uva() {
+  // Unidad de Valor Adquisitivo (variable 31), último dato
+  const hasta = new Date(Date.now() + 40 * 86400000).toISOString().slice(0, 10);
+  const desde = new Date(Date.now() - 20 * 86400000).toISOString().slice(0, 10);
+  const json = await getJson(`https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/31?desde=${desde}&hasta=${hasta}`);
+  const hoy = new Date().toISOString().slice(0, 10);
+  const ult = json.results[0].detalle.filter((d) => d.fecha <= hoy).sort((a, b) => b.fecha.localeCompare(a.fecha))[0];
+  return { descripcion: 'Unidad de Valor Adquisitivo (UVA), base 31/3/2016 = 14,05', fuente: 'https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp', api: 'https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/31', actualizado: today, fecha: ult.fecha, valor: ult.valor };
+}
+
+async function bancos() {
+  // Entidades financieras y sus códigos (los 3 primeros dígitos del CBU)
+  const json = await getJson('https://api.bcra.gob.ar/cheques/v1.0/entidades');
+  const lista = {};
+  for (const e of json.results) lista[String(e.codigoEntidad).padStart(3, '0')] = e.denominacion.trim();
+  return lista;
+}
+
 (async () => {
   const current = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
-  const [iclData, ipcData, pfData, usdData] = await Promise.all([icl(), ipc(), plazoFijo(), dolar()]);
-  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData, dolar: usdData };
+  const [iclData, ipcData, pfData, usdData, uvaData, bancosData] = await Promise.all([icl(), ipc(), plazoFijo(), dolar(), uva(), bancos()]);
+  const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData, dolar: usdData, uva: uvaData };
+  fs.writeFileSync(path.join(__dirname, '..', 'data', 'bancos.json'), JSON.stringify({ actualizado: today, fuente: 'https://api.bcra.gob.ar/cheques/v1.0/entidades', descripcion: 'Entidades financieras por código (3 primeros dígitos del CBU), según el BCRA', entidades: bancosData }, null, 1) + '\n');
   fs.writeFileSync(FILE, JSON.stringify(data, null, 1) + '\n');
   console.log(`ICL: ${iclData.desde} a ${iclData.hasta} (${iclData.valores.length} días)`);
   console.log(`IPC: ${ipcData.desde} a ${ipcData.hasta}`);
   console.log(`Plazo fijo: ${pfData.tna} % TNA (${pfData.fecha})`);
   console.log(`Dólar minorista: $ ${usdData.valor} (${usdData.fecha})`);
+  console.log(`UVA: ${uvaData.valor} (${uvaData.fecha}) · Bancos: ${Object.keys(bancosData).length}`);
 })().catch((e) => {
   console.error('Error actualizando índices:', e.message);
   process.exit(1);

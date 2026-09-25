@@ -2507,5 +2507,13 @@
   "actualizado": "2026-09-25",
   "fecha": "2026-09-24",
   "valor": 1538.39
+ },
+ "uva": {
+  "descripcion": "Unidad de Valor Adquisitivo (UVA), base 31/3/2016 = 14,05",
+  "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp",
+  "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/31",
+  "actualizado": "2026-09-25",
+  "fecha": "2026-09-25",
+  "valor": 2132.48
  }
 }

@@ -1,0 +1,13 @@
+{
+ "actualizado": "2026-09-25",
+ "vigencia": "2026-10",
+ "norma": "Resolución ANSES 284/2026",
+ "fuente": "https://www.boletinoficial.gob.ar/detalleAviso/primera/347832/20260923",
+ "notas": "Montos mensuales en pesos. ANSES los actualiza todos los meses por movilidad (IPC). Cargar a mano la resolución de cada mes.",
+ "haberMinimo": 435748.51,
+ "haberMaximo": 2932174.85,
+ "pbu": 199335.05,
+ "puam": 348598.81,
+ "baseImponibleMaxima": 4769631.49,
+ "requisitos": { "edadHombre": 65, "edadMujer": 60, "aniosAportes": 30, "edadPuam": 65 }
+}

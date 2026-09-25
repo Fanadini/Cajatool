@@ -18,6 +18,10 @@ Los datos que cambian viven en `/data`. Cada archivo o bloque tiene `actualizado
 | `ganancias.json` → `deducciones` y `escala` | Deducciones del art. 30 y escala del art. 94 (retenciones de 4.ª categoría) | Julio a diciembre de 2026 | **Manual, en enero y julio**: copiar los valores de los PDF nuevos de ARCA | [Deducciones](https://www.afip.gob.ar/gananciasYBienes/ganancias/personas-humanas-sucesiones-indivisas/deducciones/documentos/Deducciones-personales-art-30-jul-dic-2026.pdf) · [Escala](https://www.afip.gob.ar/gananciasYBienes/ganancias/personas-humanas-sucesiones-indivisas/declaracion-jurada/documentos/Tabla-Art-94-LIG-per-jul-a-dic-2026.pdf) |
 | `ganancias.json` → `topeAportes` | Base imponible máxima de aportes | Septiembre ($ 4.691.748,47) y octubre 2026 ($ 4.769.631,49) | **Manual, mensual**: agregar la resolución de ANSES de cada mes (Boletín Oficial). Si falta, se usa el último cargado; solo afecta sueldos mayores al tope | [Res. ANSES 284/2026](https://www.boletinoficial.gob.ar/detalleAviso/primera/347832/20260923) |
 | `indices.json` → `casaPropia` | Coeficiente Casa Propia mensual | 03/2023 a 11/2026 | **Manual**: bajar el PDF nuevo y copiar los coeficientes | [Ministerio – Coeficiente Casa Propia](https://www.argentina.gob.ar/obras-publicas/coeficiente-casa-propia) |
+| `indices.json` → `uva` | Valor diario de la UVA | Último dato | Automático, todos los lunes (`scripts/actualizar-indices.js`) | [BCRA](https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp) · API variable 31 |
+| `bancos.json` | Códigos de entidades financieras (para validar CBU) | Listado vigente | Automático, todos los lunes (`scripts/actualizar-indices.js`) | API BCRA `cheques/v1.0/entidades` |
+| `feriados.json` | Feriados nacionales, días no laborables y feriados puente del año actual y el siguiente | 2026 | Automático, todos los lunes (`scripts/actualizar-feriados.js`). En enero, renombrar la página `feriados-2026` al año nuevo | [argentina.gob.ar – Feriados](https://www.argentina.gob.ar/feriados) |
+| `anses.json` | Haber mínimo y máximo, PBU, PUAM y base imponible máxima (simulador de jubilación) | Octubre 2026 (Res. ANSES 284/2026) | **Manual, mensual**: copiar los montos de la resolución de movilidad de cada mes (Boletín Oficial), junto con el tope de aportes de `ganancias.json` | [Boletín Oficial](https://www.boletinoficial.gob.ar/detalleAviso/primera/347832/20260923) |
 | `monotributo.json` | 11 categorías, topes y cuotas | Desde 01/08/2026 | Automático, todos los lunes (`scripts/actualizar-monotributo.js`) | [ARCA – Categorías vigentes](https://www.afip.gob.ar/monotributo/categorias.asp) |
 
 ## Valores escritos en el texto de las páginas (revisar a mano)
@@ -38,10 +42,10 @@ Estos números están en los textos explicativos y ejemplos. No cambian solos cu
 
 ## Calendario sugerido
 
-- **Cada mes:** agregar el tope de aportes de ANSES en `ganancias.json` → `topeAportes` (sale a fin del mes anterior en el Boletín Oficial).
+- **Cada mes:** actualizar `anses.json` y agregar el tope de aportes de ANSES en `ganancias.json` → `topeAportes` (sale a fin del mes anterior en el Boletín Oficial).
 - **Enero y julio:** cargar las nuevas deducciones y escala de Ganancias de ARCA en `ganancias.json`.
 
-- **Todos los lunes (automático):** ICL, IPC y monotributo. Si ARCA cambia el formato de su página, el workflow falla y GitHub te avisa por email.
+- **Todos los lunes (automático):** ICL, IPC, UVA, tasas, dólar, bancos, feriados, m² y monotributo. Si ARCA cambia el formato de su página, el workflow falla y GitHub te avisa por email.
 - **Febrero y agosto:** revisar los ejemplos de monotributo.
 - **Cada 2 o 3 meses:** revisar si hay un PDF nuevo de Casa Propia (solo mientras sigan vigentes contratos firmados entre el 17/10/2023 y el 28/12/2023).
 - **Enero:** cambiar «2026» por el año nuevo en títulos y H1.
