@@ -1,0 +1,15 @@
+{
+  "type": "tool", "category": "finanzas", "appCategory": "FinanceApplication",
+  "title": "Actualizar un monto por inflación (IPC) 2026 | Cajatool",
+  "description": "Calculá cuánto vale hoy un monto del pasado según la inflación del INDEC. Actualizá precios, deudas o sueldos por IPC entre dos meses cualesquiera.",
+  "h1": "Calculadora para actualizar un monto por inflación 2026",
+  "breadcrumb": "Actualizar por inflación", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 2, "name": "Actualizar por inflación", "desc": "Cuánto vale hoy un monto del pasado según el IPC del INDEC.", "keywords": "actualizar monto inflacion ipc indec cuanto vale hoy pesos de hoy deuda precio" },
+  "related": ["/finanzas/plazo-fijo/", "/alquiler/ajuste-alquiler/", "/finanzas/cuotas-o-contado/"],
+  "faq": [
+    { "q": "¿Cómo se actualiza un monto por inflación?", "a": "Se multiplica el monto por el cociente entre el índice de precios del mes de destino y el del mes de origen. Por ejemplo, si el IPC subió de 100 a 150, $ 10.000 de entonces equivalen a $ 15.000 de hoy." },
+    { "q": "¿Qué índice usa la calculadora?", "a": "El IPC nacional, nivel general, que publica el INDEC todos los meses. Es el índice oficial de inflación de la Argentina. Los datos se actualizan automáticamente cada semana." },
+    { "q": "¿Sirve para actualizar una deuda o un alquiler?", "a": "Sirve como referencia. Si un contrato o una sentencia establece otro índice (ICL, CER, UVA o una tasa de interés), hay que usar ese. Para alquileres tenés la calculadora de ajuste de alquiler." },
+    { "q": "¿Por qué no está el último mes?", "a": "El INDEC publica el IPC de cada mes a mediados del mes siguiente. Por eso el último dato disponible suele ser el de hace uno o dos meses." }
+  ]
+}

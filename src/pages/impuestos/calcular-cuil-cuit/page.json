@@ -1,0 +1,15 @@
+{
+  "type": "tool", "category": "impuestos", "appCategory": "UtilitiesApplication",
+  "title": "Calcular CUIL y CUIT con el DNI 2026 | Cajatool",
+  "description": "Obtené tu CUIL o CUIT a partir del DNI y verificá si un número de CUIT es válido. Cálculo instantáneo del dígito verificador, sin datos personales.",
+  "h1": "Calcular CUIL o CUIT con el DNI",
+  "breadcrumb": "Calcular CUIL/CUIT", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 3, "name": "Calcular CUIL/CUIT", "desc": "Tu CUIL o CUIT a partir del DNI y validación de un número.", "keywords": "cuil cuit calcular dni digito verificador validar numero constancia" },
+  "related": ["/impuestos/monotributo/", "/finanzas/validar-cbu/", "/impuestos/calculadora-iva/"],
+  "faq": [
+    { "q": "¿Qué diferencia hay entre CUIL y CUIT?", "a": "Tienen el mismo formato. El CUIL lo asigna ANSES a todas las personas para trabajar en relación de dependencia y acceder a la seguridad social. El CUIT lo otorga ARCA a quienes realizan actividades económicas por su cuenta, como monotributistas o responsables inscriptos. Para una persona, el número suele ser el mismo." },
+    { "q": "¿El número que da la calculadora es oficial?", "a": "Es el resultado del algoritmo que usan ANSES y ARCA, y coincide con el número asignado en la gran mayoría de los casos. Sin embargo, el número oficial es el que figura en tu constancia de CUIL de ANSES o de inscripción de ARCA; en casos excepcionales puede haber diferencias." },
+    { "q": "¿Qué significan los primeros dos números?", "a": "Indican el tipo de persona: 20 para varones, 27 para mujeres, 23 o 24 cuando el cálculo con el prefijo habitual no es posible, y 30, 33 o 34 para empresas y otras personas jurídicas." },
+    { "q": "¿Esta página guarda mi DNI?", "a": "No. El cálculo se hace en tu navegador y el número no se envía a ningún servidor." }
+  ]
+}

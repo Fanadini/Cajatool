@@ -1,0 +1,15 @@
+{
+  "type": "tool", "category": "finanzas", "appCategory": "UtilitiesApplication",
+  "title": "Validar CBU o CVU: ¿de qué banco es? 2026 | Cajatool",
+  "description": "Verificá si un CBU o CVU es válido y averiguá de qué banco es antes de transferir. Chequeo de los dígitos verificadores, gratis y sin enviar datos.",
+  "h1": "Validar CBU o CVU y saber de qué banco es",
+  "breadcrumb": "Validar CBU/CVU", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 9, "name": "Validar CBU/CVU", "desc": "Verificá un CBU o CVU y averiguá de qué banco es antes de transferir.", "keywords": "cbu cvu validar verificar de que banco es transferencia alias numero cuenta" },
+  "related": ["/impuestos/calcular-cuil-cuit/", "/finanzas/plazo-fijo/", "/finanzas/simulador-prestamo/"],
+  "faq": [
+    { "q": "¿Cómo sé de qué banco es un CBU?", "a": "Por los tres primeros dígitos, que identifican a la entidad financiera según el código del BCRA. Por ejemplo, 011 es el Banco de la Nación Argentina, 007 el Banco Galicia y 072 el Banco Santander. La calculadora lo muestra automáticamente." },
+    { "q": "¿Qué diferencia hay entre CBU y CVU?", "a": "El CBU identifica una cuenta bancaria. El CVU identifica una cuenta en una billetera virtual o proveedor de servicios de pago (como Mercado Pago o Ualá) y siempre empieza con 000. Los dos tienen 22 dígitos y sirven para transferir." },
+    { "q": "¿Un CBU válido garantiza que la cuenta existe?", "a": "No. La validación confirma que los dígitos verificadores son correctos, lo que detecta casi todos los errores de tipeo. Para confirmar el titular, al transferir el home banking muestra el nombre y el CUIT del destinatario: revisalo siempre antes de confirmar." },
+    { "q": "¿Es seguro pegar un CBU acá?", "a": "Sí. La validación se hace en tu navegador y el número no se envía a ningún servidor. Igualmente, un CBU no permite sacar dinero de una cuenta: solo sirve para recibir transferencias." }
+  ]
+}

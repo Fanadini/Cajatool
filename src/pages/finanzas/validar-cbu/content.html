@@ -1,0 +1,47 @@
+<h1>{{h1}}</h1>
+<p class="lead">Pegá un CBU o CVU de 22 dígitos para verificar que esté bien escrito y ver a qué entidad corresponde, antes de hacer una transferencia.</p>
+<section class="tool" aria-label="Validador de CBU y CVU">
+  <form id="form-cbu" novalidate>
+    <div class="field"><label for="cbu">CBU o CVU</label><input type="text" id="cbu" inputmode="numeric" placeholder="22 dígitos" autocomplete="off" maxlength="30"></div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Validar</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p><p class="result-main" id="res-main"></p>
+    <div class="table-wrap"><table class="data-table"><caption class="visually-hidden">Detalle del CBU</caption><tbody id="res-tabla"></tbody></table></div>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Qué es el CBU y el CVU</h2>
+<p>La <strong>Clave Bancaria Uniforme (CBU)</strong> es el número de 22 dígitos que identifica una cuenta en un banco argentino. La <strong>Clave Virtual Uniforme (CVU)</strong> cumple la misma función para las cuentas de billeteras virtuales y otros proveedores de servicios de pago. Los dos sirven para recibir transferencias inmediatas, y a los dos se les puede asociar un alias más fácil de recordar.</p>
+<h2>Cómo está formado un CBU</h2>
+<p>Un CBU tiene dos bloques:</p>
+<ul>
+  <li><strong>Primer bloque (8 dígitos):</strong> 3 dígitos de código de la entidad, 4 de la sucursal y 1 dígito verificador.</li>
+  <li><strong>Segundo bloque (14 dígitos):</strong> 13 dígitos del número de cuenta y 1 dígito verificador.</li>
+</ul>
+<p>El CVU tiene la misma estructura, pero empieza siempre con <strong>000</strong>, seguido del código del proveedor de servicios de pago.</p>
+{{ad:medio}}
+<h2>Cómo se validan los dígitos verificadores</h2>
+<p>Cada bloque tiene un dígito de control que se calcula con los anteriores. En el primer bloque, los 7 primeros dígitos se multiplican por los pesos 7, 1, 3, 9, 7, 1 y 3; en el segundo, los 13 primeros por 3, 9, 7, 1, 3, 9, 7, 1, 3, 9, 7, 1 y 3. Se suman los productos, y el dígito verificador es lo que le falta a esa suma para llegar a la siguiente decena. Si un dígito está mal copiado o dos están invertidos, casi siempre el verificador deja de coincidir y la calculadora lo detecta.</p>
+<h2>Cómo usar el validador</h2>
+<p>Pegá el número con o sin espacios ni guiones: la herramienta toma solo los dígitos. En cuanto completás los 22, muestra si es válido, el tipo de cuenta y la entidad.</p>
+
+<h2>Cómo identificar el banco</h2>
+<p>Los tres primeros dígitos del CBU corresponden al código de la entidad que asigna el BCRA. Algunos ejemplos: 011 es el Banco de la Nación Argentina, 014 el Banco de la Provincia de Buenos Aires, 007 el Banco Galicia, 017 el BBVA, 072 el Santander, 285 el Macro, 029 el Banco Ciudad y 191 el Credicoop. La calculadora usa el listado de entidades publicado por el BCRA, que se actualiza automáticamente. Si el código no aparece en ese listado, te lo indica en lugar de adivinar el nombre.</p>
+<h2>CBU, CVU y alias</h2>
+<p>El alias es una forma de identificar una cuenta con palabras, más fácil de recordar que 22 dígitos. Cada CBU o CVU puede tener un alias, que el titular puede cambiar desde su banco o billetera. Al transferir por alias, el sistema busca el CBU o CVU asociado y muestra el nombre y el CUIT del titular. Si te pasan un alias, no hace falta validar el CBU; si te pasan el número, esta herramienta te ayuda a detectar errores antes de cargarlo.</p>
+<p>Para las transferencias inmediatas no importa si la cuenta de destino es de un banco o de una billetera virtual: el dinero se acredita en segundos, las 24 horas, todos los días. Si transferís a una cuenta equivocada, tenés que pedir la devolución a través de tu banco, y la recuperación depende de que el receptor acepte devolver el dinero.</p>
+
+<h2>Antes de transferir</h2>
+<ul>
+  <li>Validá el número, sobre todo si lo copiaste de un mensaje o de una foto.</li>
+  <li>Al confirmar la transferencia, revisá que el <strong>nombre y el CUIT del titular</strong> que muestra tu banco coincidan con la persona o empresa a la que querés pagar.</li>
+  <li>Desconfiá si alguien te pide transferir a un CBU distinto del habitual o con urgencia: es una modalidad frecuente de estafa.</li>
+</ul>
+<p>Las transferencias inmediatas entre cuentas del país están reguladas por el BCRA. Esta herramienta no se conecta con ningún banco: solo verifica el formato del número en tu navegador. El listado de entidades proviene de la <a href="https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp" rel="noopener">información pública del BCRA</a>.</p>
+</article>
+{{data:bancos}}

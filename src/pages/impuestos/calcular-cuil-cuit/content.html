@@ -1,0 +1,54 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá un DNI para obtener el CUIL o CUIT que le corresponde, o pegá un número de CUIT para verificar si es válido.</p>
+<section class="tool" aria-label="Calculadora de CUIL y CUIT">
+  <form id="form-cuit" novalidate>
+    <fieldset class="field"><legend>¿Qué querés hacer?</legend>
+      <div class="segmented"><label><input type="radio" name="modo" value="calcular" checked> Calcular desde el DNI</label><label><input type="radio" name="modo" value="validar"> Validar un CUIT/CUIL</label></div>
+    </fieldset>
+    <div class="form-grid" style="margin-top:.85rem">
+      <div class="field" data-modo="calcular"><label for="dni">DNI</label><input type="text" id="dni" inputmode="numeric" placeholder="Ej.: 30123456" autocomplete="off"></div>
+      <div class="field" data-modo="calcular"><label for="tipo">Tipo</label><select id="tipo"><option value="hombre">Persona de género masculino (20)</option><option value="mujer">Persona de género femenino (27)</option><option value="empresa">Empresa o persona jurídica (30)</option></select></div>
+      <div class="field full" data-modo="validar" hidden><label for="numero">CUIT o CUIL</label><input type="text" id="numero" inputmode="numeric" placeholder="Ej.: 20-30123456-7" autocomplete="off"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p><p class="result-main" id="res-main"></p><p class="hint" id="res-nota"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-main">Copiar número</button></div>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Qué es el CUIL y el CUIT</h2>
+<p>El <strong>CUIL</strong> (Código Único de Identificación Laboral) y el <strong>CUIT</strong> (Clave Única de Identificación Tributaria) son números de 11 dígitos que identifican a cada persona ante la seguridad social y ante el fisco. El CUIL lo asigna ANSES y se usa para trabajar en relación de dependencia, cobrar asignaciones o jubilarse. El CUIT lo otorga ARCA cuando alguien empieza una actividad económica por su cuenta, como monotributista o responsable inscripto. En las personas, los dos números suelen coincidir.</p>
+<h2>Cómo se forma el número</h2>
+<p>Tiene tres partes: <strong>XX-NNNNNNNN-V</strong>.</p>
+<ul>
+  <li><strong>Prefijo (2 dígitos):</strong> 20 para varones, 27 para mujeres, 23 o 24 en algunos casos especiales, y 30, 33 o 34 para personas jurídicas.</li>
+  <li><strong>Número de documento (8 dígitos):</strong> el DNI, completado con ceros a la izquierda si tiene 7 cifras.</li>
+  <li><strong>Dígito verificador (1 dígito):</strong> se calcula con los 10 anteriores para detectar errores de tipeo.</li>
+</ul>
+{{ad:medio}}
+<h2>Cómo se calcula el dígito verificador</h2>
+<p>Se usa el algoritmo de <strong>módulo 11</strong>: cada uno de los 10 primeros dígitos se multiplica por un peso (5, 4, 3, 2, 7, 6, 5, 4, 3 y 2), se suman los resultados y se calcula el resto de dividir esa suma por 11. El dígito verificador es 11 menos ese resto. Si da 11, el dígito es 0. Si da 10, no se puede usar ese prefijo: para personas se cambia a 23 y el dígito pasa a ser 9 en varones y 4 en mujeres.</p>
+<h2>Ejemplo</h2>
+<p>Para el DNI 12.345.678 de un varón, se arma 20-12345678 y se multiplica cada dígito por su peso: 2×5 + 0×4 + 1×3 + 2×2 + 3×7 + 4×6 + 5×5 + 6×4 + 7×3 + 8×2 = 148. El resto de 148 ÷ 11 es 5, y 11 − 5 = 6. El CUIL es <strong>20-12345678-6</strong>.</p>
+<h2>Personas jurídicas</h2>
+<p>Las sociedades, asociaciones, fundaciones y otras personas jurídicas tienen CUIT con prefijo 30, 33 o 34. En su caso, los ocho dígitos del medio no corresponden a un DNI: los asigna ARCA al inscribir la entidad. Por eso, para empresas la opción de validar es la más útil.</p>
+
+<h2>Para qué sirve validar un CUIT</h2>
+<p>Antes de emitir una factura, cargar un proveedor o hacer una transferencia, conviene verificar que el número esté bien escrito. La validación detecta la mayoría de los errores de tipeo, porque un dígito cambiado altera el verificador. Que un CUIT sea válido matemáticamente no significa que esté activo ni que pertenezca a quien dice: para eso hay que consultar la constancia de inscripción en el sitio de ARCA.</p>
+<h2>Cuándo te piden el CUIL o el CUIT</h2>
+<ul>
+  <li><strong>Al empezar un trabajo:</strong> el empleador necesita tu CUIL para darte de alta y hacer los aportes.</li>
+  <li><strong>Para trámites en ANSES:</strong> asignaciones familiares, prestaciones por desempleo, jubilaciones y pensiones.</li>
+  <li><strong>Para facturar:</strong> monotributistas y responsables inscriptos necesitan su CUIT y el de sus clientes.</li>
+  <li><strong>En bancos y billeteras virtuales:</strong> para abrir una cuenta o identificar al titular de una transferencia.</li>
+  <li><strong>En compras y contratos:</strong> escrituras, alquileres, seguros y trámites en organismos públicos.</li>
+</ul>
+<p>Si todavía no tenés CUIL porque es tu primer empleo, podés tramitarlo en ANSES con tu DNI. El CUIT se obtiene al inscribirte en ARCA con tu clave fiscal.</p>
+
+<h2>Dónde obtener la constancia oficial</h2>
+<p>La constancia de CUIL se descarga gratis desde el sitio de <a href="https://www.anses.gob.ar/" rel="noopener">ANSES</a>, con el DNI. La constancia de inscripción de CUIT se consulta en el sitio de <a href="https://www.afip.gob.ar/" rel="noopener">ARCA</a>. Si tu DNI dice «X» en el campo de sexo, el número se asigna igual que el resto: consultá tu constancia para conocer el prefijo. Esta calculadora no guarda ni envía los datos que ingresás.</p>
+</article>

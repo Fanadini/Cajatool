@@ -1,0 +1,61 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá un monto y elegí dos meses: te decimos cuánto vale ese dinero en pesos del otro mes, según la inflación oficial del INDEC.</p>
+<section class="tool" aria-label="Calculadora de actualización por inflación">
+  <form id="form-inf" novalidate data-min="{{ipDesde}}" data-max="{{ipHasta}}">
+    <div class="form-grid">
+      <div class="field full"><label for="monto">Monto en pesos</label><input type="text" id="monto" class="money" inputmode="decimal" placeholder="Ej.: 100.000" autocomplete="off"></div>
+      <div class="field"><label for="desde">Mes de origen</label><input type="month" id="desde" min="{{ipDesde}}" max="{{ipHasta}}"></div>
+      <div class="field"><label for="hasta">Mes de destino</label><input type="month" id="hasta" min="{{ipDesde}}" max="{{ipHasta}}" value="{{ipHasta}}"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Actualizar</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p>
+    <p class="result-main" id="res-main"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-acum"></div><div class="stat-label">Inflación acumulada</div></div>
+      <div class="stat"><div class="stat-value" id="res-prom"></div><div class="stat-label">Promedio mensual</div></div>
+      <div class="stat"><div class="stat-value" id="res-meses"></div><div class="stat-label">Meses</div></div>
+    </div>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Para qué sirve actualizar un monto por inflación</h2>
+<p>Con inflación, un mismo monto en pesos compra cada vez menos. Por eso, para comparar precios, sueldos o deudas de distintas épocas hay que expresarlos en <strong>pesos de un mismo momento</strong>. Esta calculadora lo hace con el Índice de Precios al Consumidor (IPC) del INDEC, el indicador oficial de inflación.</p>
+<p>Algunos usos habituales:</p>
+<ul>
+  <li>Saber si tu sueldo le ganó o le perdió a la inflación en el último año.</li>
+  <li>Comparar el precio actual de un producto o servicio con el que pagabas antes.</li>
+  <li>Estimar cuánto debería valer hoy una deuda, una cuota o un presupuesto viejo.</li>
+  <li>Actualizar montos de un contrato cuando las partes acordaron usar el IPC.</li>
+</ul>
+<h2>Cómo se calcula</h2>
+<p>El IPC es un número índice: mide el costo de una canasta de bienes y servicios respecto de un período base (diciembre de 2016 = 100). Para actualizar un monto se usa el cociente entre el índice de los dos meses:</p>
+<p><strong>Monto actualizado = monto × IPC del mes de destino ÷ IPC del mes de origen</strong></p>
+<p>La inflación acumulada es ese cociente menos uno. Las variaciones mensuales no se suman: se multiplican. Tres meses de 2 % no dan un 6 %, sino un 6,12 %.</p>
+{{ad:medio}}
+<h2>Ejemplos con los últimos datos</h2>
+<p>Con el IPC publicado hasta {{ipHastaTxt}}:</p>
+<ul>
+  <li>$ 100.000 de {{ipHace1Txt}} equivalen a <strong>{{ipE1}}</strong> de {{ipHastaTxt}}: una inflación del {{ipE1Pct}} % en un año.</li>
+  <li>$ 100.000 de {{ipHace3Txt}} equivalen a <strong>{{ipE3}}</strong>: un {{ipE3Pct}} % en tres años.</li>
+</ul>
+<p>Si tu sueldo aumentó menos que esos porcentajes en el mismo período, perdió poder de compra. También funciona al revés: podés elegir un mes de destino anterior al de origen para saber cuánto valía un monto actual en pesos del pasado.</p>
+<h2>¿Tu sueldo le ganó a la inflación?</h2>
+<p>Es uno de los usos más frecuentes. Cargá tu sueldo bruto de hace un año como monto, elegí ese mes como origen y el último mes disponible como destino. El resultado es el sueldo que tendrías que cobrar hoy para mantener el mismo poder de compra. Si tu sueldo actual es mayor, tuviste una mejora real; si es menor, perdiste poder adquisitivo. La diferencia porcentual entre los dos es tu variación de salario real.</p>
+<p>Lo mismo sirve para precios: si un servicio que pagabas $ 20.000 hace un año hoy cuesta $ 32.000, compará ese aumento con la inflación del período para saber si subió más o menos que el resto de los precios.</p>
+
+<h2>Limitaciones del cálculo</h2>
+<p>El IPC mide la inflación promedio de una canasta de consumo típica. Cada hogar consume distinto: si gastás más en alquiler, transporte o salud, tu inflación personal puede ser mayor o menor que la oficial. Además, el índice nacional promedia las regiones del país; el INDEC también publica datos por región (GBA, Pampeana, Noreste, Noroeste, Cuyo y Patagonia) y por categorías, como alimentos o servicios regulados.</p>
+<p>Para deudas judiciales, créditos o contratos que fijan otro mecanismo de actualización —el CER, las UVA, el ICL o una tasa de interés—, hay que usar el índice que indique cada caso. Esta calculadora es una referencia útil para comparar valores en el tiempo.</p>
+<h2>Cómo usar la calculadora</h2>
+<p>Ingresá el monto, elegí el mes en que tenía ese valor y el mes al que querés llevarlo. El resultado muestra el monto equivalente, la inflación acumulada entre los dos meses y el promedio mensual del período.</p>
+
+<h2>Fuente de los datos</h2>
+<p>Los valores del <a href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" rel="noopener">IPC nacional del INDEC</a> se obtienen de la API oficial de series de tiempo de datos.gob.ar y se actualizan automáticamente cada semana. La serie disponible va desde diciembre de 2016, cuando empezó el IPC nacional actual, hasta el último mes publicado.</p>
+</article>
+{{data:indices}}

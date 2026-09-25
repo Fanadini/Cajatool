@@ -1,0 +1,15 @@
+{
+  "type": "tool", "category": "utilidades", "appCategory": "UtilitiesApplication",
+  "title": "Feriados 2026 Argentina y días hábiles | Cajatool",
+  "description": "Todos los feriados 2026 de Argentina, el próximo feriado y una calculadora de días hábiles entre fechas o para sumar días hábiles a un plazo.",
+  "h1": "Feriados 2026 en Argentina y calculadora de días hábiles",
+  "breadcrumb": "Feriados 2026", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 1, "name": "Feriados 2026 y días hábiles", "desc": "Próximo feriado, calendario oficial y días hábiles entre fechas.", "keywords": "feriados 2026 proximo feriado dias habiles fin de semana largo calendario no laborable" },
+  "related": ["/laboral/vacaciones/", "/utilidades/husos-horarios/", "/laboral/horas-extra/"],
+  "faq": [
+    { "q": "¿Cuántos feriados hay en 2026?", "a": "El calendario oficial tiene {{ferCantidad}} feriados nacionales (inamovibles y trasladables) y {{ferTuristicos}} días no laborables con fines turísticos, además de días no laborables para quienes profesan determinadas religiones." },
+    { "q": "¿Qué diferencia hay entre feriado y día no laborable?", "a": "En un feriado nacional no se trabaja, y quien trabaja cobra el día doble. En un día no laborable, el empleador del sector privado decide si se trabaja; si se trabaja, se paga como un día común. Los días no laborables con fines turísticos rigen para la administración pública nacional." },
+    { "q": "¿Qué es un feriado trasladable?", "a": "Es un feriado que el Gobierno puede mover a un lunes para armar un fin de semana largo, según la Ley 27.399. Los inamovibles, como el 25 de mayo o el 9 de julio, se celebran siempre en su fecha." },
+    { "q": "¿Cómo se cuentan los días hábiles?", "a": "Son los días de lunes a viernes que no son feriados. Para plazos administrativos también suelen excluirse los días no laborables. La calculadora permite elegir si contar o no los días no laborables turísticos." }
+  ]
+}

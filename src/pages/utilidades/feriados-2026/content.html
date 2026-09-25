@@ -1,0 +1,46 @@
+<h1>{{h1}}</h1>
+<p class="lead">Consultá el próximo feriado, calculá cuántos días hábiles hay entre dos fechas o en qué fecha vence un plazo de días hábiles.</p>
+<section class="tool" aria-label="Calculadora de días hábiles y feriados">
+  <div class="result" id="proximo" aria-live="polite" style="margin-top:0"><p class="result-label">Próximo feriado</p><p class="result-main" id="prox-main"></p><p id="prox-sig" class="hint"></p></div>
+  <form id="form-fer" novalidate style="margin-top:1rem">
+    <fieldset class="field"><legend>¿Qué querés calcular?</legend>
+      <div class="segmented"><label><input type="radio" name="modo" value="entre" checked> Días hábiles entre fechas</label><label><input type="radio" name="modo" value="sumar"> Sumar días hábiles</label></div>
+    </fieldset>
+    <div class="form-grid" style="margin-top:.85rem">
+      <div class="field"><label for="desde">Desde</label><input type="date" id="desde"></div>
+      <div class="field" data-modo="entre"><label for="hasta">Hasta</label><input type="date" id="hasta"></div>
+      <div class="field" data-modo="sumar" hidden><label for="dias">Días hábiles a sumar</label><input type="text" id="dias" inputmode="numeric" placeholder="Ej.: 10" autocomplete="off"></div>
+      <div class="field full"><label class="check"><input type="checkbox" id="turisticos" checked> No contar los días no laborables turísticos como hábiles</label></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p><p class="result-main" id="res-main"></p><p class="hint" id="res-nota"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Feriados nacionales 2026</h2>
+<p>Este es el calendario oficial de feriados y días no laborables con fines turísticos de 2026, según el Gobierno nacional. Los datos se actualizan automáticamente si hay cambios.</p>
+{{ferTabla}}
+<p>Además, son días no laborables para quienes profesan las religiones judía o islámica: {{ferReligiosos}}.</p>
+{{ad:medio}}
+<h2>Tipos de feriados</h2>
+<ul>
+  <li><strong>Inamovibles:</strong> se celebran siempre en su fecha, como el 1 de enero, el 24 de marzo, el 25 de mayo, el 9 de julio o el 25 de diciembre.</li>
+  <li><strong>Trasladables:</strong> el Poder Ejecutivo puede moverlos a un lunes para armar fines de semana largos, según la Ley 27.399.</li>
+  <li><strong>Días no laborables con fines turísticos:</strong> el Gobierno fija hasta tres por año. Son obligatorios para la administración pública nacional y optativos para el sector privado.</li>
+  <li><strong>Días no laborables religiosos:</strong> rigen solo para quienes profesan esa religión.</li>
+</ul>
+<h2>Cómo se cobra un feriado</h2>
+<p>Según la Ley de Contrato de Trabajo, en los feriados nacionales rigen las mismas reglas que para el descanso dominical: quien no trabaja cobra el día igual, y quien trabaja cobra el día <strong>doble</strong>. En los días no laborables, si el empleador decide que se trabaje, el día se paga en forma simple. Tu convenio colectivo puede tener reglas más favorables.</p>
+<h2>Cómo usar la calculadora de días hábiles</h2>
+<p>Los días hábiles son los días de lunes a viernes que no son feriados. Son la base de muchos plazos: la presentación de un reclamo, el pago de una liquidación final (cuatro días hábiles), la respuesta a una carta documento, los vencimientos en organismos públicos o la entrega de un trabajo. Con la opción «Días hábiles entre fechas» sabés cuántos hay en un período, con las dos fechas incluidas. Con «Sumar días hábiles» obtenés la fecha de vencimiento de un plazo que empieza a contar desde el día siguiente a la fecha de inicio.</p>
+<p>Para plazos judiciales o administrativos pueden existir días inhábiles adicionales, como las ferias judiciales de enero y de invierno o los asuetos de cada organismo. Verificá siempre las reglas del trámite que estés haciendo.</p>
+<h2>Fuente</h2>
+<p>El calendario sale de la publicación oficial de <a href="https://www.argentina.gob.ar/feriados" rel="noopener">feriados nacionales de argentina.gob.ar</a>. Las provincias y municipios pueden fijar feriados locales que no están incluidos en esta lista.</p>
+</article>
+{{data:feriados}}
