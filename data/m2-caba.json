@@ -3,6 +3,178 @@
  "fuente": "https://www.estadisticaciudad.gob.ar/eyc/categoria-banco-datos/mercado-inmobiliario/",
  "descripcion": "Precio promedio de publicación del m² (dólares) de departamentos en venta por barrio. Instituto de Estadística y Censos de la Ciudad de Buenos Aires, sobre avisos de Argenprop. Son precios de oferta, no de cierre.",
  "series": {
+  "1-usado": {
+   "descripcion": "1 ambiente usado",
+   "periodo": "2026-T2",
+   "provisorio": true,
+   "archivo": "https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2025/01/MI_DVP_AX10.xlsx",
+   "barrios": {
+    "Total": {
+     "usd": 2561,
+     "anioAnterior": 2537
+    },
+    "Agronomía": {
+     "usd": 2537,
+     "anioAnterior": null
+    },
+    "Almagro": {
+     "usd": 2437,
+     "anioAnterior": 2399
+    },
+    "Balvanera": {
+     "usd": 2023,
+     "anioAnterior": 2070
+    },
+    "Barracas": {
+     "usd": 2104,
+     "anioAnterior": 2060
+    },
+    "Belgrano": {
+     "usd": 3270,
+     "anioAnterior": 3154
+    },
+    "Boca": {
+     "usd": 1529,
+     "anioAnterior": 1555
+    },
+    "Boedo": {
+     "usd": 2173,
+     "anioAnterior": 2092
+    },
+    "Caballito": {
+     "usd": 2432,
+     "anioAnterior": 2490
+    },
+    "Chacarita": {
+     "usd": 2827,
+     "anioAnterior": 2740
+    },
+    "Coghlan": {
+     "usd": 2761,
+     "anioAnterior": 2666
+    },
+    "Colegiales": {
+     "usd": 3116,
+     "anioAnterior": 3005
+    },
+    "Constitución": {
+     "usd": 1986,
+     "anioAnterior": 2000
+    },
+    "Flores": {
+     "usd": 2190,
+     "anioAnterior": 2171
+    },
+    "Floresta": {
+     "usd": 1933,
+     "anioAnterior": 2069
+    },
+    "La Paternal": {
+     "usd": 2468,
+     "anioAnterior": null
+    },
+    "Liniers": {
+     "usd": 2066,
+     "anioAnterior": 2024
+    },
+    "Mataderos": {
+     "usd": 2089,
+     "anioAnterior": 2038
+    },
+    "Monte Castro": {
+     "usd": 2176,
+     "anioAnterior": 2180
+    },
+    "Montserrat": {
+     "usd": 2249,
+     "anioAnterior": 2245
+    },
+    "Núñez": {
+     "usd": 3098,
+     "anioAnterior": 3197
+    },
+    "Palermo": {
+     "usd": 3172,
+     "anioAnterior": 3155
+    },
+    "Parque Chacabuco": {
+     "usd": 2410,
+     "anioAnterior": 2365
+    },
+    "Parque Chas": {
+     "usd": 2477,
+     "anioAnterior": 2527
+    },
+    "Puerto Madero": {
+     "usd": 6296,
+     "anioAnterior": 5865
+    },
+    "Recoleta": {
+     "usd": 2890,
+     "anioAnterior": 2811
+    },
+    "Retiro": {
+     "usd": 2363,
+     "anioAnterior": 2425
+    },
+    "Saavedra": {
+     "usd": 2719,
+     "anioAnterior": 2726
+    },
+    "San Cristóbal": {
+     "usd": 2060,
+     "anioAnterior": 2008
+    },
+    "San Nicolás": {
+     "usd": 1950,
+     "anioAnterior": 2043
+    },
+    "San Telmo": {
+     "usd": 2227,
+     "anioAnterior": 2336
+    },
+    "Vélez Sarsfield": {
+     "usd": 1974,
+     "anioAnterior": 1851
+    },
+    "Villa Crespo": {
+     "usd": 2624,
+     "anioAnterior": 2573
+    },
+    "Villa del Parque": {
+     "usd": 2549,
+     "anioAnterior": 2399
+    },
+    "Villa Devoto": {
+     "usd": 2559,
+     "anioAnterior": 2501
+    },
+    "Villa Gral. Mitre": {
+     "usd": 2320,
+     "anioAnterior": 2245
+    },
+    "Villa Luro": {
+     "usd": 2264,
+     "anioAnterior": 2149
+    },
+    "Villa Ortúzar": {
+     "usd": 2519,
+     "anioAnterior": 2570
+    },
+    "Villa Pueyrredón": {
+     "usd": 2542,
+     "anioAnterior": 2389
+    },
+    "Villa Santa Rita": {
+     "usd": 2107,
+     "anioAnterior": 2162
+    },
+    "Villa Urquiza": {
+     "usd": 2776,
+     "anioAnterior": 2728
+    }
+   }
+  },
   "2-estrenar": {
    "descripcion": "2 ambientes a estrenar",
    "periodo": "2026-T2",

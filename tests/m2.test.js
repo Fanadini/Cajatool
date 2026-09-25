@@ -26,7 +26,7 @@ test('sin precio: estima el valor con el promedio del barrio; barrio sin dato us
 });
 
 test('datos oficiales cargados: 4 series con promedio de la Ciudad y fuente del IEC', () => {
-  assert.deepStrictEqual(Object.keys(real.series).sort(), ['2-estrenar', '2-usado', '3-estrenar', '3-usado']);
+  assert.deepStrictEqual(Object.keys(real.series).sort(), ['1-usado', '2-estrenar', '2-usado', '3-estrenar', '3-usado']);
   for (const s of Object.values(real.series)) {
     assert.ok(/^\d{4}-T[1-4]$/.test(s.periodo));
     assert.ok(s.barrios.Total.usd > 500 && s.barrios.Total.usd < 10000);
@@ -37,4 +37,11 @@ test('datos oficiales cargados: 4 series con promedio de la Ciudad y fuente del 
 test('validaciones', () => {
   assert.throws(() => M.calcular({ cubierta: 0, precio: 1 }));
   assert.throws(() => M.calcular({ cubierta: 50 })); // sin precio ni barrio
+});
+
+test('4 ambientes o más: usa la serie de 3 ambientes y lo marca como aproximado', () => {
+  const r = M.calcular({ cubierta: 90, barrio: 'Total', serie: '4-usado' }, real);
+  assert.strictEqual(r.referencia.aproximado, true);
+  assert.strictEqual(r.referencia.usd, real.series['3-usado'].barrios.Total.usd);
+  assert.strictEqual(M.calcular({ cubierta: 30, serie: '1-usado' }, real).referencia.usd, real.series['1-usado'].barrios.Total.usd);
 });

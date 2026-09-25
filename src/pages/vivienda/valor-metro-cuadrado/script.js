@@ -36,7 +36,7 @@
     $('res-ref-l').textContent = 'Promedio de ' + nombre;
     $('res-est').textContent = n0(r.valorEstimado);
     var t = ref.periodo.split('-T');
-    $('res-nota').textContent = (ref.sinDato ? 'No hay datos suficientes de ese barrio para este tipo de departamento: se usa el promedio de la Ciudad. ' : '') +
+    $('res-nota').textContent = (ref.aproximado ? 'No hay datos oficiales de 4 ambientes o más: se usa el promedio de 3 ambientes como aproximación. ' : '') + (ref.sinDato ? 'No hay datos suficientes de ese barrio para este tipo de departamento: se usa el promedio de la Ciudad. ' : '') +
       'Precios de publicación del ' + t[1] + '.º trimestre de ' + t[0] + (ref.provisorio ? ' (provisorios)' : '') + ', IEC de la Ciudad de Buenos Aires.' +
       (ref.variacionAnual !== null ? ' Variación anual: ' + (ref.variacionAnual > 0 ? '+' : '') + F.fmtPercent(ref.variacionAnual, 1) + '.' : '');
     $('res-resumen').textContent = (r.usdM2 ? 'Valor del m²: ' + n0(r.usdM2) + ' (' + F.fmtNumber(r.superficie, 1) + ' m²). ' : '') +

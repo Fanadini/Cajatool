@@ -7,12 +7,13 @@ Uso: pip install openpyxl && python3 scripts/actualizar-m2.py
 import io, json, datetime, urllib.request, openpyxl, warnings
 warnings.filterwarnings('ignore')
 
-BASE = 'https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/2026/01/'
-ARCHIVOS = {  # clave: (archivo, descripción)
-    '2-estrenar': ('MI_DVP_AX01.xlsx', '2 ambientes a estrenar'),
-    '3-estrenar': ('MI_DVP_AX02.xlsx', '3 ambientes a estrenar'),
-    '2-usado': ('MI_DVP_AX03.xlsx', '2 ambientes usados'),
-    '3-usado': ('MI_DVP_AX04.xlsx', '3 ambientes usados'),
+BASE = 'https://www.estadisticaciudad.gob.ar/eyc/wp-content/uploads/'
+ARCHIVOS = {  # clave: (archivo relativo a BASE, descripción)
+    '1-usado': ('2025/01/MI_DVP_AX10.xlsx', '1 ambiente usado'),
+    '2-estrenar': ('2026/01/MI_DVP_AX01.xlsx', '2 ambientes a estrenar'),
+    '3-estrenar': ('2026/01/MI_DVP_AX02.xlsx', '3 ambientes a estrenar'),
+    '2-usado': ('2026/01/MI_DVP_AX03.xlsx', '2 ambientes usados'),
+    '3-usado': ('2026/01/MI_DVP_AX04.xlsx', '3 ambientes usados'),
 }
 TRIM = {'1er. trim.': 1, '2do. trim.': 2, '3er. trim.': 3, '4to. trim.': 4}
 

@@ -14,7 +14,10 @@
     return r2((p.cubierta || 0) + semi + desc);
   }
 
+  // No hay datos oficiales de 4 ambientes o más: se usa la serie de 3 ambientes como aproximación
   function referencia(data, serie, barrio) {
+    var aproximado = /^4-/.test(serie);
+    if (aproximado) serie = serie.replace(/^4-/, '3-');
     var s = data.series[serie];
     if (!s) throw new Error('Tipo de departamento no válido.');
     var b = s.barrios[barrio];
@@ -26,7 +29,8 @@
       usd: ref.usd,
       variacionAnual: ref.anioAnterior ? r2((ref.usd / ref.anioAnterior - 1) * 100) : null,
       periodo: s.periodo,
-      provisorio: s.provisorio
+      provisorio: s.provisorio,
+      aproximado: aproximado
     };
   }
 

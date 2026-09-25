@@ -11,7 +11,10 @@
       <div class="field"><label for="barrio">Barrio (CABA)</label><select id="barrio"></select></div>
       <div class="field">
         <label for="serie">Tipo de departamento</label>
-        <select id="serie"><option value="2-usado" selected>2 ambientes, usado</option><option value="3-usado">3 ambientes, usado</option><option value="2-estrenar">2 ambientes, a estrenar</option><option value="3-estrenar">3 ambientes, a estrenar</option></select>
+        <select id="serie">
+          <optgroup label="Usados"><option value="1-usado">1 ambiente</option><option value="2-usado" selected>2 ambientes</option><option value="3-usado">3 ambientes</option><option value="4-usado">4 ambientes o más (aproximado)</option></optgroup>
+          <optgroup label="A estrenar"><option value="2-estrenar">2 ambientes</option><option value="3-estrenar">3 ambientes</option><option value="4-estrenar">4 ambientes o más (aproximado)</option></optgroup>
+        </select>
       </div>
     </div>
     <p class="error-msg" id="form-error" aria-live="polite"></p>
@@ -54,6 +57,9 @@
 
 <h2>Ejemplo con números</h2>
 <p>Un departamento usado de 2 ambientes en Palermo se publica a <strong>USD 150.000</strong>. Tiene 50 m² cubiertos, un balcón techado de 6 m² y uno abierto de 4 m². Su superficie homogeneizada es de 50 + 6 × 50 % + 4 × 30 % = <strong>54,2 m²</strong>, así que el m² cuesta <strong>USD {{m2EjM2}}</strong>. El promedio de Palermo es de USD {{m2Palermo}}: el precio está un {{m2EjDif}} respecto del promedio del barrio. Con ese promedio, el departamento valdría alrededor de USD {{m2EjValor}}.</p>
+
+<h2>¿Y si la propiedad tiene 4 ambientes o más?</h2>
+<p>La estadística oficial de la Ciudad cubre departamentos de 1, 2 y 3 ambientes, que son la gran mayoría de las operaciones. Para 4 ambientes o más, la calculadora usa como referencia el promedio de 3 ambientes y lo indica como aproximación. En general, el precio por m² de las unidades grandes es algo menor que el de las chicas, porque el valor total es más alto y la demanda es menor. Tampoco hay promedios oficiales para casas ni PH: en esos casos, usá la calculadora para obtener el valor del m² y comparalo con propiedades similares de la zona.</p>
 
 <h2>Qué influye en el precio de una vivienda</h2>
 <ul>

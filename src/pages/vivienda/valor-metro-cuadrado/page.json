@@ -7,14 +7,41 @@
   "h1": "Valor del metro cuadrado 2026: calculadora y precios por barrio",
   "breadcrumb": "Valor del metro cuadrado",
   "updated": "2026-09-25",
-  "scripts": ["calc.js", "script.js"],
-  "card": { "order": 2, "name": "Valor del metro cuadrado", "desc": "Precio del m² y comparación con el promedio oficial de cada barrio de CABA.", "keywords": "metro cuadrado m2 precio valor departamento vivienda comprar vender tasacion barrio caba palermo" },
-  "related": ["/alquiler/ajuste-alquiler/", "/finanzas/simulador-prestamo/", "/finanzas/dolar-tarjeta/"],
+  "scripts": [
+    "calc.js",
+    "script.js"
+  ],
+  "card": {
+    "order": 2,
+    "name": "Valor del metro cuadrado",
+    "desc": "Precio del m² y comparación con el promedio oficial de cada barrio de CABA.",
+    "keywords": "metro cuadrado m2 precio valor departamento vivienda comprar vender tasacion barrio caba palermo"
+  },
+  "related": [
+    "/alquiler/ajuste-alquiler/",
+    "/finanzas/simulador-prestamo/",
+    "/finanzas/dolar-tarjeta/"
+  ],
   "faq": [
-    { "q": "¿Cómo se calcula el valor del metro cuadrado?", "a": "Dividiendo el precio de la propiedad por su superficie. Por ejemplo, un departamento de USD 150.000 con 50 m² vale USD 3.000 el m². Para comparar bien, conviene usar la superficie homogeneizada, que computa los balcones y patios a un porcentaje de la superficie cubierta." },
-    { "q": "¿Cuánto vale el metro cuadrado en la Ciudad de Buenos Aires?", "a": "Según el Instituto de Estadística y Censos de la Ciudad, en el {{m2Periodo}} el precio promedio de publicación fue de USD {{m2Total2}} el m² para departamentos usados de 2 ambientes y de USD {{m2Total3}} para los de 3 ambientes. Varía mucho según el barrio." },
-    { "q": "¿El precio publicado es el precio real de venta?", "a": "No exactamente. Los datos oficiales son precios de publicación en avisos. El precio de cierre suele ser algo menor, porque se negocia. Para una operación concreta conviene pedir una tasación a un corredor inmobiliario matriculado." },
-    { "q": "¿Cómo se computan los balcones y la superficie semicubierta?", "a": "No hay una regla única. Un criterio habitual es computar la superficie semicubierta al 50 % y la descubierta (balcones abiertos, patios, terrazas) entre el 25 % y el 50 %. La calculadora usa 50 % y 30 % por defecto, y podés cambiarlos." },
-    { "q": "¿Hay datos para otras ciudades?", "a": "La calculadora del valor del m² sirve para cualquier propiedad. Los precios de referencia por barrio son solo de la Ciudad de Buenos Aires, porque es la jurisdicción que publica esta estadística oficial en forma periódica." }
+    {
+      "q": "¿Cómo se calcula el valor del metro cuadrado?",
+      "a": "Dividiendo el precio de la propiedad por su superficie. Por ejemplo, un departamento de USD 150.000 con 50 m² vale USD 3.000 el m². Para comparar bien, conviene usar la superficie homogeneizada, que computa los balcones y patios a un porcentaje de la superficie cubierta."
+    },
+    {
+      "q": "¿Cuánto vale el metro cuadrado en la Ciudad de Buenos Aires?",
+      "a": "Según el Instituto de Estadística y Censos de la Ciudad, en el {{m2Periodo}} el precio promedio de publicación fue de USD {{m2Total2}} el m² para departamentos usados de 2 ambientes y de USD {{m2Total3}} para los de 3 ambientes. Varía mucho según el barrio."
+    },
+    {
+      "q": "¿El precio publicado es el precio real de venta?",
+      "a": "No exactamente. Los datos oficiales son precios de publicación en avisos. El precio de cierre suele ser algo menor, porque se negocia. Para una operación concreta conviene pedir una tasación a un corredor inmobiliario matriculado."
+    },
+    {
+      "q": "¿Cómo se computan los balcones y la superficie semicubierta?",
+      "a": "No hay una regla única. Un criterio habitual es computar la superficie semicubierta al 50 % y la descubierta (balcones abiertos, patios, terrazas) entre el 25 % y el 50 %. La calculadora usa 50 % y 30 % por defecto, y podés cambiarlos."
+    },
+    {
+      "q": "¿Hay datos para departamentos de 4 ambientes, casas u otras ciudades?",
+      "a": "La estadística oficial de la Ciudad de Buenos Aires cubre departamentos de 1, 2 y 3 ambientes. Para 4 ambientes o más, la calculadora usa el promedio de 3 ambientes como aproximación. No hay promedios oficiales para casas, PH ni otras ciudades, pero la calculadora del valor del m² sirve para cualquier propiedad."
+    }
   ]
 }
