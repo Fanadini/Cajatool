@@ -35,7 +35,7 @@ config.json      URL del sitio, email, AdSense, Analytics y categorías
 
 Dos niveles en `config.json`:
 
-1. **`adsenseClientId`** (hoy `ca-pub-1919387235061700`): inserta el script de AdSense en el `<head>` de todas las páginas (sirve para verificar el sitio y para los anuncios automáticos) y genera `ads.txt`.
+1. **`adsenseClientId`** (hoy `ca-pub-1919387235061700`, con los tres bloques activos): inserta el script de AdSense en el `<head>` de todas las páginas (sirve para verificar el sitio y para los anuncios automáticos) y genera `ads.txt`.
 2. **`adsEnabled: true` + `adSlots`**: agrega los bloques fijos debajo del resultado, a mitad del texto y antes del footer (nunca encima de la herramienta). Cada bloque aparece solo si tiene su ID.
 
 ```json
