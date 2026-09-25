@@ -6,7 +6,22 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   'use strict';
   var DAY = 86400000;
-  var PERIODO_PRUEBA_MESES = 6; // art. 92 bis (los convenios pueden ampliarlo)
+  // La Ley 27.802 rige para los despidos desde su publicación (art. 217); lo que importa es la fecha de egreso.
+  var VIGENCIA_27802 = '2026-03-06';
+  // La Ley Bases (27.742, B.O. 8/7/2024) llevó el período de prueba de 3 a 6 meses para los contratos iniciados desde su vigencia.
+  var VIGENCIA_27742 = '2024-07-09';
+
+  function regimen(ingreso, egreso) {
+    if (egreso >= VIGENCIA_27802) {
+      return { id: 'ley27802', nombre: 'Ley 27.802 (despidos desde el 6/3/2026)', pruebaMeses: 6, preavisoPruebaDias: 0 };
+    }
+    return {
+      id: 'anterior',
+      nombre: 'Régimen anterior a la Ley 27.802 (despidos hasta el 5/3/2026)',
+      pruebaMeses: ingreso >= VIGENCIA_27742 ? 6 : 3,
+      preavisoPruebaDias: 15 // art. 231 inciso b) anterior: 15 días durante el período de prueba
+    };
+  }
 
   function r2(n) { return Math.round(n * 100) / 100; }
   function parts(iso) { return iso.split('-').map(Number); }
@@ -46,7 +61,8 @@
     if (!(p.sueldo > 0)) throw new Error('Ingresá el mejor sueldo bruto mensual.');
     var despido = p.motivo !== 'renuncia';
     var ant = antiguedad(p.ingreso, p.egreso);
-    var enPrueba = ant.totalMeses < PERIODO_PRUEBA_MESES;
+    var reg = regimen(p.ingreso, p.egreso);
+    var enPrueba = ant.totalMeses < reg.pruebaMeses;
     var e = parts(p.egreso);
     var dm = diasDelMes(e[0], e[1]);
     var conceptos = [];
@@ -96,11 +112,17 @@
         add('integracion', 'Integración del mes de despido', integracion, faltan + ' días hasta fin de mes');
         add('sac-integracion', 'Aguinaldo sobre integración', integracion / 12, 'integración ÷ 12');
       }
+    } else if (despido && enPrueba && reg.preavisoPruebaDias && !p.preavisoOtorgado) {
+      // Régimen anterior: durante el período de prueba correspondían 15 días de preaviso (sin indemnización ni integración)
+      var preavisoPrueba = p.sueldo / 30 * reg.preavisoPruebaDias;
+      add('preaviso', 'Indemnización sustitutiva de preaviso', preavisoPrueba, '15 días (período de prueba, régimen anterior)');
+      add('sac-preaviso', 'Aguinaldo sobre preaviso', preavisoPrueba / 12, 'preaviso ÷ 12');
     }
 
     var total = conceptos.reduce(function (s, c) { return s + c.monto; }, 0);
     return {
       antiguedad: ant,
+      regimen: reg,
       enPrueba: enPrueba,
       aniosIndemnizables: anios,
       base: base === null ? null : r2(base),
@@ -110,5 +132,5 @@
     };
   }
 
-  return { calcular: calcular, antiguedad: antiguedad, aniosIndemnizables: aniosIndemnizables };
+  return { calcular: calcular, antiguedad: antiguedad, aniosIndemnizables: aniosIndemnizables, regimen: regimen };
 });

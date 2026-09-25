@@ -7,18 +7,29 @@
   "h1": "Calculadora de indemnización por despido 2026",
   "breadcrumb": "Indemnización por despido",
   "updated": "2026-09-25",
-  "scripts": ["calc.js", "script.js"],
+  "scripts": [
+    "calc.js",
+    "script.js"
+  ],
   "card": {
     "order": 3,
     "name": "Indemnización por despido",
     "desc": "Liquidación final con la reforma 2026: antigüedad, preaviso, aguinaldo y vacaciones.",
     "keywords": "indemnizacion despido liquidacion final renuncia preaviso integracion art 245 reforma laboral 27802"
   },
-  "related": ["/laboral/aguinaldo/", "/laboral/vacaciones/", "/laboral/sueldo-neto/"],
+  "related": [
+    "/laboral/aguinaldo/",
+    "/laboral/vacaciones/",
+    "/laboral/sueldo-neto/"
+  ],
   "faq": [
     {
       "q": "¿Qué cambió en la indemnización con la reforma laboral de 2026?",
       "a": "La Ley 27.802 redefinió la base del artículo 245: se toma la mejor remuneración mensual, normal y habitual del último año, sin incluir aguinaldo, vacaciones ni premios que no sean mensuales. Los conceptos variables se promedian en los últimos 6 meses (o 12, si es más favorable). Se mantiene el tope de tres veces el promedio del convenio, que no puede reducir la base a menos del 67 %."
+    },
+    {
+      "q": "Mi contrato es anterior a la reforma, ¿qué régimen me corresponde?",
+      "a": "Depende de la fecha del despido, no de la del contrato. Si te despiden desde el 6 de marzo de 2026 se aplica la Ley 27.802, aunque hayas entrado antes. Si el despido fue hasta el 5 de marzo de 2026, corresponde el régimen anterior. La calculadora elige el régimen según la fecha de egreso que cargues."
     },
     {
       "q": "¿Cuánto me corresponde de indemnización por antigüedad?",
@@ -35,10 +46,6 @@
     {
       "q": "¿En cuánto tiempo me tienen que pagar la liquidación final?",
       "a": "Dentro de los cuatro días hábiles desde la fecha del despido o de la renuncia. Si no te pagan, podés intimar al empleador por carta documento e iniciar un reclamo en el SECLO o en el organismo laboral de tu provincia."
-    },
-    {
-      "q": "¿La indemnización paga Ganancias o aportes?",
-      "a": "La indemnización por antigüedad, el preaviso y la integración del mes no tienen aportes ni retención de Ganancias. Los días trabajados, el aguinaldo y las vacaciones sí tienen los descuentos habituales."
     }
   ]
 }

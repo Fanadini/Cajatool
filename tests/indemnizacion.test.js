@@ -60,3 +60,33 @@ test('mínimo de un sueldo y validaciones', () => {
   assert.throws(() => I.calcular({ ingreso: '2026-05-01', egreso: '2026-01-01', sueldo: 1, motivo: 'despido' }));
   assert.throws(() => I.calcular({ ingreso: '2020-01-01', egreso: '2026-01-01', sueldo: 0, motivo: 'despido' }));
 });
+
+test('régimen según la fecha de despido, no la del contrato: contrato de 1998 despedido en 2026 → Ley 27.802', () => {
+  const r = I.calcular({ ingreso: '1998-04-01', egreso: '2026-09-30', sueldo: 1000000, motivo: 'despido', preavisoOtorgado: false });
+  assert.strictEqual(r.regimen.id, 'ley27802');
+  assert.strictEqual(byId(r, 'antiguedad'), 29000000); // 28 años y 6 meses → 29
+  assert.strictEqual(I.regimen('2020-01-01', '2026-03-05').id, 'anterior');
+  assert.strictEqual(I.regimen('2020-01-01', '2026-03-06').id, 'ley27802');
+});
+
+test('régimen anterior: despido en período de prueba con 15 días de preaviso', () => {
+  // Ingreso posterior a la Ley Bases → prueba de 6 meses; despido el 15/2/2026 (antes de la Ley 27.802)
+  const r = I.calcular({ ingreso: '2025-11-01', egreso: '2026-02-15', sueldo: 900000, motivo: 'despido', preavisoOtorgado: false });
+  assert.strictEqual(r.regimen.id, 'anterior');
+  assert.strictEqual(r.enPrueba, true);
+  assert.strictEqual(byId(r, 'preaviso'), 450000); // 15 días
+  assert.strictEqual(byId(r, 'antiguedad'), 0);
+  assert.strictEqual(byId(r, 'integracion'), 0);
+  // Mismo caso con la ley nueva: sin preaviso en el período de prueba
+  const n = I.calcular({ ingreso: '2025-11-01', egreso: '2026-04-15', sueldo: 900000, motivo: 'despido', preavisoOtorgado: false });
+  assert.strictEqual(byId(n, 'preaviso'), 0);
+});
+
+test('régimen anterior con contrato previo a la Ley Bases: período de prueba de 3 meses', () => {
+  assert.strictEqual(I.regimen('2024-03-01', '2024-07-15').pruebaMeses, 3);
+  const r = I.calcular({ ingreso: '2024-03-01', egreso: '2024-07-15', sueldo: 600000, motivo: 'despido', preavisoOtorgado: false });
+  assert.strictEqual(r.enPrueba, false); // 4 meses y medio > 3
+  assert.strictEqual(byId(r, 'antiguedad'), 600000); // fracción mayor a 3 meses → 1 sueldo
+  assert.strictEqual(byId(r, 'preaviso'), 600000);
+  near(byId(r, 'integracion'), 600000 / 31 * 16, 0.005); // 16 días hasta el 31/7
+});

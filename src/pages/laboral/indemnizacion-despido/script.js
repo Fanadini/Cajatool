@@ -30,7 +30,7 @@
     $('res-label').textContent = 'Total de la liquidación final por ' + (p.motivo === 'despido' ? 'despido sin causa' : 'renuncia') + ' (bruto)';
     $('res-total').textContent = F.fmtMoney(r.total);
     var a = r.antiguedad;
-    $('res-antiguedad').textContent = 'Antigüedad: ' + plural(a.anios, 'año', 'años') + ', ' + plural(a.meses, 'mes', 'meses') + ' y ' + plural(a.dias, 'día', 'días') +
+    $('res-antiguedad').textContent = 'Régimen aplicado: ' + r.regimen.nombre + '. Antigüedad: ' + plural(a.anios, 'año', 'años') + ', ' + plural(a.meses, 'mes', 'meses') + ' y ' + plural(a.dias, 'día', 'días') +
       (r.base !== null ? '. Base de la indemnización: ' + F.fmtMoney(r.base) + (r.topeAplicado ? ' (con tope del convenio)' : '') + '.' : '.');
 
     var tbody = $('res-tabla');
@@ -51,7 +51,10 @@
     });
 
     var notas = [];
-    if (r.enPrueba && p.motivo === 'despido') notas.push('Con menos de 6 meses estás en período de prueba: no corresponde indemnización, preaviso ni integración.');
+    if (r.enPrueba && p.motivo === 'despido') {
+      notas.push('Con menos de ' + r.regimen.pruebaMeses + ' meses estás en período de prueba: no corresponde indemnización ni integración' +
+        (r.regimen.id === 'anterior' ? ' (con el régimen anterior sí correspondían 15 días de preaviso).' : ' ni preaviso.'));
+    }
     notas.push('Los días trabajados, el aguinaldo y las vacaciones tienen descuentos (17 % de aportes); las indemnizaciones no.');
     $('res-nota').textContent = notas.join(' ');
 
