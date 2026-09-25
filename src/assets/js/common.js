@@ -83,5 +83,22 @@
   }
   if (banner && !banner.hidden) usarCmpDeGoogle(10);
 
+  // Modo claro / oscuro: respeta la preferencia del sistema hasta que el visitante elige uno
+  var themeBtn = document.getElementById('theme-toggle');
+  function isDark() {
+    var t = document.documentElement.getAttribute('data-theme');
+    return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }
+  function themeLabel() { if (themeBtn) themeBtn.setAttribute('aria-label', isDark() ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'); }
+  if (themeBtn) {
+    themeLabel();
+    themeBtn.addEventListener('click', function () {
+      var t = isDark() ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      try { localStorage.setItem('theme', t); } catch (e) {}
+      themeLabel();
+    });
+  }
+
   window.CT = { copyText: copyText, shareText: shareText, toast: toast };
 })();
