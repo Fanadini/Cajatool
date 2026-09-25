@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "utilidades", "appCategory": "UtilitiesApplication",
+  "title": "Días entre fechas y calculadora de edad gratis | Cajatool",
+  "description": "Calculá cuántos días hay entre dos fechas, sumá o restá días a una fecha y sabé tu edad exacta en años, meses y días. Gratis y al instante.",
+  "h1": "Calcular días entre fechas y edad online gratis",
+  "breadcrumb": "Días entre fechas y edad", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 2, "name": "Días entre fechas y edad", "desc": "Días entre dos fechas, sumar días a una fecha y edad exacta.", "keywords": "dias entre fechas contador calcular edad cuantos dias faltan cuantos años tengo sumar dias fecha cumpleaños" },
+  "related": ["/utilidades/feriados-2026/", "/laboral/vacaciones/", "/utilidades/calcular-porcentaje/"],
+  "faq": [
+    { "q": "¿Cómo se cuentan los días entre dos fechas?", "a": "Se cuentan los días corridos desde la fecha inicial hasta la final, sin incluir el primer día (del 1 al 3 de marzo hay 2 días). Si necesitás contar ambos extremos, por ejemplo para la duración de una licencia, marcá la opción «Incluir el último día»." },
+    { "q": "¿Tiene en cuenta los años bisiestos?", "a": "Sí. La calculadora usa el calendario real, con febrero de 29 días en los años bisiestos (como 2024 y 2028), y meses de 28, 30 o 31 días según corresponda." },
+    { "q": "¿Cómo calculo cuántos días faltan para una fecha?", "a": "Elegí «Días entre fechas», dejá la fecha de hoy como inicio y poné la fecha del evento como final. El resultado son los días que faltan." },
+    { "q": "¿Qué pasa si nací un 29 de febrero?", "a": "En los años que no son bisiestos, la calculadora toma el 28 de febrero como fecha de cumpleaños, que es el criterio más usado." },
+    { "q": "¿Cuenta días hábiles?", "a": "No, cuenta días corridos. Para contar días hábiles, sin fines de semana ni feriados, usá la calculadora de feriados y días hábiles." }
+  ]
+}

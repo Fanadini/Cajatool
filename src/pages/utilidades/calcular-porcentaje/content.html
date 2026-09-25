@@ -1,0 +1,53 @@
+<h1>{{h1}}</h1>
+<p class="lead">Elegí qué querés calcular y completá los números: el porcentaje de un valor, qué porcentaje representa, un aumento o descuento, la variación entre dos valores o el valor original.</p>
+<section class="tool" aria-label="Calculadora de porcentajes">
+  <form id="form-pct" novalidate>
+    <div class="form-grid">
+      <div class="field full"><label for="modo">¿Qué querés calcular?</label><select id="modo">
+        <option value="deX">Cuánto es el X % de un número</option>
+        <option value="que">Qué porcentaje es un número de otro</option>
+        <option value="aplicar">Aplicar un aumento o descuento</option>
+        <option value="variacion">Variación porcentual entre dos valores</option>
+        <option value="original">Valor antes del aumento o descuento</option>
+      </select></div>
+      <div class="field"><label for="a" id="la">Porcentaje (%)</label><input type="text" id="a" inputmode="decimal" autocomplete="off"></div>
+      <div class="field"><label for="b" id="lb">Número</label><input type="text" id="b" inputmode="decimal" autocomplete="off"></div>
+      <div class="field full" id="f-tipo" hidden><label for="tipo">Tipo</label><select id="tipo"><option value="1">Aumento</option><option value="-1">Descuento</option></select></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Resultado</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Qué es un porcentaje</h2>
+<p>Un porcentaje es una forma de expresar una proporción sobre 100. Decir «el 25 %» es lo mismo que decir «25 de cada 100», o un cuarto. Por eso cualquier porcentaje se puede escribir como fracción (25/100) o como número decimal (0,25), y todas las cuentas con porcentajes se reducen a multiplicar o dividir por ese decimal.</p>
+<p>Los porcentajes aparecen en todos lados: descuentos en comercios, recargos por pagar en cuotas, el IVA, los aumentos de sueldo y de alquiler, las tasas de interés y la inflación que publica mes a mes el <a href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" rel="noopener">INDEC</a>. Entender cómo funcionan ayuda a comparar precios y a no equivocarse con las cuentas.</p>
+<h2>Las cinco cuentas más comunes</h2>
+<h3>1. Cuánto es el X % de un número</h3>
+<p><strong>Fórmula:</strong> número × porcentaje ÷ 100. El 15 % de 2.400 es 2.400 × 15 ÷ 100 = <strong>360</strong>. Sirve, por ejemplo, para saber cuánto es la propina, una comisión o el valor de un descuento.</p>
+<h3>2. Qué porcentaje es un número de otro</h3>
+<p><strong>Fórmula:</strong> parte ÷ total × 100. Si de un sueldo de $ 1.200.000 se van $ 300.000 en alquiler, el alquiler representa 300.000 ÷ 1.200.000 × 100 = <strong>25 %</strong> del sueldo.</p>
+<h3>3. Aplicar un aumento o un descuento</h3>
+<p><strong>Aumento:</strong> número × (1 + porcentaje ÷ 100). <strong>Descuento:</strong> número × (1 − porcentaje ÷ 100). Un producto de $ 50.000 con un 30 % de descuento cuesta 50.000 × 0,70 = <strong>$ 35.000</strong>. Si el mismo producto aumenta un 8 %, pasa a costar 50.000 × 1,08 = $ 54.000.</p>
+{{ad:medio}}
+<h3>4. Variación porcentual</h3>
+<p><strong>Fórmula:</strong> (valor final − valor inicial) ÷ valor inicial × 100. Si un precio pasó de $ 80 a $ 100, subió (100 − 80) ÷ 80 × 100 = <strong>25 %</strong>. Si bajó de $ 100 a $ 80, la variación es de −20 %. La base siempre es el valor inicial, por eso subir y bajar la misma cantidad de pesos no da el mismo porcentaje.</p>
+<h3>5. Valor antes del aumento o descuento</h3>
+<p><strong>Fórmula:</strong> valor final ÷ (1 + porcentaje ÷ 100). Es la cuenta inversa del punto 3 y se usa, por ejemplo, para sacar el precio sin IVA: $ 1.210 ÷ 1,21 = <strong>$ 1.000</strong>. Un error frecuente es restar el 21 % al precio final: 1.210 − 21 % da $ 955,90, que es incorrecto. Si el producto tenía un 25 % de descuento y pagaste $ 30.000, el precio de lista era 30.000 ÷ 0,75 = $ 40.000.</p>
+<h2>Errores frecuentes con porcentajes</h2>
+<ul>
+  <li><strong>Sumar porcentajes sucesivos:</strong> dos aumentos del 10 % no son un 20 %, sino un 21 % (1,10 × 1,10 = 1,21). Por eso la inflación acumulada de varios meses es mayor que la suma de las mensuales.</li>
+  <li><strong>Descontar lo mismo que se aumentó:</strong> un 20 % de aumento y luego un 20 % de descuento dejan el precio un 4 % por debajo del original.</li>
+  <li><strong>Confundir puntos porcentuales con porcentaje:</strong> si una tasa pasa del 30 % al 33 %, subió 3 puntos porcentuales, pero un 10 % en términos relativos.</li>
+  <li><strong>Usar la base equivocada:</strong> en la variación porcentual se divide por el valor inicial, no por el final.</li>
+</ul>
+<h2>Cálculo mental rápido</h2>
+<p>Algunos atajos para calcular sin calculadora: el 10 % es correr la coma un lugar (el 10 % de 4.500 es 450); el 5 % es la mitad del 10 %; el 1 % es correr la coma dos lugares; el 25 % es dividir por 4 y el 50 %, por 2. Combinándolos se puede sacar casi cualquier porcentaje: el 15 % de 4.500 es 450 + 225 = 675.</p>
+<p>Si necesitás calcular impuestos, tenés la <a href="/impuestos/calculadora-iva/">calculadora de IVA</a>; para proporciones que no son sobre 100, la <a href="/utilidades/regla-de-tres/">regla de tres</a>.</p>
+</article>

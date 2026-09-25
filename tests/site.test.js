@@ -115,8 +115,8 @@ const words = (s) => s.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<[^>]
 const graphOf = (html) =>
   [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].flatMap((b) => JSON.parse(b[1])['@graph']);
 
-test(`hay 23 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
-  assert.strictEqual(tools.length, 23);
+test(`hay 27 herramientas y cada una cumple la estructura (H1, herramienta arriba, texto, FAQ, relacionadas, fecha)`, () => {
+  assert.strictEqual(tools.length, 27);
   for (const p of tools) {
     const h = p.html;
     const iH1 = h.indexOf('<h1'), iTool = h.indexOf('class="tool"'), iArt = h.indexOf('<article');
@@ -129,7 +129,7 @@ test(`hay 23 herramientas y cada una cumple la estructura (H1, herramienta arrib
     assert.ok(h.includes('id="related-title"'), `${p.rel}: falta "Herramientas relacionadas"`);
     assert.ok(/Última actualización: <time datetime="\d{4}-\d{2}-\d{2}"/.test(h), `${p.rel}: falta la fecha de actualización`);
     assert.ok(/data-copy=|data-share=/.test(h), `${p.rel}: falta copiar o compartir`);
-    assert.ok(/href="https:\/\/(www\.)?(argentina\.gob\.ar|afip\.gob\.ar|bcra\.gob\.ar|indec\.gob\.ar|iana\.org|hidro\.gob\.ar|estadisticaciudad\.gob\.ar|anses\.gob\.ar|boletinoficial\.gob\.ar|argentina\.gob\.ar)/.test(h) || p.rel.includes('generador-qr'), `${p.rel}: falta enlace a la fuente oficial`);
+    assert.ok(/href="https:\/\/(www\.)?(argentina\.gob\.ar|afip\.gob\.ar|bcra\.gob\.ar|indec\.gob\.ar|iana\.org|hidro\.gob\.ar|estadisticaciudad\.gob\.ar|anses\.gob\.ar|boletinoficial\.gob\.ar|argentina\.gob\.ar)/.test(h) || /generador-qr|regla-de-tres/.test(p.rel), `${p.rel}: falta enlace a la fuente oficial`);
   }
 });
 

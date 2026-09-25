@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "utilidades", "appCategory": "HealthApplication",
+  "title": "Calculadora de IMC gratis: masa corporal | Cajatool",
+  "description": "Calculá tu índice de masa corporal (IMC) con tu peso y altura, mirá en qué categoría de la OMS estás y cuál es tu rango de peso saludable.",
+  "h1": "Calculadora de IMC gratis: índice de masa corporal",
+  "breadcrumb": "Calculadora de IMC", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 6, "name": "Calculadora de IMC", "desc": "Índice de masa corporal, categoría de la OMS y peso saludable.", "keywords": "imc indice de masa corporal peso ideal altura sobrepeso obesidad salud calcular" },
+  "related": ["/utilidades/dias-entre-fechas/", "/utilidades/calcular-porcentaje/", "/finanzas/libertad-financiera/"],
+  "faq": [
+    { "q": "¿Cómo se calcula el IMC?", "a": "Se divide el peso en kilos por la altura en metros al cuadrado. Una persona de 70 kg y 1,75 m tiene un IMC de 70 ÷ (1,75 × 1,75) = 22,9." },
+    { "q": "¿Cuál es un IMC normal?", "a": "Según la Organización Mundial de la Salud, en adultos un IMC entre 18,5 y 24,9 se considera peso normal. Por debajo de 18,5 es bajo peso; entre 25 y 29,9, sobrepeso; y desde 30, obesidad." },
+    { "q": "¿El IMC sirve para chicos y adolescentes?", "a": "No con esta tabla. En menores de 18 años el IMC se interpreta con curvas de crecimiento según la edad y el sexo, que evalúa el pediatra." },
+    { "q": "¿El IMC es confiable para todas las personas?", "a": "Es una referencia general, útil y simple, pero no distingue músculo de grasa. Una persona deportista con mucha masa muscular puede tener un IMC alto sin exceso de grasa, y en personas mayores o embarazadas no se aplica igual." },
+    { "q": "¿Qué hago si mi IMC está fuera del rango normal?", "a": "Consultá con un médico o un nutricionista. El IMC es solo un indicador inicial: un profesional evalúa también la circunferencia de cintura, los hábitos, los antecedentes y otros estudios." }
+  ]
+}

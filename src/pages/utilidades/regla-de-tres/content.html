@@ -1,0 +1,51 @@
+<h1>{{h1}}</h1>
+<p class="lead">Completá los tres valores conocidos y elegí si la relación es directa o inversa. La calculadora encuentra el valor que falta y te muestra la cuenta.</p>
+<section class="tool" aria-label="Calculadora de regla de tres">
+  <form id="form-r3" novalidate>
+    <fieldset class="field"><legend>Tipo de proporción</legend>
+      <div class="segmented"><label><input type="radio" name="tipo" value="directa" checked> Directa</label><label><input type="radio" name="tipo" value="inversa"> Inversa</label></div>
+    </fieldset>
+    <div class="r3-grid">
+      <div class="field"><label for="a">Si A</label><input type="text" id="a" inputmode="decimal" placeholder="Ej.: 3" autocomplete="off"></div>
+      <span class="r3-arrow" aria-hidden="true">→</span>
+      <div class="field"><label for="b">es B</label><input type="text" id="b" inputmode="decimal" placeholder="Ej.: 1500" autocomplete="off"></div>
+      <div class="field"><label for="c">entonces C</label><input type="text" id="c" inputmode="decimal" placeholder="Ej.: 5" autocomplete="off"></div>
+      <span class="r3-arrow" aria-hidden="true">→</span>
+      <div class="field"><label for="x">es X</label><output id="x" class="r3-x">?</output></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">X =</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Cómo funciona la regla de tres</h2>
+<p>La regla de tres es una de las herramientas matemáticas más útiles de la vida cotidiana. Sirve para resolver problemas de proporcionalidad: situaciones en las que dos magnitudes están relacionadas de forma que, si una cambia, la otra cambia en la misma proporción. Se llama «de tres» porque se conocen tres valores y se busca el cuarto.</p>
+<p>El planteo siempre tiene la misma forma: <strong>si A corresponde a B, entonces C corresponde a X</strong>. Lo importante es ordenar bien los datos, poniendo en la misma columna los valores de la misma magnitud (kilos con kilos, pesos con pesos), y decidir si la relación es directa o inversa.</p>
+<h2>Regla de tres simple directa</h2>
+<p>Es directa cuando las dos magnitudes crecen o decrecen juntas: el doble de una implica el doble de la otra. Ejemplos: cantidad de producto y precio, distancia recorrida y nafta consumida, horas trabajadas y sueldo por hora.</p>
+<p><strong>Fórmula:</strong> X = B × C ÷ A.</p>
+<p><strong>Ejemplo:</strong> si 3 kilos de pan cuestan $ 1.500, ¿cuánto cuestan 5 kilos? X = 1.500 × 5 ÷ 3 = <strong>$ 2.500</strong>. Primero se puede razonar cuánto cuesta un kilo (1.500 ÷ 3 = 500) y luego multiplicarlo por 5: es la misma cuenta.</p>
+{{ad:medio}}
+<h2>Regla de tres simple inversa</h2>
+<p>Es inversa cuando, al aumentar una magnitud, la otra disminuye en la misma proporción: el doble de una implica la mitad de la otra. Ejemplos: cantidad de personas trabajando y días para terminar una tarea, velocidad y tiempo de viaje, cantidad de canillas y tiempo para llenar un tanque.</p>
+<p><strong>Fórmula:</strong> X = A × B ÷ C.</p>
+<p><strong>Ejemplo:</strong> si 4 pintores terminan una obra en 6 días, ¿cuántos días tardan 3 pintores? X = 4 × 6 ÷ 3 = <strong>8 días</strong>. Con menos pintores se tarda más, por eso la relación es inversa. El producto de las dos magnitudes se mantiene constante: 4 × 6 = 3 × 8 = 24 jornadas de trabajo.</p>
+<h2>Cómo saber si es directa o inversa</h2>
+<p>Preguntate: si una magnitud se duplica, ¿qué pasa con la otra? Si también se duplica, es directa. Si se reduce a la mitad, es inversa. Si cambia pero no en la misma proporción, no es un problema de regla de tres: por ejemplo, la edad y la altura de una persona están relacionadas, pero no son proporcionales.</p>
+<h2>Usos en la vida diaria</h2>
+<ul>
+  <li><strong>Recetas:</strong> si una receta para 4 personas lleva 300 g de harina, para 6 personas hacen falta 300 × 6 ÷ 4 = 450 g.</li>
+  <li><strong>Compras:</strong> comparar precios de envases de distinto tamaño, pasando todo al precio por kilo o por litro.</li>
+  <li><strong>Consumo:</strong> si el auto gasta 7 litros cada 100 km, un viaje de 650 km consume 7 × 650 ÷ 100 = 45,5 litros.</li>
+  <li><strong>Obras:</strong> si una lata de pintura alcanza para 40 m², para 90 m² hacen falta 2,25 latas. Para cálculos de materiales, tenés la <a href="/vivienda/calculadora-materiales/">calculadora de materiales</a>.</li>
+  <li><strong>Porcentajes:</strong> un porcentaje es una regla de tres con base 100. Si 30 de 120 alumnos aprobaron, el porcentaje es 30 × 100 ÷ 120 = 25 %. Para eso está la <a href="/utilidades/calcular-porcentaje/">calculadora de porcentajes</a>.</li>
+</ul>
+<h2>Errores comunes</h2>
+<p>El error más frecuente es desordenar los datos y poner en la misma columna magnitudes distintas. El segundo es usar la fórmula directa en un problema inverso: si el resultado no tiene sentido (por ejemplo, que más trabajadores tarden más días), revisá el tipo de proporción. También conviene mantener las mismas unidades: si un dato está en horas y otro en minutos, pasalos todos a la misma unidad antes de calcular.</p>
+</article>

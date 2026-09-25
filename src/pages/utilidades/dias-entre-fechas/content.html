@@ -1,0 +1,50 @@
+<h1>{{h1}}</h1>
+<p class="lead">Contá los días entre dos fechas, calculá qué fecha es dentro de cierta cantidad de días o averiguá tu edad exacta y cuánto falta para tu cumpleaños.</p>
+<section class="tool" aria-label="Calculadora de días entre fechas y edad">
+  <form id="form-fechas" novalidate>
+    <fieldset class="field"><legend>¿Qué querés calcular?</legend>
+      <div class="segmented"><label><input type="radio" name="modo" value="entre" checked> Días entre fechas</label><label><input type="radio" name="modo" value="sumar"> Sumar o restar días</label><label><input type="radio" name="modo" value="edad"> Edad</label></div>
+    </fieldset>
+    <div class="form-grid" style="margin-top:.85rem">
+      <div class="field" data-modo="entre sumar"><label for="desde">Fecha inicial</label><input type="date" id="desde"></div>
+      <div class="field" data-modo="entre"><label for="hasta">Fecha final</label><input type="date" id="hasta"></div>
+      <div class="field" data-modo="sumar" hidden><label for="dias">Días (negativo para restar)</label><input type="text" id="dias" inputmode="numeric" placeholder="Ej.: 90" autocomplete="off"></div>
+      <div class="field full" data-modo="entre"><label class="check"><input type="checkbox" id="ultimo"> Incluir el último día</label></div>
+      <div class="field" data-modo="edad" hidden><label for="nacimiento">Fecha de nacimiento</label><input type="date" id="nacimiento" min="1900-01-01"></div>
+      <div class="field" data-modo="edad" hidden><label for="fecha-edad">Calcular la edad al</label><input type="date" id="fecha-edad"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Cuántos días hay entre dos fechas</h2>
+<p>Contar días a mano en el calendario es lento y es fácil equivocarse, sobre todo cuando hay varios meses de por medio, porque cada mes tiene una cantidad distinta de días y febrero cambia en los años bisiestos. La calculadora hace la cuenta exacta con el calendario real y muestra el resultado en días, en semanas y en años, meses y días.</p>
+<p>Por defecto se cuentan los días <strong>transcurridos</strong>: del 1 al 3 de marzo hay 2 días. Es el criterio que se usa para calcular cuánto falta para una fecha o cuánto tiempo pasó. Si necesitás contar los dos extremos, como en la duración de un evento, un alquiler temporario o una licencia («del 1 al 3 inclusive» son 3 días), marcá <strong>Incluir el último día</strong>.</p>
+<h3>Ejemplo</h3>
+<p>Entre el 15 de enero de 2024 y el 10 de marzo de 2026 hay <strong>785 días</strong>, que son 112 semanas y 1 día, o 2 años, 1 mes y 23 días. En el medio hay un 29 de febrero (el de 2024), que la calculadora cuenta automáticamente.</p>
+<h2>Sumar o restar días a una fecha</h2>
+<p>La segunda opción responde a la pregunta inversa: ¿qué fecha es dentro de 90 días? Sirve para calcular vencimientos, el final de un período de prueba, la fecha de un plazo fijo o cuándo se cumple un plazo contado en días corridos. Para ir hacia atrás, ingresá un número negativo: por ejemplo, −30 da la fecha de hace 30 días.</p>
+<p>Si sumás 15 días al 20 de diciembre de 2026, llegás al <strong>4 de enero de 2027</strong>. Tené en cuenta que muchos plazos legales y administrativos se cuentan en días hábiles, sin fines de semana ni feriados. Para esos casos, usá la <a href="/utilidades/feriados-2026/">calculadora de días hábiles</a>, que tiene cargados los feriados oficiales publicados en <a href="https://www.argentina.gob.ar/feriados" rel="noopener">argentina.gob.ar</a>.</p>
+{{ad:medio}}
+<h2>Calculadora de edad</h2>
+<p>La tercera opción calcula la edad exacta en años, meses y días a partir de la fecha de nacimiento, y también el total de días vividos, el día de la semana en que naciste y cuánto falta para tu próximo cumpleaños. Por defecto calcula la edad a hoy, pero podés elegir cualquier otra fecha: por ejemplo, para saber qué edad vas a tener en una fecha futura o qué edad tenía alguien en un momento determinado.</p>
+<p><strong>Ejemplo:</strong> una persona nacida el 20 de mayo de 1990 tiene, al 25 de septiembre de 2026, <strong>36 años, 4 meses y 5 días</strong>. Nació un domingo y su próximo cumpleaños es el 20 de mayo de 2027.</p>
+<h3>Cómo se calcula la edad</h3>
+<p>Primero se cuentan los años completos: se resta el año de nacimiento al año actual y, si todavía no pasó el cumpleaños, se resta uno. Después se cuentan los meses completos desde el último cumpleaños y, por último, los días desde el último «cumplemes». Cuando el día de nacimiento no existe en un mes (por ejemplo, el 31 en un mes de 30 días), se toma el último día del mes.</p>
+<h2>Usos frecuentes</h2>
+<ul>
+  <li><strong>Trámites:</strong> saber si ya pasaron los días necesarios para un reclamo o si un documento está vencido.</li>
+  <li><strong>Trabajo:</strong> calcular la antigüedad exacta, que define, por ejemplo, los días de <a href="/laboral/vacaciones/">vacaciones</a> que corresponden.</li>
+  <li><strong>Eventos:</strong> cuántos días faltan para un viaje, un casamiento, el fin de clases o las fiestas.</li>
+  <li><strong>Salud:</strong> contar semanas desde una fecha, por ejemplo en un tratamiento o un embarazo.</li>
+  <li><strong>Finanzas:</strong> contar los días de un plazo fijo o de un préstamo para calcular intereses.</li>
+</ul>
+<p>Todos los cálculos se hacen en tu navegador y no se guarda ninguna fecha. Podés usar la calculadora todas las veces que quieras, sin registrarte.</p>
+</article>

@@ -1,0 +1,58 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá tu peso y tu altura para conocer tu índice de masa corporal, la categoría que le corresponde según la OMS y el rango de peso saludable para tu altura.</p>
+<section class="tool" aria-label="Calculadora de índice de masa corporal">
+  <form id="form-imc" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="peso">Peso (kg)</label><input type="text" id="peso" inputmode="decimal" placeholder="Ej.: 70" autocomplete="off"></div>
+      <div class="field"><label for="altura">Altura (cm)</label><input type="text" id="altura" inputmode="numeric" placeholder="Ej.: 175" autocomplete="off"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular IMC</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Tu IMC</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <ol class="imc-scale" aria-label="Categorías de IMC de la OMS">
+      <li data-i="0"><span>Bajo peso</span><small>&lt; 18,5</small></li>
+      <li data-i="1"><span>Normal</span><small>18,5–24,9</small></li>
+      <li data-i="2"><span>Sobrepeso</span><small>25–29,9</small></li>
+      <li data-i="3"><span>Obesidad</span><small>≥ 30</small></li>
+    </ol>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Qué es el índice de masa corporal</h2>
+<p>El índice de masa corporal (IMC) es un indicador que relaciona el peso con la altura. Lo usan médicos, nutricionistas y organismos de salud de todo el mundo como una primera aproximación para saber si el peso de una persona adulta está dentro de un rango saludable. Es simple de calcular, no requiere ningún instrumento más que una balanza y un metro, y permite comparar a personas de distinta estatura.</p>
+<p><strong>Fórmula:</strong> IMC = peso (kg) ÷ altura (m)². La altura se eleva al cuadrado, es decir, se multiplica por sí misma. Por ejemplo, para alguien de 70 kg y 1,75 m: 1,75 × 1,75 = 3,0625, y 70 ÷ 3,0625 = <strong>22,9</strong>, que corresponde a peso normal.</p>
+<h2>Clasificación de la OMS</h2>
+<p>La Organización Mundial de la Salud define estas categorías para personas adultas, que son las mismas que usa el <a href="https://www.argentina.gob.ar/salud" rel="noopener">Ministerio de Salud de la Nación</a>:</p>
+<div class="table-wrap"><table class="data-table"><caption class="visually-hidden">Categorías de IMC</caption>
+<thead><tr><th scope="col">IMC</th><th scope="col">Categoría</th></tr></thead>
+<tbody>
+<tr><th scope="row">Menos de 18,5</th><td>Bajo peso</td></tr>
+<tr><th scope="row">18,5 a 24,9</th><td>Peso normal</td></tr>
+<tr><th scope="row">25 a 29,9</th><td>Sobrepeso</td></tr>
+<tr><th scope="row">30 a 34,9</th><td>Obesidad grado I</td></tr>
+<tr><th scope="row">35 a 39,9</th><td>Obesidad grado II</td></tr>
+<tr><th scope="row">40 o más</th><td>Obesidad grado III</td></tr>
+</tbody></table></div>
+{{ad:medio}}
+<h2>Rango de peso saludable</h2>
+<p>A partir de la altura se puede calcular qué pesos dan un IMC entre 18,5 y 24,9. La calculadora te lo muestra junto con el resultado. Para una persona de 1,75 m, ese rango va de <strong>56,7 a 76,3 kg</strong>; para 1,60 m, de 47,4 a 63,7 kg. No existe un único «peso ideal»: dentro de ese rango, el peso más adecuado depende de la contextura, la masa muscular y la salud general de cada persona.</p>
+<h2>Limitaciones del IMC</h2>
+<p>El IMC es una herramienta útil para poblaciones, pero tiene límites cuando se aplica a una persona en particular:</p>
+<ul>
+  <li><strong>No distingue músculo de grasa:</strong> deportistas con mucha masa muscular pueden aparecer con sobrepeso sin tener exceso de grasa.</li>
+  <li><strong>No dice dónde está la grasa:</strong> la grasa abdominal es la que más se relaciona con riesgo cardiovascular, y se evalúa mejor midiendo la circunferencia de la cintura.</li>
+  <li><strong>No aplica igual a todas las edades:</strong> en chicos y adolescentes se usan curvas por edad y sexo; en personas mayores, los rangos saludables pueden ser algo más altos.</li>
+  <li><strong>No aplica en el embarazo:</strong> el aumento de peso esperado se evalúa con otros criterios.</li>
+</ul>
+<h2>Cómo medir bien peso y altura</h2>
+<p>Para un resultado más preciso, pesate por la mañana, en ayunas, con poca ropa y siempre en la misma balanza. Para medir la altura, parate descalzo contra una pared, con los talones juntos y la mirada al frente, y marcá el punto más alto de la cabeza con un objeto plano apoyado en la pared. Un error de pocos centímetros en la altura cambia bastante el resultado.</p>
+<h2>IMC y hábitos saludables</h2>
+<p>Más que el número exacto, lo importante es la tendencia y los hábitos. Una alimentación variada, con frutas, verduras, legumbres y cereales integrales, y poca cantidad de ultraprocesados, azúcar y sal, junto con actividad física regular, es la base para mantener un peso saludable. Las <strong>Guías Alimentarias para la Población Argentina</strong>, del Ministerio de Salud, ofrecen recomendaciones prácticas para armar las comidas del día. También ayuda dormir bien, tomar agua en lugar de bebidas azucaradas y moverse más en la rutina diaria: caminar, usar la escalera o hacer pausas activas si trabajás sentado. Si querés seguir tu evolución, calculá tu IMC cada algunas semanas, siempre en las mismas condiciones, y anotá los resultados.</p>
+<h2>Importante</h2>
+<p>Esta calculadora es solo informativa y no reemplaza la consulta con un profesional de la salud. Si tu IMC está fuera del rango normal, o si tenés dudas sobre tu peso o tu alimentación, consultá con un médico o un nutricionista, que puede evaluar tu situación de forma completa. Los datos que ingresás se procesan en tu navegador y no se guardan.</p>
+</article>

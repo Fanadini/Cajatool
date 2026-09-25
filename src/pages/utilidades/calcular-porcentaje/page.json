@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "utilidades", "appCategory": "UtilitiesApplication",
+  "title": "Calcular porcentaje online gratis | Cajatool",
+  "description": "Calculá el porcentaje de un número, qué porcentaje representa, aumentos, descuentos y variación porcentual. Rápido, gratis y con ejemplos.",
+  "h1": "Calcular porcentaje online gratis",
+  "breadcrumb": "Calcular porcentaje", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 4, "name": "Calcular porcentaje", "desc": "El X % de un número, qué porcentaje es, aumentos, descuentos y variación.", "keywords": "porcentaje calcular por ciento descuento aumento variacion porcentual cuanto es el que porcentaje representa" },
+  "related": ["/utilidades/regla-de-tres/", "/impuestos/calculadora-iva/", "/finanzas/actualizar-por-inflacion/"],
+  "faq": [
+    { "q": "¿Cómo se calcula el porcentaje de un número?", "a": "Se multiplica el número por el porcentaje y se divide por 100. Por ejemplo, el 15 % de 2.400 es 2.400 × 15 ÷ 100 = 360." },
+    { "q": "¿Cómo saco qué porcentaje es un número de otro?", "a": "Dividí la parte por el total y multiplicá por 100. Por ejemplo, 30 de 120 es 30 ÷ 120 × 100 = 25 %." },
+    { "q": "¿Cómo calculo un descuento?", "a": "Multiplicá el precio por (1 − descuento ÷ 100). Un 20 % de descuento sobre $ 1.000 da $ 1.000 × 0,80 = $ 800. Para un aumento se usa (1 + aumento ÷ 100)." },
+    { "q": "¿Por qué un aumento del 20 % y después un descuento del 20 % no vuelven al precio original?", "a": "Porque el descuento se aplica sobre un número más grande. $ 100 con un 20 % de aumento son $ 120, y el 20 % de descuento sobre $ 120 son $ 24, así que el precio final queda en $ 96." },
+    { "q": "¿Cómo saco el precio sin un porcentaje incluido?", "a": "Dividí el precio final por (1 + porcentaje ÷ 100). Por ejemplo, un precio de $ 1.210 con IVA del 21 % incluido vale $ 1.210 ÷ 1,21 = $ 1.000 sin IVA. Usá la opción «Valor antes del aumento o descuento»." }
+  ]
+}

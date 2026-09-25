@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "utilidades", "appCategory": "UtilitiesApplication",
+  "title": "Regla de tres simple online gratis | Cajatool",
+  "description": "Resolvé una regla de tres simple directa o inversa al instante, con el paso a paso de la cuenta y ejemplos para entender cuándo usar cada una.",
+  "h1": "Regla de tres simple online gratis",
+  "breadcrumb": "Regla de tres", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 5, "name": "Regla de tres", "desc": "Directa o inversa, con el paso a paso de la cuenta.", "keywords": "regla de tres simple directa inversa proporcion calcular proporcionalidad" },
+  "related": ["/utilidades/calcular-porcentaje/", "/vivienda/calculadora-materiales/", "/utilidades/dias-entre-fechas/"],
+  "faq": [
+    { "q": "¿Qué es la regla de tres simple?", "a": "Es un método para encontrar un valor desconocido a partir de tres valores conocidos, cuando dos magnitudes son proporcionales. Si 3 kilos cuestan $ 1.500, la regla de tres permite saber cuánto cuestan 5 kilos." },
+    { "q": "¿Cuándo es directa y cuándo inversa?", "a": "Es directa cuando, si una magnitud aumenta, la otra también aumenta en la misma proporción (más kilos, más precio). Es inversa cuando, si una aumenta, la otra disminuye (más trabajadores, menos días para terminar una obra)." },
+    { "q": "¿Cuál es la fórmula de la regla de tres directa?", "a": "Si A corresponde a B, entonces C corresponde a X = B × C ÷ A. Se multiplican los valores en diagonal y se divide por el que queda." },
+    { "q": "¿Cuál es la fórmula de la regla de tres inversa?", "a": "Si A corresponde a B, entonces C corresponde a X = A × B ÷ C. Se multiplican los dos valores conocidos de la misma fila y se divide por el tercero." },
+    { "q": "¿Qué es la regla de tres compuesta?", "a": "Es la que involucra tres o más magnitudes, por ejemplo obreros, horas por día y días de trabajo. Se resuelve encadenando varias reglas de tres simples, analizando para cada magnitud si la relación es directa o inversa." }
+  ]
+}
