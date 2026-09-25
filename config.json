@@ -4,10 +4,10 @@
   "year": 2026,
   "contactEmail": "contacto@cajatool.com",
   "cafecitoUrl": "https://cafecito.app/cajatool",
-  "adsEnabled": false,
+  "adsEnabled": true,
   "adsenseClientId": "ca-pub-1919387235061700",
   "adSlots": {
-    "resultado": "",
+    "resultado": "7012292520",
     "medio": "",
     "prefooter": ""
   },
