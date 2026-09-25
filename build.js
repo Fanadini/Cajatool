@@ -108,6 +108,14 @@ const assetVersion = (rel) => hash(readFile(path.join(SRC, 'assets', rel)));
 // Los bloques fijos (ad-slot.html) solo se insertan si además adsEnabled es true y el bloque tiene su ID.
 const adsScript = Boolean(config.adsenseClientId);
 const adsOn = Boolean(config.adsEnabled && config.adsenseClientId);
+// Banners laterales (160×600) para pantallas anchas: contenedores vacíos que common.js llena solo si hay lugar,
+// para no pedir anuncios que no se ven.
+function adRails() {
+  const id = adsOn && config.adSlots && config.adSlots.lateral;
+  if (!id) return '';
+  const a = `data-ad-client="${escapeHtml(config.adsenseClientId)}" data-ad-slot="${escapeHtml(id)}"`;
+  return `<aside class="ad-rail ad-rail--izq" aria-label="Publicidad" ${a}></aside><aside class="ad-rail ad-rail--der" aria-label="Publicidad" ${a}></aside>`;
+}
 
 function adSlot(name) {
   if (!adsOn || !(config.adSlots && config.adSlots[name])) return '';
@@ -421,6 +429,7 @@ function build() {
       updatedBlock,
       '</main>',
       page.type === 'tool' ? adSlot('prefooter') : '',
+      /noindex/.test(vars.robots || '') ? '' : adRails(),
       render(templates.footer, vars),
       pageScripts,
       '</body>\n</html>\n'

@@ -100,5 +100,19 @@
     });
   }
 
+  // Banners laterales: solo se piden si la pantalla es lo bastante ancha para mostrarlos
+  var rails = document.querySelectorAll('.ad-rail');
+  if (rails.length && window.matchMedia('(min-width: 95rem)').matches) {
+    Array.prototype.forEach.call(rails, function (r) {
+      var ins = document.createElement('ins');
+      ins.className = 'adsbygoogle';
+      ins.style.cssText = 'display:inline-block;width:160px;height:600px';
+      ins.setAttribute('data-ad-client', r.getAttribute('data-ad-client'));
+      ins.setAttribute('data-ad-slot', r.getAttribute('data-ad-slot'));
+      r.appendChild(ins);
+      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    });
+  }
+
   window.CT = { copyText: copyText, shareText: shareText, toast: toast };
 })();
