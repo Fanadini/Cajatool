@@ -1,0 +1,66 @@
+<h1>{{h1}}</h1>
+<p class="lead">Ingresá tu fecha de nacimiento, tus años de aportes y tu sueldo para saber cuándo te podés jubilar y una estimación de cuánto cobrarías con los montos de ANSES de {{jVig}}.</p>
+<section class="tool" aria-label="Simulador de jubilación">
+  <form id="form-jub" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="nacimiento">Fecha de nacimiento</label><input type="date" id="nacimiento" min="1940-01-01" max="2010-12-31"></div>
+      <div class="field"><label for="sexo">Sexo registrado</label><select id="sexo"><option value="hombre">Hombre</option><option value="mujer">Mujer</option></select></div>
+      <div class="field"><label for="aportes">Años de aportes hasta hoy</label><input type="text" id="aportes" inputmode="numeric" placeholder="Ej.: 20" autocomplete="off"></div>
+      <div class="field"><label for="sueldo">Sueldo bruto promedio mensual</label><input type="text" id="sueldo" class="money" inputmode="decimal" placeholder="Ej.: 1.500.000" autocomplete="off"></div>
+      <div class="field full"><label class="check"><input type="checkbox" id="sigue" checked> Voy a seguir aportando hasta la edad jubilatoria</label></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Simular jubilación</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label">Haber jubilatorio estimado</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-fecha"></div><div class="stat-label">Edad jubilatoria</div></div>
+      <div class="stat"><div class="stat-value" id="res-aportes"></div><div class="stat-label">Aportes al jubilarte</div></div>
+      <div class="stat"><div class="stat-value" id="res-tasa"></div><div class="stat-label">Tasa de reemplazo</div></div>
+    </div>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Requisitos para jubilarse en Argentina</h2>
+<p>El régimen general está regulado por la <a href="https://www.argentina.gob.ar/normativa/nacional/ley-24241-639" rel="noopener">Ley 24.241</a> del Sistema Integrado Previsional Argentino. Para acceder a la jubilación ordinaria hacen falta dos condiciones:</p>
+<ul>
+  <li><strong>Edad:</strong> 65 años los hombres y 60 años las mujeres.</li>
+  <li><strong>Aportes:</strong> 30 años de servicios con aportes, en relación de dependencia, como autónomo o como monotributista.</li>
+</ul>
+<p>Si se llega a la edad sin los 30 años de aportes, no hay jubilación ordinaria. Desde los 65 años se puede solicitar la <strong>PUAM</strong> (Pensión Universal para el Adulto Mayor), que hoy es de {{jPuam}} por mes, el 80 % del haber mínimo. La PUAM no genera pensión por fallecimiento para el cónyuge.</p>
+<h2>Cómo se calcula el haber</h2>
+<p>La jubilación se forma sumando tres prestaciones:</p>
+<ul>
+  <li><strong>PBU (Prestación Básica Universal):</strong> un monto fijo igual para todos, hoy de {{jPbu}}. Se incrementa 1 % por cada año de aportes por encima de 30, hasta un máximo de 45 años.</li>
+  <li><strong>PC (Prestación Compensatoria):</strong> reconoce los años aportados antes de julio de 1994.</li>
+  <li><strong>PAP (Prestación Adicional por Permanencia):</strong> reconoce los años aportados desde julio de 1994.</li>
+</ul>
+<p>La PC y la PAP suman, en conjunto, el <strong>1,5 % del promedio de remuneraciones por cada año de aportes</strong>, con un tope de 35 años. El promedio se toma de los sueldos de los últimos 10 años, actualizados, y no puede superar la base imponible máxima, hoy de {{jBase}}. Por eso el simulador pide un sueldo en pesos de hoy y lo recorta a ese tope.</p>
+<p>El resultado final tiene un piso y un techo: no puede ser menor que el <strong>haber mínimo</strong> ({{jMin}}) ni mayor que el <strong>haber máximo</strong> ({{jMax}}). Los montos corresponden a {{jVig}}, según la {{jNorma}} publicada en el <a href="{{jFuente}}" rel="noopener">Boletín Oficial</a>.</p>
+{{ad:medio}}
+<h2>Ejemplo</h2>
+<p>Una persona que se jubila a los 65 años con 35 años de aportes y un sueldo promedio de $ 1.500.000:</p>
+<ul>
+  <li>PBU con 5 años extra (+5 %): {{jEPbu}}.</li>
+  <li>PC + PAP: 1,5 % × 35 años × $ 1.500.000 = {{jEPc}}.</li>
+  <li>Haber estimado: <strong>{{jEHaber}}</strong> brutos por mes.</li>
+</ul>
+<p>Sobre el haber bruto se descuenta el aporte al PAMI, de entre el 3 % y el 6 % según el monto, que el simulador no resta.</p>
+<h2>Cómo se actualizan las jubilaciones</h2>
+<p>Desde 2024, las jubilaciones se actualizan todos los meses según la inflación (IPC del INDEC) de dos meses antes. ANSES publica cada mes una resolución con los nuevos valores del haber mínimo, el máximo, la PBU y la PUAM. Cajatool carga esos montos con cada resolución, por lo que el resultado está expresado en pesos del mes vigente. Además del haber, ANSES puede pagar un bono a los haberes más bajos, que no forma parte de la jubilación y no está incluido en el cálculo.</p>
+<h2>Qué no contempla el simulador</h2>
+<ul>
+  <li><strong>Regímenes especiales:</strong> docentes, investigadores, luz y fuerza, trabajo insalubre, servicio doméstico y otros tienen edades, porcentajes o requisitos distintos.</li>
+  <li><strong>Autónomos y monotributistas:</strong> sus aportes se computan por categoría y no por sueldo, y la PC y la PAP se calculan de otra forma.</li>
+  <li><strong>Edad avanzada:</strong> existe una prestación por edad avanzada desde los 70 años con 10 años de aportes, con un haber menor.</li>
+  <li><strong>Compensación de edad y aportes:</strong> por cada 2 años trabajados por encima de la edad se puede compensar 1 año de aportes faltante.</li>
+</ul>
+<h2>Consejos antes de jubilarte</h2>
+<p>Revisá tu historia laboral en Mi ANSES con tu clave de la Seguridad Social: allí figuran los aportes registrados, y cualquier período faltante puede reclamarse con recibos de sueldo o certificados de servicios. Si te faltan pocos años, conviene seguir aportando o consultar opciones de compensación. Y si querés complementar el haber, pensá en un ahorro propio: la <a href="/finanzas/libertad-financiera/">calculadora de libertad financiera</a> muestra cuánto hace falta.</p>
+<p>Este simulador ofrece una estimación orientativa y no reemplaza el cálculo oficial de ANSES.</p>
+</article>
+{{data:anses}}

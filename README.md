@@ -53,7 +53,7 @@ Google Analytics se activa completando `analyticsId` (formato `G-XXXXXXX`).
 
 ## Calidad (revisión del 24/09/2026)
 
-- Lighthouse en celular sobre https://cajatool.com: **100 / 100 / 100 / 100** (rendimiento, accesibilidad, buenas prácticas y SEO) en las 11 páginas indexables. La 404 da 66 en SEO porque tiene `noindex`, a propósito.
+- Lighthouse en celular sobre https://cajatool.com: **100 / 100 / 100 / 100** (rendimiento, accesibilidad, buenas prácticas y SEO) en las páginas indexables. La 404 da 66 en SEO porque tiene `noindex`, a propósito.
 - JSON-LD validado con validator.schema.org, sin errores.
 - `node tests/run.js` controla títulos y descripciones (largo y duplicados), un solo H1, canonical, Open Graph, JSON-LD, enlaces internos, sitemap, la estructura de cada herramienta (orden, 600–1000 palabras, 4–6 preguntas frecuentes, relacionadas, fecha), la ubicación de los anuncios con AdSense activado y los cálculos de cada calculadora.
 - `CAJATOOL_CONFIG` y `CAJATOOL_DIST` permiten correr el build con otra configuración y otra carpeta de salida (lo usa el test de anuncios).

@@ -1,0 +1,56 @@
+<h1>{{h1}}</h1>
+<p class="lead">Compará cuánto rinde tu dinero en un plazo fijo tradicional y en uno ajustado por UVA, según la inflación que esperás para los próximos meses.</p>
+<section class="tool" aria-label="Comparador de plazo fijo UVA y tradicional">
+  <form id="form-uva" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="capital">Monto a invertir</label><input type="text" id="capital" class="money" inputmode="decimal" placeholder="Ej.: 1.000.000" autocomplete="off"></div>
+      <div class="field"><label for="dias">Plazo</label><select id="dias"><option value="90" selected>90 días</option><option value="120">120 días</option><option value="180">180 días</option><option value="365">365 días</option></select></div>
+      <div class="field"><label for="tna">TNA del plazo fijo tradicional (%)</label><input type="text" id="tna" inputmode="decimal" value="{{uvTna}}" autocomplete="off"><span class="hint">Promedio del BCRA. Cambiala por la de tu banco.</span></div>
+      <div class="field"><label for="tasa">Tasa adicional del UVA (% anual)</label><input type="text" id="tasa" inputmode="decimal" value="1" autocomplete="off"></div>
+      <div class="field full"><label for="inflacion">Inflación mensual esperada (%)</label><input type="text" id="inflacion" inputmode="decimal" value="{{uvInf}}" autocomplete="off"><span class="hint">Promedio de los últimos 3 meses del IPC.</span></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Comparar</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Conviene</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-tr"></div><div class="stat-label">Tradicional</div></div>
+      <div class="stat"><div class="stat-value" id="res-uva"></div><div class="stat-label">UVA</div></div>
+      <div class="stat"><div class="stat-value" id="res-eq"></div><div class="stat-label">Inflación de equilibrio</div></div>
+    </div>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Qué es un plazo fijo UVA</h2>
+<p>La <strong>UVA (Unidad de Valor Adquisitivo)</strong> es una unidad de medida que publica el BCRA todos los días y que se actualiza según el Coeficiente de Estabilización de Referencia (CER), que sigue a la inflación. Hoy una UVA vale $ {{uvValor}} (BCRA, {{uvFecha}}). En un plazo fijo UVA, el dinero se convierte a UVA al invertir y se vuelve a pasar a pesos al vencimiento. Así, el capital mantiene su poder de compra y, además, se cobra una pequeña tasa de interés.</p>
+<h2>Cómo se calcula cada uno</h2>
+<p><strong>Tradicional:</strong> capital × (1 + TNA × días ÷ 365). La tasa es fija y se conoce desde el principio.</p>
+<p><strong>UVA:</strong> capital × (1 + inflación del período) × (1 + tasa adicional × días ÷ 365). El rendimiento depende de la inflación, que se conoce recién al vencimiento.</p>
+<p>La <strong>inflación de equilibrio</strong> es la inflación mensual con la que los dos rinden lo mismo. Si esperás más inflación que ese valor, conviene el UVA; si esperás menos, conviene el tradicional.</p>
+{{ad:medio}}
+<h2>Ejemplo con los datos actuales</h2>
+<p>Con $ 1.000.000 a 90 días, la TNA promedio del BCRA ({{uvTnaTxt}}) y una inflación del {{uvInfTxt}} mensual (promedio de los últimos tres meses del INDEC):</p>
+<ul>
+  <li>El plazo fijo tradicional devuelve <strong>{{uvETr}}</strong>.</li>
+  <li>El plazo fijo UVA, con una tasa adicional del 1 % anual, devolvería alrededor de <strong>{{uvEUva}}</strong>.</li>
+</ul>
+<p>Con estos supuestos conviene {{uvGana}}. La inflación de equilibrio es del {{uvEq}} mensual.</p>
+<h2>Ventajas y desventajas</h2>
+<ul>
+  <li><strong>El UVA protege contra sorpresas:</strong> si la inflación se acelera, tu capital la acompaña. En el tradicional, una suba de la inflación te hace perder poder de compra.</li>
+  <li><strong>El tradicional da certeza:</strong> sabés exactamente cuántos pesos vas a cobrar. En el UVA, el monto final depende de la inflación.</li>
+  <li><strong>Plazo:</strong> el UVA exige un mínimo de 90 días; el tradicional, 30. Algunos bancos ofrecen UVA precancelables, con salida anticipada desde los 30 días a una tasa fija.</li>
+  <li><strong>Desfase:</strong> el CER refleja la inflación con alrededor de un mes y medio de retraso. Si la inflación está bajando, el UVA todavía ajusta por la de meses anteriores, que era más alta, y viceversa.</li>
+</ul>
+<h2>Cómo elegir</h2>
+<p>La decisión depende de lo que esperes de la inflación. Si pensás que va a bajar, el tradicional suele rendir más porque su tasa ya incorpora una inflación esperada mayor. Si pensás que puede subir, o si querés protegerte contra ese riesgo, el UVA es la opción más segura. Una estrategia intermedia es repartir los ahorros entre los dos.</p>
+<h2>Cómo hacer un plazo fijo UVA</h2>
+<p>Se puede constituir desde el home banking o la aplicación de cualquier banco, en la sección de plazos fijos, eligiendo la opción «UVA» o «ajustable por CER». El monto mínimo lo fija cada entidad y suele ser bajo. Al elegir el plazo, recordá que el mínimo es de 90 días y que el dinero queda inmovilizado hasta el vencimiento, salvo en la variante precancelable. Al vencer, el banco acredita el capital actualizado por el valor de la UVA de ese día más los intereses, y podés renovarlo o retirarlo.</p>
+<p>Los plazos fijos en pesos, tanto tradicionales como UVA, están cubiertos por el seguro de garantía de los depósitos hasta el tope vigente por persona y por entidad. Para comparar tasas entre bancos podés usar el <a href="https://www.bcra.gob.ar/BCRAyVos/Plazos_fijos_online.asp" rel="noopener">buscador de plazos fijos del BCRA</a>. Si tus ahorros superan el tope del seguro, conviene repartirlos entre distintos bancos.</p>
+<h2>Fuentes</h2>
+<p>El valor de la UVA y la tasa promedio de plazo fijo salen de las <a href="https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp" rel="noopener">estadísticas del BCRA</a>, y la inflación, del <a href="https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31" rel="noopener">IPC del INDEC</a>. Todo se actualiza automáticamente cada semana. El resultado es una proyección: la inflación futura no se conoce.</p>
+</article>

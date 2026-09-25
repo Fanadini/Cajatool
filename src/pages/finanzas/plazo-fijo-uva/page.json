@@ -1,0 +1,15 @@
+{
+  "type": "tool", "category": "finanzas", "appCategory": "FinanceApplication",
+  "title": "Plazo fijo UVA vs tradicional: simulador 2026 | Cajatool",
+  "description": "Compará un plazo fijo UVA con uno tradicional según la inflación esperada. Mirá cuál rinde más y desde qué inflación conviene el UVA.",
+  "h1": "Plazo fijo UVA vs. tradicional: ¿cuál conviene en 2026?",
+  "breadcrumb": "Plazo fijo UVA", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 7, "name": "Plazo fijo UVA vs. tradicional", "desc": "Cuál rinde más según la inflación esperada, y desde qué inflación conviene el UVA.", "keywords": "plazo fijo uva tradicional comparar inflacion cer rendimiento 90 dias precancelable" },
+  "related": ["/finanzas/plazo-fijo/", "/finanzas/actualizar-por-inflacion/", "/finanzas/libertad-financiera/"],
+  "faq": [
+    { "q": "¿Cómo funciona un plazo fijo UVA?", "a": "El capital se convierte a UVA (Unidades de Valor Adquisitivo) al hacerlo y se vuelve a pasar a pesos al vencimiento, con el valor de la UVA de ese día. Como la UVA sigue a la inflación, el capital se ajusta por inflación, y además se cobra una tasa de interés adicional." },
+    { "q": "¿Cuál es el plazo mínimo?", "a": "El plazo fijo UVA tiene un plazo mínimo de 90 días, según las normas del BCRA. El tradicional puede hacerse desde 30 días. Algunos bancos ofrecen plazos fijos UVA precancelables, que permiten retirar el dinero antes, desde los 30 días, a una tasa menor." },
+    { "q": "¿Cuándo conviene el UVA?", "a": "Cuando la inflación de los próximos meses supere a la tasa del plazo fijo tradicional. La calculadora muestra la inflación mensual de equilibrio: si esperás más inflación que ese número, conviene el UVA." },
+    { "q": "¿El UVA sigue exactamente a la inflación?", "a": "Sigue al CER, que se calcula con el IPC con un desfase de aproximadamente un mes y medio. Por eso el ajuste de un plazo fijo UVA refleja la inflación de meses anteriores, no la del mismo período." }
+  ]
+}

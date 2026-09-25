@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "laboral", "appCategory": "FinanceApplication",
+  "title": "Simulador de jubilación ANSES 2026 | Cajatool",
+  "description": "Calculá cuándo te jubilás, cuántos años de aportes te faltan y cuánto cobrarías de jubilación según la Ley 24.241, con los montos ANSES vigentes.",
+  "h1": "Simulador de jubilación 2026: cuándo y cuánto cobrás",
+  "breadcrumb": "Simulador de jubilación", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 7, "name": "Simulador de jubilación", "desc": "Edad, años de aportes que faltan y haber estimado con los montos de ANSES.", "keywords": "jubilacion anses simulador haber minimo maximo aportes edad pbu puam cuanto cobro" },
+  "related": ["/laboral/sueldo-neto/", "/finanzas/libertad-financiera/", "/laboral/indemnizacion-despido/"],
+  "faq": [
+    { "q": "¿A qué edad me puedo jubilar?", "a": "Con el régimen general de la Ley 24.241, los hombres a los 65 años y las mujeres a los 60, siempre que tengan 30 años de aportes. Las mujeres pueden seguir trabajando hasta los 65 si lo desean." },
+    { "q": "¿Qué pasa si no tengo 30 años de aportes?", "a": "No se accede a la jubilación ordinaria. Desde los 65 años se puede pedir la Pensión Universal para el Adulto Mayor (PUAM), que equivale al 80 % del haber mínimo. Las moratorias previsionales, que permitían completar años, dejaron de estar vigentes para nuevos trámites." },
+    { "q": "¿Cómo se calcula el haber jubilatorio?", "a": "Se suman tres componentes: la Prestación Básica Universal (PBU), un monto fijo que sube 1 % por cada año de aportes por encima de 30; la Prestación Compensatoria y la Prestación Adicional por Permanencia, que juntas equivalen al 1,5 % del promedio de sueldos por cada año de aportes. El total no puede ser menor que el haber mínimo ni mayor que el máximo." },
+    { "q": "¿Qué sueldo tengo que poner?", "a": "ANSES usa el promedio de las remuneraciones de los últimos 10 años, actualizadas por el índice de movilidad. Para una estimación, poné tu sueldo bruto actual o el promedio de los últimos años, en pesos de hoy." },
+    { "q": "¿Esta estimación es la que va a pagar ANSES?", "a": "No. Es una simulación simplificada que no contempla regímenes especiales (docentes, investigadores, trabajo insalubre, servicio doméstico), autónomos ni monotributistas, que tienen reglas distintas. Para un cálculo oficial, consultá en Mi ANSES o en una oficina de ANSES." }
+  ]
+}

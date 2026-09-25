@@ -1,0 +1,59 @@
+<h1>{{h1}}</h1>
+<p class="lead">Calculá los materiales para tu obra o remodelación: pintura para paredes y techos, cajas de cerámicos o porcelanato y conversión de metros lineales a metros cuadrados.</p>
+<section class="tool" aria-label="Calculadora de materiales">
+  <form id="form-mat" novalidate>
+    <div class="segmented"><label><input type="radio" name="modo" value="pintura" checked> Pintura</label><label><input type="radio" name="modo" value="pisos"> Cerámicos</label><label><input type="radio" name="modo" value="lineales"> Lineales a m²</label></div>
+    <div class="form-grid" data-modo="pintura">
+      <div class="field"><label for="perimetro">Perímetro de paredes (m)</label><input type="text" id="perimetro" inputmode="decimal" placeholder="Ej.: 14" autocomplete="off"></div>
+      <div class="field"><label for="alto">Altura (m)</label><input type="text" id="alto" inputmode="decimal" value="2,60" autocomplete="off"></div>
+      <div class="field"><label for="aberturas">Puertas y ventanas (m²)</label><input type="text" id="aberturas" inputmode="decimal" placeholder="Ej.: 3" autocomplete="off"></div>
+      <div class="field"><label for="manos">Manos</label><select id="manos"><option value="1">1</option><option value="2" selected>2</option><option value="3">3</option></select></div>
+      <div class="field"><label for="rendimiento">Rendimiento (m² por litro)</label><input type="text" id="rendimiento" inputmode="decimal" value="10" autocomplete="off"></div>
+      <div class="field"><label for="lata">Tamaño de lata</label><select id="lata"><option value="1">1 litro</option><option value="4">4 litros</option><option value="10">10 litros</option><option value="20" selected>20 litros</option></select></div>
+      <div class="field"><label class="check"><input type="checkbox" id="techo"> Pintar también el techo</label></div>
+      <div class="field"><label for="sup-techo">Superficie del techo (m²)</label><input type="text" id="sup-techo" inputmode="decimal" placeholder="Ej.: 12" autocomplete="off"></div>
+    </div>
+    <div class="form-grid" data-modo="pisos" hidden>
+      <div class="field"><label for="superficie">Superficie a cubrir (m²)</label><input type="text" id="superficie" inputmode="decimal" placeholder="Ej.: 12" autocomplete="off"></div>
+      <div class="field"><label for="m2caja">m² por caja</label><input type="text" id="m2caja" inputmode="decimal" placeholder="Ej.: 2,16" autocomplete="off"></div>
+      <div class="field full"><label for="desperdicio">Desperdicio</label><select id="desperdicio"><option value="5">5 % (piezas grandes, pocos cortes)</option><option value="10" selected>10 % (colocación recta)</option><option value="15">15 % (diagonal o muchos cortes)</option><option value="20">20 % (espiga)</option></select></div>
+    </div>
+    <div class="form-grid" data-modo="lineales" hidden>
+      <div class="field"><label for="lineales">Metros lineales</label><input type="text" id="lineales" inputmode="decimal" placeholder="Ej.: 10" autocomplete="off"><span class="hint">O completá los m² para el cálculo inverso.</span></div>
+      <div class="field"><label for="m2">Metros cuadrados</label><input type="text" id="m2" inputmode="decimal" placeholder="Ej.: 14" autocomplete="off"></div>
+      <div class="field full"><label for="ancho">Ancho del material (m)</label><input type="text" id="ancho" inputmode="decimal" placeholder="Ej.: 1,40" autocomplete="off"></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label" id="res-label"></p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Cuánta pintura comprar</h2>
+<p>Para calcular la pintura primero hay que conocer la superficie. En paredes se multiplica el <strong>perímetro</strong> del ambiente (la suma del largo de todas las paredes) por la <strong>altura</strong>, y a eso se le restan puertas y ventanas. Si también vas a pintar el cielorraso, sumá su superficie, que es el largo por el ancho del ambiente.</p>
+<p>Después se aplica la fórmula: <strong>litros = superficie × manos ÷ rendimiento</strong>. El rendimiento es la cantidad de metros cuadrados que cubre un litro en una mano y figura en la lata. Un látex interior de buena calidad rinde entre 10 y 12 m² por litro; los económicos, entre 6 y 8. Las pinturas para exterior, los esmaltes y los impermeabilizantes para techos tienen rendimientos distintos, por eso el campo se puede cambiar.</p>
+<h3>Ejemplo de pintura</h3>
+<p>Un dormitorio de 4 × 3 metros con paredes de 2,60 m de alto tiene 14 m de perímetro. La superficie de paredes es 14 × 2,60 = 36,4 m². Si le restamos una puerta y una ventana (3 m²), quedan 33,4 m². Con dos manos y un rendimiento de 10 m² por litro hacen falta 33,4 × 2 ÷ 10 = <strong>6,68 litros</strong>: una lata de 4 litros no alcanza, así que conviene comprar una de 10 litros o dos de 4. Si además se pinta el techo (12 m²), el total sube a 9,08 litros.</p>
+<h2>Cuántas cajas de cerámicos o porcelanato</h2>
+<p>Los cerámicos y porcelanatos se venden por caja, y cada caja indica cuántos metros cuadrados cubre (por ejemplo, 2,16 m² en piezas de 60 × 60 cm, que vienen de a seis). La cuenta es: <strong>cajas = superficie × (1 + desperdicio) ÷ m² por caja</strong>, redondeando siempre hacia arriba porque no se venden cajas partidas.</p>
+<p>El <strong>desperdicio</strong> cubre los cortes contra las paredes, las piezas que se rompen y las que tienen defectos. En colocación recta se suele calcular un 10 %; en diagonal o en espiga, entre 15 % y 20 %, porque hay más recortes. También es buena idea guardar algunas piezas de la misma partida para reparaciones futuras, ya que el tono puede variar entre lotes.</p>
+{{ad:medio}}
+<h3>Ejemplo de cerámicos</h3>
+<p>Para un piso de 12 m² con porcelanato de 2,16 m² por caja y 10 % de desperdicio: 12 × 1,10 = 13,2 m². Dividido 2,16 da 6,11, así que hay que comprar <strong>7 cajas</strong>, que cubren 15,12 m². Para revestir paredes de baño o cocina se usa la misma fórmula, con la superficie de la pared menos las aberturas.</p>
+<h2>Metros lineales a metros cuadrados</h2>
+<p>Muchos materiales se venden por <strong>metro lineal</strong>: telas, alfombras, membranas, film, zócalos de rollo o chapas. El metro lineal mide solo el largo; el ancho lo fija el rollo o la pieza. Para pasar a metros cuadrados se multiplica: <strong>m² = metros lineales × ancho</strong>. Y al revés, para saber cuántos metros lineales pedir para cubrir una superficie: <strong>metros lineales = m² ÷ ancho</strong>.</p>
+<p>Por ejemplo, para cubrir 14 m² con una membrana de 1 m de ancho hacen falta 14 metros lineales; con una tela de 1,40 m, 10 metros lineales. Sumá un margen para solapes y uniones, que en membranas suele ser de 10 cm por paño.</p>
+<h2>Consejos para comprar materiales</h2>
+<ul>
+  <li><strong>Medí dos veces:</strong> un error en el perímetro o en la altura se multiplica en el resultado.</li>
+  <li><strong>Pedí presupuesto por escrito:</strong> con precio, cantidad y plazo de entrega. Si hay problemas con la compra, podés reclamar ante <a href="https://www.argentina.gob.ar/defensadelconsumidor" rel="noopener">Defensa del Consumidor</a>.</li>
+  <li><strong>Revisá la partida:</strong> en cerámicos, comprá todas las cajas del mismo lote y tono.</li>
+  <li><strong>Consultá la ficha técnica:</strong> el rendimiento real y la preparación de la superficie están en la etiqueta del fabricante.</li>
+</ul>
+<p>Los resultados son estimaciones para planificar la compra. Ante dudas, consultá con quien vaya a hacer el trabajo, que conoce el estado de las superficies.</p>
+</article>

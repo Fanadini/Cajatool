@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "alquiler", "appCategory": "UtilitiesApplication",
+  "title": "Calculadora de pintura, cerámicos y m² 2026 | Cajatool",
+  "description": "Calculá cuántos litros de pintura, cuántas cajas de cerámicos o porcelanato necesitás y pasá de metros lineales a m². Gratis y al instante.",
+  "h1": "Calculadora de materiales 2026: pintura, cerámicos y metros lineales",
+  "breadcrumb": "Calculadora de materiales", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 3, "name": "Calculadora de materiales", "desc": "Litros de pintura, cajas de cerámicos y metros lineales a m².", "keywords": "pintura litros cuantos ceramicos cajas porcelanato piso metros lineales a m2 metro cuadrado obra" },
+  "related": ["/vivienda/valor-metro-cuadrado/", "/alquiler/ajuste-alquiler/", "/finanzas/cuotas-o-contado/"],
+  "faq": [
+    { "q": "¿Cuántos litros de pintura necesito por metro cuadrado?", "a": "Un látex interior rinde, en promedio, entre 8 y 12 m² por litro y por mano. Con dos manos, cada m² de pared lleva unos 0,2 litros. El rendimiento exacto figura en la lata y depende de la superficie: el revoque nuevo o poroso absorbe más." },
+    { "q": "¿Cuánto desperdicio calculo en cerámicos?", "a": "Un 10 % para colocación recta en ambientes rectangulares. Si la colocación es en diagonal, en espiga o el ambiente tiene muchos recortes, conviene calcular entre 15 % y 20 %. Guardar alguna pieza extra también sirve para reparaciones futuras." },
+    { "q": "¿Cómo paso de metros lineales a metros cuadrados?", "a": "Multiplicá los metros lineales por el ancho del material en metros. Por ejemplo, 10 metros lineales de una tela de 1,40 m de ancho son 14 m². Para ir al revés, dividí los m² por el ancho." },
+    { "q": "¿Tengo que descontar puertas y ventanas?", "a": "Sí, para no comprar de más. Una puerta estándar tiene cerca de 1,6 m² (0,80 × 2,00 m) y una ventana común entre 1 y 2 m². Sumá esas superficies en el campo de aberturas." },
+    { "q": "¿Cómo mido el perímetro de una habitación?", "a": "Sumá el largo de todas las paredes. En una habitación rectangular de 4 × 3 metros, el perímetro es 4 + 3 + 4 + 3 = 14 metros." }
+  ]
+}

@@ -1,0 +1,62 @@
+<h1>{{h1}}</h1>
+<p class="lead">Poné tu costo de vida, lo que tenés ahorrado y lo que podés ahorrar por mes: la calculadora te dice cuánto capital necesitás para vivir de rentas, en cuánto tiempo llegás y cuánto aporta el interés compuesto.</p>
+<section class="tool" aria-label="Calculadora de libertad financiera">
+  <form id="form-lf" novalidate>
+    <div class="form-grid">
+      <div class="field"><label for="gasto">Costo de vida mensual</label><input type="text" id="gasto" class="money" inputmode="decimal" value="1.000.000" autocomplete="off"></div>
+      <div class="field"><label for="ahorro">Ahorro actual</label><input type="text" id="ahorro" class="money" inputmode="decimal" value="5.000.000" autocomplete="off"></div>
+      <div class="field"><label for="aporte">Ahorro mensual</label><input type="text" id="aporte" class="money" inputmode="decimal" value="300.000" autocomplete="off"></div>
+      <div class="field"><label for="rendimiento">Rendimiento real anual (%)</label><input type="text" id="rendimiento" inputmode="decimal" value="4" autocomplete="off"><span class="hint">Por encima de la inflación.</span></div>
+      <div class="field"><label for="retiro">Tasa de retiro anual (%)</label><input type="text" id="retiro" inputmode="decimal" value="4" autocomplete="off"><span class="hint">4 % = regla del 4 %.</span></div>
+      <div class="field"><label for="anios">¿En cuántos años querés llegar?</label><input type="text" id="anios" inputmode="numeric" value="20" autocomplete="off"><span class="hint">Para calcular cuánto ahorrar.</span></div>
+    </div>
+    <p class="error-msg" id="form-error" aria-live="polite"></p>
+    <div class="actions"><button type="submit" class="btn btn-block">Calcular</button></div>
+  </form>
+  <div class="result" id="resultado" hidden aria-live="polite">
+    <p class="result-label">Llegás a la libertad financiera en</p><p class="result-main" id="res-main"></p><p id="res-explica"></p>
+    <div class="result-grid">
+      <div class="stat"><div class="stat-value" id="res-obj"></div><div class="stat-label">Capital necesario</div></div>
+      <div class="stat"><div class="stat-value" id="res-nec"></div><div class="stat-label" id="res-nec-label">Ahorro mensual necesario</div></div>
+      <div class="stat"><div class="stat-value" id="res-int"></div><div class="stat-label">Intereses ganados</div></div>
+    </div>
+    <figure class="chart" id="chart">
+      <figcaption class="chart-title">Cómo crece tu capital: aportes e intereses por año</figcaption>
+      <div class="chart-legend"><span><i class="sw sw-1"></i>Tus aportes</span><span><i class="sw sw-2"></i>Interés compuesto</span><span><i class="sw sw-obj"></i>Objetivo</span></div>
+      <div class="chart-plot" id="chart-plot"></div>
+      <div class="chart-tip" id="chart-tip" hidden></div>
+      <details class="chart-table"><summary>Ver como tabla</summary><div class="table-wrap"><table class="data-table"><thead><tr><th scope="col">Año</th><th scope="col">Aportes</th><th scope="col">Intereses</th><th scope="col">Capital</th></tr></thead><tbody id="chart-tbody"></tbody></table></div></details>
+    </figure>
+    <div class="actions"><button type="button" class="btn btn-secondary" data-copy="#res-resumen">Copiar resultado</button><button type="button" class="btn btn-secondary" data-share="#res-resumen">Compartir</button></div>
+    <p class="visually-hidden" id="res-resumen"></p>
+  </div>
+</section>
+{{ad:resultado}}
+<article class="article">
+<h2>Cuánto dinero necesitás para vivir de rentas</h2>
+<p>La libertad financiera llega cuando lo que rinden tus inversiones alcanza para pagar tus gastos. Para calcular ese número se usa la <strong>tasa de retiro</strong>: el porcentaje del capital que podés gastar cada año sin quedarte sin dinero. La fórmula es simple: <strong>capital necesario = gasto anual ÷ tasa de retiro</strong>.</p>
+<p>Con la famosa <strong>regla del 4 %</strong>, el capital necesario es 25 veces el gasto anual. Si vivís con $ 1.000.000 por mes, gastás $ 12.000.000 por año y necesitás juntar $ 300.000.000. Con una tasa del 3 %, más prudente, el número sube a 33 veces el gasto anual.</p>
+<h2>Qué es el interés compuesto</h2>
+<p>El interés compuesto es el interés que se gana sobre los intereses anteriores. Si invertís $ 100 al 5 % anual, el primer año ganás $ 5; el segundo, el 5 % de $ 105, es decir, $ 5,25; y así sucesivamente. La diferencia parece pequeña, pero en plazos largos es enorme: en 30 años, esos $ 100 se convierten en $ 432, y más de dos tercios son intereses.</p>
+<p>El gráfico de la calculadora separa, año por año, cuánto del capital salió de tu bolsillo (tus aportes) y cuánto generaron los rendimientos. Al principio casi todo son aportes; con el tiempo, la parte de intereses crece cada vez más rápido. Por eso se dice que el mejor momento para empezar a invertir fue hace diez años, y el segundo mejor es hoy.</p>
+{{ad:medio}}
+<h2>Ejemplo</h2>
+<p>Con los valores que trae la calculadora: costo de vida de $ 1.000.000 por mes, $ 5.000.000 ahorrados, $ 300.000 de ahorro mensual, un rendimiento real del 4 % anual y la regla del 4 %:</p>
+<ul>
+  <li>El capital necesario es de <strong>$ 300.000.000</strong>.</li>
+  <li>Se llega en <strong>35 años y 9 meses</strong>.</li>
+  <li>De ese capital, $ 133.700.000 son aportes propios y unos $ 167.389.111 son intereses: el interés compuesto aporta más que el ahorro.</li>
+  <li>Para llegar en 20 años haría falta ahorrar alrededor de <strong>$ 794.423 por mes</strong>.</li>
+</ul>
+<p>Sin ningún rendimiento, con el dinero guardado en el colchón, llegar al mismo objetivo llevaría 82 años. Esa diferencia es, justamente, el efecto del interés compuesto.</p>
+<h2>Por qué todo está en pesos de hoy</h2>
+<p>En la Argentina, calcular con tasas nominales en pesos no tiene sentido a largo plazo: la inflación distorsiona todos los números. Por eso la calculadora trabaja en <strong>valores reales</strong>: el costo de vida, el ahorro y el capital objetivo están expresados en pesos de hoy, y el rendimiento que ingresás es el que obtenés por encima de la inflación. Para que el cálculo se cumpla, tu ahorro mensual tiene que aumentar al ritmo de la inflación. Si querés saber cuánto vale hoy un monto del pasado, usá la <a href="/finanzas/actualizar-por-inflacion/">calculadora de inflación</a>.</p>
+<h2>Las tres palancas</h2>
+<ul>
+  <li><strong>Gastar menos:</strong> baja el objetivo y, al mismo tiempo, deja más dinero para ahorrar. Es la palanca más potente.</li>
+  <li><strong>Ahorrar más:</strong> cada peso extra por mes acorta el camino, sobre todo en los primeros años.</li>
+  <li><strong>Invertir mejor:</strong> un punto más de rendimiento real puede ahorrar varios años, pero más rendimiento implica más riesgo.</li>
+</ul>
+<h2>Límites de la simulación</h2>
+<p>La calculadora supone un rendimiento constante todos los años, algo que no ocurre en la realidad: las inversiones tienen años buenos y malos, y el orden en que llegan importa, sobre todo cerca del retiro. Tampoco considera impuestos, comisiones ni gastos imprevistos. Tomala como una guía para dimensionar el objetivo. Antes de invertir, informate sobre los productos y los intermediarios autorizados en la <a href="https://www.argentina.gob.ar/cnv" rel="noopener">Comisión Nacional de Valores</a>, y compará tasas en las <a href="https://www.bcra.gob.ar/BCRAyVos/Plazos_fijos_online.asp" rel="noopener">herramientas del BCRA</a>.</p>
+</article>

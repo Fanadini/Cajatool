@@ -1,0 +1,16 @@
+{
+  "type": "tool", "category": "finanzas", "appCategory": "FinanceApplication",
+  "title": "Calculadora de libertad financiera 2026 | Cajatool",
+  "description": "Calculá cuánto necesitás para vivir de tus inversiones, en cuánto tiempo llegás y cuánto ahorrar por mes. Con gráfico de interés compuesto.",
+  "h1": "Calculadora de libertad financiera 2026: cuánto y cuándo",
+  "breadcrumb": "Libertad financiera", "updated": "2026-09-25", "scripts": ["calc.js", "script.js"],
+  "card": { "order": 8, "name": "Libertad financiera", "desc": "Cuánto necesitás para vivir de rentas, en cuánto tiempo llegás y el efecto del interés compuesto.", "keywords": "libertad financiera independencia fire interes compuesto ahorro invertir vivir de rentas regla del 4 retiro" },
+  "related": ["/finanzas/plazo-fijo/", "/laboral/simulador-jubilacion/", "/finanzas/actualizar-por-inflacion/"],
+  "faq": [
+    { "q": "¿Qué es la libertad financiera?", "a": "Es el punto en el que los rendimientos de tus ahorros e inversiones alcanzan para cubrir tus gastos, sin depender de un sueldo. A partir de ahí, trabajar pasa a ser una elección." },
+    { "q": "¿Qué es la regla del 4 %?", "a": "Es una referencia que surge de estudios sobre carteras de acciones y bonos en Estados Unidos: retirar cada año el 4 % del capital inicial, ajustado por inflación, permitió que el dinero durara al menos 30 años en la gran mayoría de los escenarios históricos. Equivale a juntar 25 veces el gasto anual." },
+    { "q": "¿Qué rendimiento pongo?", "a": "El rendimiento real, es decir, por encima de la inflación. Como los montos se expresan en pesos de hoy, hay que descontar la inflación. Una cartera conservadora puede rendir entre 1 % y 3 % real anual; una diversificada con acciones, históricamente entre 4 % y 6 %, con años buenos y malos." },
+    { "q": "¿Por qué el interés compuesto importa tanto?", "a": "Porque los intereses generan nuevos intereses. Al principio el crecimiento parece lento, pero con los años la parte que aportan los rendimientos puede superar a todo lo que ahorraste. Por eso empezar antes suele pesar más que ahorrar mucho más tarde." },
+    { "q": "¿Esto es una recomendación de inversión?", "a": "No. Es una simulación con un rendimiento constante, algo que en la realidad no ocurre. Sirve para dimensionar el objetivo y el esfuerzo de ahorro; para decidir cómo invertir, consultá con un asesor matriculado ante la CNV." }
+  ]
+}
