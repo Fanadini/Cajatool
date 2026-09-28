@@ -1,5 +1,5 @@
 {
- "actualizado": "2026-09-25",
+ "actualizado": "2026-09-28",
  "fuente": "https://api.bcra.gob.ar/cheques/v1.0/entidades",
  "descripcion": "Entidades financieras por código (3 primeros dígitos del CBU), según el BCRA",
  "entidades": {
