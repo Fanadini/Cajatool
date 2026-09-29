@@ -137,6 +137,21 @@
     "tipo": "trasladable"
    },
    {
+    "fecha": "2026-11-09",
+    "nombre": "Visita de Su Santidad el Papa León XIV",
+    "tipo": "inamovible"
+   },
+   {
+    "fecha": "2026-11-10",
+    "nombre": "Visita de Su Santidad el Papa León XIV (Córdoba y Ciudad Autónoma de Buenos Aires)",
+    "tipo": "no_laborable"
+   },
+   {
+    "fecha": "2026-11-11",
+    "nombre": "Visita de Su Santidad el Papa León XIV (Provincia de Buenos Aires)",
+    "tipo": "no_laborable"
+   },
+   {
     "fecha": "2026-11-23",
     "nombre": "Día de la Soberanía Nacional (20/11)",
     "tipo": "trasladable"
@@ -163,7 +178,7 @@
    }
   ]
  },
- "actualizado": "2026-09-25",
+ "actualizado": "2026-09-28",
  "fuente": "https://www.argentina.gob.ar/feriados",
  "tipos": {
   "inamovible": "Feriado inamovible",
