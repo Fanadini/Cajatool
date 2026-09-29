@@ -305,3 +305,6 @@ code { font-family: var(--mono); font-size: .9em; background: var(--surface-2); 
   .ad-rail--der { right: calc(50% - var(--maxw) / 2 - 160px - 1.5rem); }
 }
 @media print { .ad-rail { display: none !important; } }
+/* Si Google no tiene un anuncio para mostrar, se oculta el espacio en lugar de dejar un recuadro en blanco */
+ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
+.ad-slot:has(ins[data-ad-status="unfilled"]), .ad-rail:has(ins[data-ad-status="unfilled"]) { display: none !important; }
