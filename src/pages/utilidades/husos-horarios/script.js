@@ -50,11 +50,19 @@
     ['Asia/Seoul', 'Seúl, Corea del Sur'],
     ['Asia/Tokyo', 'Tokio, Japón'],
     ['Australia/Sydney', 'Sídney, Australia'],
-    ['Pacific/Auckland', 'Auckland, Nueva Zelanda'],
-    ['UTC', 'UTC (Tiempo Universal Coordinado)']
+    ['Pacific/Auckland', 'Auckland, Nueva Zelanda']
   ];
+  // Husos fijos UTC−12 a UTC+14 (en la base IANA, Etc/GMT+3 es UTC−3: el signo va invertido)
+  var HUSOS = [];
+  for (var n = -12; n <= 14; n++) {
+    HUSOS.push([n === 0 ? 'UTC' : 'Etc/GMT' + (n < 0 ? '+' + (-n) : '-' + n), H.formatOffset(n * 60) + (n === 0 ? ' (Tiempo Universal Coordinado)' : '')]);
+  }
   var NOMBRE = {};
-  CIUDADES.forEach(function (c) { NOMBRE[c[0]] = c[1]; });
+  CIUDADES.concat(HUSOS).forEach(function (c) { NOMBRE[c[0]] = c[1]; });
+  // Ciudades ordenadas por su diferencia horaria actual, con el código UTC adelante
+  var hoy = new Date();
+  var ORDEN = CIUDADES.map(function (c) { return { zone: c[0], off: H.offsetMinutes(c[0], hoy), nombre: c[1] }; })
+    .sort(function (a, b) { return a.off - b.off || a.nombre.localeCompare(b.nombre, 'es'); });
   var POR_DEFECTO = ['Europe/Madrid', 'America/New_York', 'America/Mexico_City', 'America/Santiago', 'America/Sao_Paulo', 'Europe/London', 'Asia/Tokyo'];
   var seleccion = POR_DEFECTO.slice();
 
@@ -73,9 +81,12 @@
     return false;
   }
 
-  CIUDADES.forEach(function (c) {
-    $('origen').add(new Option(c[1], c[0]));
-    $('agregar').add(new Option(c[1], c[0]));
+  ['origen', 'agregar'].forEach(function (id) {
+    var gc = document.createElement('optgroup'), gu = document.createElement('optgroup');
+    gc.label = 'Ciudades'; gu.label = 'Husos horarios UTC';
+    ORDEN.forEach(function (c) { gc.appendChild(new Option('(' + H.formatOffset(c.off) + ') ' + c.nombre, c.zone)); });
+    HUSOS.forEach(function (h) { gu.appendChild(new Option(h[1], h[0])); });
+    $(id).appendChild(gc); $(id).appendChild(gu);
   });
 
   function pad(n) { return String(n).padStart(2, '0'); }
@@ -102,7 +113,7 @@
     var res;
     try { res = H.convertir(local, origen, zonas); } catch (e) { $('form-error').textContent = e.message; return; }
     var base = res[0];
-    $('res-label').textContent = NOMBRE[origen] + ': ' + base.hora + ' del ' + fechaLarga(base.fecha) + ' (' + base.offsetTexto + (base.verano ? ', horario de verano' : '') + ')';
+    $('res-label').textContent = NOMBRE[origen] + ': ' + base.hora + ' del ' + fechaLarga(base.fecha) + (/^(UTC|Etc\/)/.test(origen) ? '' : ' (' + base.offsetTexto + (base.verano ? ', horario de verano' : '') + ')');
     var ul = $('res-lista');
     ul.textContent = '';
     var lineas = [];
@@ -118,7 +129,7 @@
         '<button type="button" class="tz-remove" aria-label="Quitar">×</button>';
       li.querySelector('.tz-city').textContent = NOMBRE[r.zone];
       li.querySelector('.tz-time').textContent = r.hora + (r.diaRelativo ? (r.diaRelativo > 0 ? ' +1 día' : ' −1 día') : '');
-      li.querySelector('.tz-meta').textContent = r.offsetTexto + (r.verano ? ' · verano' : '') + ' · ' + difTxt;
+      li.querySelector('.tz-meta').textContent = (/^(UTC|Etc\/)/.test(r.zone) ? '' : r.offsetTexto + (r.verano ? ' · verano' : '') + ' · ') + difTxt;
       li.querySelector('.tz-remove').setAttribute('aria-label', 'Quitar ' + NOMBRE[r.zone]);
       li.querySelector('.tz-remove').addEventListener('click', function () {
         seleccion = seleccion.filter(function (z) { return z !== r.zone; });
