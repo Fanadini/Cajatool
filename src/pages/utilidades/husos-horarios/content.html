@@ -5,8 +5,8 @@
   <form id="form-husos" novalidate>
     <div class="form-grid">
       <div class="field full">
-        <label for="origen">Ciudad de referencia</label>
-        <select id="origen"></select>
+        <label for="origen">Ciudad o huso de referencia</label>
+        <div class="combo"><input type="text" id="origen" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="origen-lista" autocomplete="off" spellcheck="false" placeholder="Escribí una ciudad, un país o UTC−3"><ul class="combo-list" id="origen-lista" role="listbox" aria-label="Ciudades y husos" hidden></ul></div>
       </div>
       <div class="field">
         <label for="fecha">Fecha</label>
@@ -17,8 +17,8 @@
         <input type="time" id="hora">
       </div>
       <div class="field full">
-        <label for="agregar">Agregar ciudad</label>
-        <select id="agregar"><option value="">Elegí una ciudad…</option></select>
+        <label for="agregar">Agregar ciudad o huso</label>
+        <div class="combo"><input type="text" id="agregar" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="agregar-lista" autocomplete="off" spellcheck="false" placeholder="Buscar: Madrid, Japón, UTC+2…"><ul class="combo-list" id="agregar-lista" role="listbox" aria-label="Ciudades y husos" hidden></ul></div>
       </div>
     </div>
     <div class="actions">

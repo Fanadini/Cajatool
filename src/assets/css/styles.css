@@ -308,3 +308,10 @@ code { font-family: var(--mono); font-size: .9em; background: var(--surface-2); 
 /* Si Google no tiene un anuncio para mostrar, se oculta el espacio en lugar de dejar un recuadro en blanco */
 ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 .ad-slot:has(ins[data-ad-status="unfilled"]), .ad-rail:has(ins[data-ad-status="unfilled"]) { display: none !important; }
+.combo { position: relative; }
+.combo input { width: 100%; }
+.combo-list { position: absolute; z-index: 20; left: 0; right: 0; top: calc(100% + 4px); max-height: 18rem; overflow-y: auto; margin: 0; padding: .25rem 0; list-style: none; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 8px 24px rgb(0 0 0 / 14%); }
+.combo-list [role="option"] { padding: .55rem .85rem; cursor: pointer; }
+.combo-list [role="option"]:hover, .combo-list [aria-selected="true"] { background: var(--primary-soft); color: var(--text); }
+.combo-group { padding: .5rem .85rem .25rem; font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.combo-empty { padding: .55rem .85rem; color: var(--muted); }
