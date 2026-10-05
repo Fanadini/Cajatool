@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "finanzas",
+  "guideCard": {
+    "order": 4,
+    "name": "Interés compuesto explicado",
+    "desc": "Cómo funciona, la regla del 72 y por qué empezar antes cambia todo."
+  },
+  "title": "Interés compuesto explicado con ejemplos | Cajatool",
+  "description": "Qué es el interés compuesto, cómo se calcula, la regla del 72 y por qué el tiempo pesa más que el monto. Con ejemplos en pesos de hoy.",
+  "h1": "Interés compuesto explicado con ejemplos",
+  "breadcrumb": "Interés compuesto",
+  "related": [
+    "/finanzas/libertad-financiera/",
+    "/finanzas/plazo-fijo/",
+    "/utilidades/calcular-porcentaje/"
+  ]
+}

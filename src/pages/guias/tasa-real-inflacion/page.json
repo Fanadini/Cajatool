@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "finanzas",
+  "guideCard": {
+    "order": 3,
+    "name": "¿Tu inversión le gana a la inflación?",
+    "desc": "Qué es la tasa real y cómo calcularla, con TNA, TEA y ejemplos."
+  },
+  "title": "Tasa real: cómo saber si le ganás a la inflación | Cajatool",
+  "description": "Qué es la tasa real, la diferencia entre TNA y TEA, y cómo calcular si un plazo fijo u otra inversión le gana a la inflación, con ejemplos.",
+  "h1": "Tasa real: cómo saber si tu inversión le gana a la inflación",
+  "breadcrumb": "Tasa real e inflación",
+  "related": [
+    "/finanzas/plazo-fijo/",
+    "/finanzas/plazo-fijo-uva/",
+    "/finanzas/actualizar-por-inflacion/"
+  ]
+}

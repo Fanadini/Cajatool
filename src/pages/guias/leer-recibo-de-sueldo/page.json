@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "laboral",
+  "guideCard": {
+    "order": 2,
+    "name": "Cómo leer tu recibo de sueldo",
+    "desc": "Qué significa cada línea: remunerativo, no remunerativo, aportes y más."
+  },
+  "title": "Cómo leer tu recibo de sueldo línea por línea | Cajatool",
+  "description": "Qué significa cada parte del recibo de sueldo: conceptos remunerativos y no remunerativos, aportes, retenciones y cómo llegar del bruto al neto.",
+  "h1": "Cómo leer tu recibo de sueldo, línea por línea",
+  "breadcrumb": "Leer el recibo de sueldo",
+  "related": [
+    "/laboral/sueldo-neto/",
+    "/laboral/aguinaldo/",
+    "/laboral/vacaciones/"
+  ]
+}

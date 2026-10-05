@@ -315,3 +315,7 @@ ins.adsbygoogle[data-ad-status="unfilled"] { display: none !important; }
 .combo-list [role="option"]:hover, .combo-list [aria-selected="true"] { background: var(--primary-soft); color: var(--text); }
 .combo-group { padding: .5rem .85rem .25rem; font-size: .75rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
 .combo-empty { padding: .55rem .85rem; color: var(--muted); }
+.byline { color: var(--muted); font-size: .9rem; margin: -.25rem 0 1.25rem; }
+.byline a, .updated a { color: inherit; }
+.guide-cta { margin: 1.5rem 0; padding: 1rem 1.25rem; border-radius: var(--radius); background: var(--primary-soft); }
+.guide-cta p { margin: 0; }

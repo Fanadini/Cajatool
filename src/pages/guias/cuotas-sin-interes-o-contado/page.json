@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "finanzas",
+  "guideCard": {
+    "order": 5,
+    "name": "¿Cuotas sin interés o contado?",
+    "desc": "Cómo comparar con la inflación, el descuento y el CFT."
+  },
+  "title": "¿Cuotas sin interés o contado? Cómo decidir | Cajatool",
+  "description": "Cómo comparar un pago en cuotas con el precio de contado: inflación, descuento por pago en efectivo, CFT y valor presente, con ejemplos.",
+  "h1": "¿Cuotas sin interés o contado? Cómo decidir",
+  "breadcrumb": "Cuotas o contado",
+  "related": [
+    "/finanzas/cuotas-o-contado/",
+    "/finanzas/simulador-prestamo/",
+    "/finanzas/dolar-tarjeta/"
+  ]
+}

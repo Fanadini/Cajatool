@@ -193,3 +193,18 @@ test('Google Analytics: gtag con el ID de config en el head de todas las página
     assert.ok(head.includes(`googletagmanager.com/gtag/js?id=${cfg.analyticsId}`) && head.includes(`gtag("config","${cfg.analyticsId}")`), p.rel);
   }
 });
+
+test('páginas de categoría y guías: existen, enlazan herramientas y las guías tienen autor y Article', () => {
+  for (const c of ['alquiler', 'laboral', 'finanzas', 'impuestos', 'utilidades']) {
+    const p = pages.find((x) => x.rel === `/${c}/index.html`);
+    assert.ok(p, `falta la página de categoría /${c}/`);
+    assert.ok((p.html.match(/class="card"/g) || []).length >= 3, `/${c}/: pocas herramientas`);
+  }
+  const guides = pages.filter((p) => p.rel.startsWith('/guias/') && p.rel !== '/guias/index.html');
+  assert.ok(guides.length >= 6, `hay ${guides.length} guías`);
+  for (const g of guides) {
+    assert.ok(g.html.includes('class="byline"') && g.html.includes('el equipo de Cajatool'), `${g.rel}: falta la firma`);
+    const art = graphOf(g.html).find((n) => n['@type'] === 'Article');
+    assert.ok(art && art.author && art.author.name === 'El equipo de Cajatool', `${g.rel}: Article sin autor`);
+  }
+});

@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "alquiler",
+  "guideCard": {
+    "order": 1,
+    "name": "Cómo revisar el aumento del alquiler",
+    "desc": "Paso a paso para saber qué índice corresponde y verificar la cuenta."
+  },
+  "title": "Cómo revisar el aumento del alquiler paso a paso | Cajatool",
+  "description": "Guía para inquilinos: qué índice corresponde según la fecha del contrato, cómo verificar la cuenta del aumento y qué hacer si no coincide.",
+  "h1": "Cómo revisar el aumento del alquiler, paso a paso",
+  "breadcrumb": "Revisar el aumento del alquiler",
+  "related": [
+    "/alquiler/ajuste-alquiler/",
+    "/finanzas/actualizar-por-inflacion/",
+    "/utilidades/calcular-porcentaje/"
+  ]
+}

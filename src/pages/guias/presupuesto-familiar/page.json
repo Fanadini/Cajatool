@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-05",
+  "published": "2026-10-05",
+  "guideCategory": "finanzas",
+  "guideCard": {
+    "order": 6,
+    "name": "Cómo armar un presupuesto familiar",
+    "desc": "Método paso a paso, la regla 50/30/20 y el fondo de emergencia."
+  },
+  "title": "Cómo armar un presupuesto familiar paso a paso | Cajatool",
+  "description": "Guía práctica para armar el presupuesto del hogar: registrar gastos, la regla 50/30/20, el fondo de emergencia y cómo ajustarlo con inflación.",
+  "h1": "Cómo armar un presupuesto familiar, paso a paso",
+  "breadcrumb": "Presupuesto familiar",
+  "related": [
+    "/laboral/sueldo-neto/",
+    "/finanzas/libertad-financiera/",
+    "/finanzas/cuotas-o-contado/"
+  ]
+}

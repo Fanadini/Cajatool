@@ -172,7 +172,10 @@ function breadcrumbItems(page) {
   const items = [{ name: 'Inicio', url: '/' }];
   if (page.category) {
     const cat = config.categories.find((c) => c.id === page.category);
-    if (cat) items.push({ name: cat.name, url: `/#${cat.id}` });
+    if (cat) items.push({ name: cat.name, url: `/${cat.id}/` });
+  }
+  if (page.type === 'guide') {
+    items.push({ name: 'Guías', url: '/guias/' });
   }
   if (page.route !== '/') items.push({ name: page.breadcrumb || page.h1, url: page.route });
   return items;
@@ -221,6 +224,16 @@ function card(p) {
   );
 }
 
+// Tarjeta de una guía (usa el ícono de su categoría)
+function guideCard(g) {
+  return (
+    `<a class="card" href="${g.route}" data-search="${escapeHtml(('guía ' + g.guideCard.name + ' ' + g.guideCard.desc).toLowerCase())}">` +
+    `<span class="card-icon">${icon(g.guideCategory)}</span>` +
+    `<span class="card-body"><span class="card-title">${escapeHtml(g.guideCard.name)}</span>` +
+    `<span class="card-desc">${escapeHtml(g.guideCard.desc)}</span></span></a>`
+  );
+}
+
 function toolCardsHtml(tools) {
   return config.categories
     .map((cat) => {
@@ -242,9 +255,13 @@ function footerToolsHtml(tools) {
 function navHtml(tools) {
   return config.categories
     .filter((c) => tools.some((t) => t.category === c.id))
-    .map((c) => `<li><a href="/#${c.id}">${escapeHtml(c.name.split(' ')[0])}</a></li>`)
-    .join('');
+    .map((c) => `<li><a href="/${c.id}/">${escapeHtml(c.name.split(' ')[0])}</a></li>`)
+    .join('') + '<li><a href="/guias/">Guías</a></li>';
 }
+
+// Firma editorial de las guías y herramientas
+const AUTHOR = 'El equipo de Cajatool';
+const AUTHOR_TEXT = AUTHOR.replace(/^El/, 'el');
 
 // ---------- JSON-LD ----------
 function jsonLd(page) {
@@ -282,9 +299,23 @@ function jsonLd(page) {
       offers: { '@type': 'Offer', price: '0', priceCurrency: 'ARS' },
       publisher: { '@id': `${SITE}/#organization`, '@type': 'Organization', name: config.siteName }
     });
+  } else if (page.type === 'guide') {
+    graph.push({
+      '@type': 'Article',
+      headline: page.h1,
+      url,
+      description: page.description,
+      inLanguage: 'es-AR',
+      datePublished: page.published || page.updated,
+      dateModified: page.updated,
+      author: { '@type': 'Organization', name: AUTHOR, url: `${SITE}/legal/sobre-nosotros/` },
+      publisher: { '@id': `${SITE}/#organization`, '@type': 'Organization', name: config.siteName },
+      image: `${SITE}/assets/img/og-default.png`,
+      mainEntityOfPage: url
+    });
   } else if (page.type !== 'error') {
     graph.push({
-      '@type': 'WebPage',
+      '@type': page.type === 'category' || page.type === 'guides' ? 'CollectionPage' : 'WebPage',
       name: page.h1,
       url,
       description: page.description,
@@ -325,6 +356,7 @@ function build() {
 
   const pages = findPages(PAGES_DIR).sort((a, b) => a.route.localeCompare(b.route));
   const byRoute = Object.fromEntries(pages.map((p) => [p.route, p]));
+  const guides = pages.filter((p) => p.type === 'guide').sort((a, b) => (a.guideCard.order || 99) - (b.guideCard.order || 99));
   const tools = pages
     .filter((p) => p.card)
     .sort((a, b) => (a.card.order || 99) - (b.card.order || 99));
@@ -382,6 +414,13 @@ function build() {
       jsonld: jsonLd(page)
     };
 
+    if (page.type === 'category') {
+      vars.catCards = `<div class="cards">${tools.filter((t) => t.category === page.categoryId).map(card).join('\n')}</div>`;
+      const gs = guides.filter((g) => g.guideCategory === page.categoryId);
+      vars.catGuides = gs.length ? `<h2>Guías relacionadas</h2><div class="cards">${gs.map(guideCard).join('\n')}</div>` : '';
+    }
+    if (page.type === 'guides' || page.type === 'home') vars.guideCards = `<div class="cards">${guides.map(guideCard).join('\n')}</div>`;
+    if (page.type === 'guide') vars.byline = `<p class="byline">Por <a href="/legal/sobre-nosotros/">${AUTHOR_TEXT}</a> · Actualizado el <time datetime="${page.updated}">${humanDate(page.updated)}</time></p>`;
     // prerender.js opcional: devuelve variables extra generadas en el build (ej. tablas a partir de /data)
     const prerender = path.join(page.dir, 'prerender.js');
     if (exists(prerender)) Object.assign(vars, require(prerender)({ data: dataJson, config, escapeHtml }));
@@ -394,7 +433,7 @@ function build() {
 
     const extraFiles = fs
       .readdirSync(page.dir)
-      .filter((f) => !['page.json', 'content.html', 'prerender.js'].includes(f) && !f.endsWith('.md'));
+      .filter((f) => !['page.json', 'content.html', 'prerender.js'].includes(f) && !f.endsWith('.md') && fs.statSync(path.join(page.dir, f)).isFile());
     const outFile = outputFile(page.route);
     const outDir = path.dirname(outFile);
     fs.mkdirSync(outDir, { recursive: true });
@@ -409,8 +448,9 @@ function build() {
       .join('\n');
 
     const updatedBlock =
-      page.updated && page.type !== 'home' && page.type !== 'error'
-        ? `<p class="updated">Última actualización: <time datetime="${page.updated}">${vars.updatedHuman}</time></p>`
+      page.updated && !['home', 'error', 'guide'].includes(page.type)
+        ? `<p class="updated">Última actualización: <time datetime="${page.updated}">${vars.updatedHuman}</time>` +
+          (page.type === 'tool' ? ` · Revisado por <a href="/legal/sobre-nosotros/">${AUTHOR_TEXT}</a>` : '') + '</p>'
         : '';
     const donateBlock =
       page.type === 'tool' && config.cafecitoUrl
@@ -428,7 +468,7 @@ function build() {
       donateBlock,
       updatedBlock,
       '</main>',
-      page.type === 'tool' ? adSlot('prefooter') : '',
+      page.type === 'tool' || page.type === 'guide' ? adSlot('prefooter') : '',
       /noindex/.test(vars.robots || '') ? '' : adRails(),
       render(templates.footer, vars),
       pageScripts,
