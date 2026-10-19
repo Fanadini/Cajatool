@@ -1,0 +1,20 @@
+{
+  "type": "guide",
+  "updated": "2026-10-19",
+  "published": "2026-10-19",
+  "guideCategory": "impuestos",
+  "guideCard": {
+    "order": 2,
+    "name": "Cómo sacar el IVA a un precio",
+    "desc": "La cuenta correcta, el error de restar el 21 % y ejemplos con 21 % y 10,5 %."
+  },
+  "title": "Cómo sacar el IVA a un precio: fórmula y ejemplos | Cajatool",
+  "description": "Cómo quitar el IVA de un precio final con la cuenta correcta, por qué restar el 21 % está mal y ejemplos con 21 %, 10,5 % y 27 %.",
+  "h1": "Cómo sacar el IVA a un precio, paso a paso",
+  "breadcrumb": "Sacar el IVA a un precio",
+  "related": [
+    "/impuestos/calculadora-iva/",
+    "/utilidades/calcular-porcentaje/",
+    "/impuestos/monotributo/"
+  ]
+}
