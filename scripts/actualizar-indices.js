@@ -47,10 +47,12 @@ async function icl() {
   };
 }
 
-async function ipc() {
+// Se combina con los niveles ya guardados: si la API devuelve meses vacíos (null) o recortados,
+// se conservan los valores anteriores en lugar de perderlos.
+async function ipc(previo) {
   const url = 'https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26&limit=1000&format=json&start_date=2016-12-01';
   const json = await getJson(url);
-  const niveles = {};
+  const niveles = { ...((previo && previo.niveles) || {}) };
   for (const [fecha, valor] of json.data) if (valor !== null) niveles[fecha.slice(0, 7)] = Math.round(valor * 1e4) / 1e4;
   const meses = Object.keys(niveles).sort();
   return {
@@ -116,7 +118,7 @@ async function bancos() {
 
 (async () => {
   const current = fs.existsSync(FILE) ? JSON.parse(fs.readFileSync(FILE, 'utf8')) : {};
-  const [iclData, ipcData, pfData, usdData, uvaData, bancosData] = await Promise.all([icl(), ipc(), plazoFijo(), dolar(), uva(), bancos()]);
+  const [iclData, ipcData, pfData, usdData, uvaData, bancosData] = await Promise.all([icl(), ipc(current.ipc), plazoFijo(), dolar(), uva(), bancos()]);
   const data = { ...current, actualizado: today, icl: iclData, ipc: ipcData, plazoFijo: pfData, dolar: usdData, uva: uvaData };
   fs.writeFileSync(path.join(__dirname, '..', 'data', 'bancos.json'), JSON.stringify({ actualizado: today, fuente: 'https://api.bcra.gob.ar/cheques/v1.0/entidades', descripcion: 'Entidades financieras por código (3 primeros dígitos del CBU), según el BCRA', entidades: bancosData }, null, 1) + '\n');
   fs.writeFileSync(FILE, JSON.stringify(data, null, 1) + '\n');
