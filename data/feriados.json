@@ -143,12 +143,12 @@
    },
    {
     "fecha": "2026-11-10",
-    "nombre": "Visita de Su Santidad el Papa León XIV (<a href=\"/normativa/nacional/norma-430580/texto\">feriado en Córdoba y Ciudad Autónoma de Buenos Aires</a>)",
+    "nombre": "Visita de Su Santidad el Papa León XIV feriado en Córdoba y Ciudad Autónoma de Buenos Aires",
     "tipo": "especial"
    },
    {
     "fecha": "2026-11-11",
-    "nombre": "Visita de Su Santidad el Papa León XIV (<a href=\"/normativa/nacional/norma-430580/texto\">feriado en Provincia de Buenos Aires</a>)",
+    "nombre": "Visita de Su Santidad el Papa León XIV feriado en Provincia de Buenos Aires",
     "tipo": "especial"
    },
    {
@@ -178,7 +178,7 @@
    }
   ]
  },
- "actualizado": "2026-11-09",
+ "actualizado": "2026-11-16",
  "fuente": "https://www.argentina.gob.ar/feriados",
  "tipos": {
   "inamovible": "Feriado inamovible",
