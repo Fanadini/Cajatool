@@ -1,10 +1,10 @@
 {
- "actualizado": "2026-11-16",
+ "actualizado": "2026-11-23",
  "icl": {
   "descripcion": "Índice para Contratos de Locación (base 30/6/2020 = 1), valor diario",
   "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables_datos.asp?serie=7988",
   "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/40",
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-23",
   "desde": "2020-07-01",
   "hasta": "2026-12-16",
   "valores": [
@@ -2374,7 +2374,7 @@
   "descripcion": "IPC nacional, nivel general (base diciembre 2016 = 100), valor mensual",
   "fuente": "https://www.indec.gob.ar/indec/web/Nivel4-Tema-3-5-31",
   "api": "https://apis.datos.gob.ar/series/api/series/?ids=148.3_INIVELNAL_DICI_M_26",
-  "actualizado": "2026-11-16",
+  "actualizado": "2026-11-23",
   "desde": "2016-12",
   "hasta": "2026-10",
   "niveles": {
@@ -2559,24 +2559,24 @@
   "descripcion": "Tasa de interés promedio de depósitos a plazo fijo en pesos de personas humanas (TNA %)",
   "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp",
   "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/1190",
-  "actualizado": "2026-11-16",
-  "fecha": "2026-11-13",
-  "tna": 20.12
+  "actualizado": "2026-11-23",
+  "fecha": "2026-11-19",
+  "tna": 20.13
  },
  "dolar": {
   "descripcion": "Tipo de cambio minorista, promedio vendedor (pesos por dólar)",
   "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp",
   "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/4",
-  "actualizado": "2026-11-16",
-  "fecha": "2026-11-16",
-  "valor": 1573.65
+  "actualizado": "2026-11-23",
+  "fecha": "2026-11-20",
+  "valor": 1601.32
  },
  "uva": {
   "descripcion": "Unidad de Valor Adquisitivo (UVA), base 31/3/2016 = 14,05",
   "fuente": "https://www.bcra.gob.ar/PublicacionesEstadisticas/Principales_variables.asp",
   "api": "https://api.bcra.gob.ar/estadisticas/v4.0/monetarias/31",
-  "actualizado": "2026-11-16",
-  "fecha": "2026-11-16",
-  "valor": 2196.12
+  "actualizado": "2026-11-23",
+  "fecha": "2026-11-23",
+  "valor": 2206.78
  }
 }
